@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1116">
+<title>پَرِ سیمرغ — ارائه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{
+  --bg:#f5f5f3; --surface:#fff; --surface2:#eceae5; --line:#dcd8d0;
+  --text:#16181d; --muted:#63697a; --zar:#a8791c; --shangarf:#b1402f; --firuze:#1e7d70;
+  --lajvard:#2f5390; --shadow:0 2px 18px rgba(20,25,35,.08);
+  /* گوگل‌فونت فقط بهبود است؛ اگر نیامد این‌ها می‌گیرند و چیزی خراب نمی‌شود */
+  --fa:"Vazirmatn","IRANSans","Sahel","Segoe UI","Tahoma",system-ui,sans-serif;
+  --en:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --disp:"Lalezar","Vazirmatn","Tahoma",system-ui,serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --surface:#161a21; --surface2:#1c212a; --line:#2b323e;
+  --text:#e9eaee; --muted:#98a1ae; --zar:#d9a441; --shangarf:#e0705c; --firuze:#4cc7b4;
+  --lajvard:#7ba3e8; --shadow:0 2px 22px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --surface:#161a21; --surface2:#1c212a; --line:#2b323e;
+  --text:#e9eaee; --muted:#98a1ae; --zar:#d9a441; --shangarf:#e0705c; --firuze:#4cc7b4;
+  --lajvard:#7ba3e8; --shadow:0 2px 22px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--fa);
+  font-size:16px;line-height:1.85;-webkit-text-size-adjust:100%}
+html[lang="en"] body{font-family:var(--en);line-height:1.65}
+
+/* ══ نوار بالا ══ */
+#bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#bar .in{max-width:1400px;margin:0 auto;padding:9px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#brand{font-family:var(--disp);font-size:1.12rem;color:var(--zar);margin-inline-end:auto;
+  white-space:nowrap;font-weight:400}
+html[lang="en"] #brand{font-family:var(--en);font-weight:700}
+.btn{cursor:pointer;font-family:inherit;font-size:.83rem;font-weight:600;border-radius:10px;
+  border:1px solid var(--line);background:var(--surface);color:var(--text);
+  padding:7px 13px;transition:.15s;white-space:nowrap;min-height:38px}
+.btn:hover{border-color:var(--zar)}
+.btn.on{background:var(--zar);border-color:var(--zar);color:#12161f}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg .btn{border:0;border-radius:0;min-height:36px}
+#prog{height:3px;background:var(--surface2)}
+#prog i{display:block;height:100%;width:0;background:var(--zar);transition:width .3s}
+
+/* ══ چیدمان کلی ══ */
+main{max-width:1400px;margin:0 auto;padding:0 14px}
+
+/* ══ حالت روایت ══ */
+#story{padding:22px 0 90px}
+#story .sl{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:clamp(22px,4vw,44px);margin-bottom:20px;box-shadow:var(--shadow);scroll-margin-top:70px}
+#story .sl.hide{display:none}
+
+/* ══ حالت ارائه ══ */
+#present{display:none;position:fixed;inset:0;z-index:60;background:var(--bg);
+  flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+body.presenting #present{display:flex}
+body.presenting #bar,body.presenting #story{display:none}
+#stage{flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;
+  padding:clamp(20px,4vw,64px)}
+#stage .sl{max-width:1100px;width:100%}
+#pfoot{border-top:1px solid var(--line);background:var(--surface);
+  padding:8px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#dots{display:flex;gap:5px;flex:1;flex-wrap:wrap;min-width:80px}
+#dots b{width:9px;height:9px;border-radius:99px;background:var(--line);cursor:pointer;display:block;
+  transition:.2s;border:0;padding:0}
+#dots b.on{background:var(--zar);transform:scale(1.35)}
+#counter{font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--muted);white-space:nowrap}
+#timer{font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--zar);font-weight:700;
+  white-space:nowrap;min-width:52px;text-align:center}
+
+/* ══ محتوای اسلاید ══ */
+.sl .step{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;
+  color:var(--bg);background:var(--zar);border-radius:99px;padding:3px 11px;
+  font-variant-numeric:tabular-nums;margin-bottom:12px}
+.sl h2{font-family:var(--disp);font-weight:400;line-height:1.25;margin:0 0 8px;
+  font-size:clamp(1.7rem,4.6vw,3.3rem)}
+html[lang="en"] .sl h2{font-family:var(--en);font-weight:700;line-height:1.14}
+.sl .sub{color:var(--zar);font-size:clamp(.95rem,1.7vw,1.22rem);margin:0 0 22px;font-weight:600}
+.sl ul{margin:0;padding:0;list-style:none;display:grid;gap:clamp(12px,1.6vw,18px)}
+.sl li{font-size:clamp(1rem,1.55vw,1.28rem);line-height:1.85;padding-inline-start:20px;
+  position:relative;max-width:78ch}
+html[lang="en"] .sl li{line-height:1.62}
+.sl li::before{content:"";position:absolute;inset-inline-start:0;top:.72em;
+  width:7px;height:7px;border-radius:99px;background:var(--zar)}
+.sl li b{color:var(--zar);font-weight:700}
+.sl[data-kind="title"]{text-align:center}
+.sl[data-kind="title"] li{padding:0;max-width:none}
+.sl[data-kind="title"] li::before{display:none}
+.sl[data-kind="title"] ul{gap:10px}
+.sl[data-kind="quote"] li:first-child{font-size:clamp(1.1rem,2.1vw,1.6rem);
+  border-inline-start:3px solid var(--zar);padding-inline-start:20px;font-style:italic;color:var(--text)}
+.sl[data-kind="quote"] li:first-child::before{display:none}
+.sl[data-kind="stat"] li:nth-child(-n+3){font-weight:600}
+.sl[data-kind="ask"] ul{gap:9px}
+.sl[data-kind="ask"] li{background:var(--surface2);border-radius:12px;padding:12px 17px;
+  padding-inline-start:17px;font-size:clamp(.95rem,1.4vw,1.14rem)}
+.sl[data-kind="ask"] li::before{display:none}
+
+/* ══ یادداشت گوینده ══ */
+.notes{margin-top:26px;border-top:1px dashed var(--line);padding-top:14px;
+  color:var(--muted);font-size:.9rem;line-height:1.8;display:none}
+body.notes-on .notes{display:block}
+.notes::before{content:"یادداشتِ گوینده";display:block;font-size:.68rem;letter-spacing:.1em;
+  font-weight:700;color:var(--zar);margin-bottom:5px}
+html[lang="en"] .notes::before{content:"Speaker notes"}
+
+/* ══ منابع ══ */
+#src{max-width:1400px;margin:0 auto;padding:0 14px 80px}
+#src h3{font-size:1rem;color:var(--zar);margin:0 0 12px}
+#src ol{margin:0;padding-inline-start:22px;color:var(--muted);font-size:.86rem;line-height:2}
+#src a{color:var(--lajvard)}
+
+/* ══ پنل مدیریت ══ */
+#admin{display:none;position:fixed;inset:0;z-index:80;background:var(--bg);overflow-y:auto}
+body.admin-on #admin{display:block}
+#admin .in{max-width:1000px;margin:0 auto;padding:20px 16px 90px}
+#admin h2{font-size:1.3rem;margin:0 0 4px}
+#admin .lead{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.ed{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:15px 17px;margin-bottom:13px;box-shadow:var(--shadow)}
+.ed>header{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.ed .id{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--muted);
+  background:var(--surface2);padding:2px 8px;border-radius:6px;direction:ltr}
+.ed .ttl{font-weight:700;flex:1;font-size:.95rem}
+.ed.off{opacity:.5}
+.ed label{display:block;font-size:.72rem;color:var(--muted);margin:9px 0 4px;font-weight:600}
+.ed input,.ed textarea{width:100%;font-family:inherit;font-size:.9rem;line-height:1.75;
+  padding:9px 12px;border-radius:9px;border:1px solid var(--line);
+  background:var(--surface2);color:var(--text);resize:vertical}
+.ed textarea{min-height:86px}
+.ed .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.ed .two{grid-template-columns:1fr}}
+.ed .pane{border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+.ed .pane>b{font-size:.75rem;color:var(--zar);letter-spacing:.06em}
+.ed .pane.en{direction:ltr;text-align:left}
+.mini{padding:5px 10px;font-size:.76rem;min-height:32px}
+
+/* ══ تست ══ */
+#tests{display:none;position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto}
+body.tests-on #tests{display:block}
+#tests .in{max-width:900px;margin:0 auto;padding:20px 16px 90px}
+#tres{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;direction:ltr;
+  text-align:left;background:var(--surface2);border-radius:12px;padding:14px 16px;
+  white-space:pre-wrap;line-height:1.75;margin-top:14px}
+.t-pass{color:var(--firuze)} .t-fail{color:var(--shangarf);font-weight:700}
+.t-head{color:var(--zar);font-weight:700}
+
+/* ══ ریسپانسیو ══ */
+@media(max-width:640px){
+  body{font-size:15px}
+  #brand{font-size:1rem}
+  .btn{padding:7px 10px;font-size:.78rem}
+  #story{padding:14px 0 70px}
+  .sl .step{font-size:.64rem}
+}
+@media(min-width:1600px){
+  #stage .sl{max-width:1280px}
+  .sl li{font-size:1.34rem}
+}
+@media(max-height:520px) and (orientation:landscape){
+  #stage{padding:14px 22px}
+  .sl h2{font-size:clamp(1.3rem,3.6vh,2rem);margin-bottom:4px}
+  .sl .sub{margin-bottom:10px;font-size:.9rem}
+  .sl ul{gap:7px}
+  .sl li{font-size:.94rem;line-height:1.55}
+}
+@media print{
+  #bar,#pfoot,#admin,#tests,#prog{display:none!important}
+  body{background:#fff;color:#000}
+  body.presenting #present{position:static;display:block}
+  body.presenting #story{display:block}
+  .sl{break-inside:avoid;page-break-inside:avoid;border:0;box-shadow:none;
+      border-bottom:1px solid #ccc;border-radius:0}
+  .notes{display:block!important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<link rel="stylesheet" href="assets/shell.css">
+<script defer src="assets/art.js"></script>
+<script defer src="assets/shell.js"></script>
+</head>
+<body>
+
+<div id="bar">
+  <div class="in">
+    <span id="brand">پَرِ سیمرغ</span>
+    <div class="seg" role="group" aria-label="زبان">
+      <button class="btn on" id="lfa" data-lang="fa">فارسی</button>
+      <button class="btn" id="len" data-lang="en">English</button>
+    </div>
+    <button class="btn" id="bpresent">▶ ارائه</button>
+    <button class="btn" id="bnotes">یادداشت</button>
+    <button class="btn" id="badmin">پنل</button>
+    <button class="btn" id="bprint">چاپ</button>
+    <button class="btn" id="btests">تست</button>
+    <button class="btn" id="btheme" title="روشن/تاریک">◐</button>
+  </div>
+  <div id="prog"><i id="progbar"></i></div>
+</div>
+
+<main>
+  <div id="story"></div>
+</main>
+
+<div id="src"></div>
+
+<!-- ══ ارائه ══ -->
+<div id="present">
+  <div id="stage"><div id="pslide"></div></div>
+  <div id="pfoot">
+    <button class="btn mini" id="pprev">‹</button>
+    <button class="btn mini" id="pnext">›</button>
+    <div id="dots"></div>
+    <span id="counter">۱/۱</span>
+    <span id="timer">۰۰:۰۰</span>
+    <button class="btn mini" id="ptimer">شروع</button>
+    <button class="btn mini" id="pnotes">یادداشت</button>
+    <button class="btn mini" id="pfull">تمام‌صفحه</button>
+    <button class="btn mini" id="pexit">خروج</button>
+  </div>
+</div>
+
+<!-- ══ پنل ══ -->
+<div id="admin">
+  <div class="in">
+    <h2 id="adm-h">پنلِ محتوا</h2>
+    <p class="lead" id="adm-l">هر چیزی این‌جا عوض کنید، فوری در ارائه اعمال می‌شود و در همین مرورگر ذخیره می‌ماند.</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px">
+      <button class="btn" id="aclose">بازگشت</button>
+      <button class="btn" id="aexport">خروجی JSON</button>
+      <button class="btn" id="aimport">ورودی JSON</button>
+      <button class="btn" id="areset">بازگشت به نسخهٔ اصلی</button>
+      <input type="file" id="afile" accept=".json,application/json" hidden>
+      <span id="asave" style="color:var(--muted);font-size:.82rem;align-self:center"></span>
+    </div>
+    <div id="alist"></div>
+  </div>
+</div>
+
+<!-- ══ تست ══ -->
+<div id="tests">
+  <div class="in">
+    <h2>تستِ خودکارِ درون‌برنامه‌ای</h2>
+    <p class="lead">این‌ها همان ادعاهایی‌اند که برنامه باید همیشه برآورده کند. قبل از هر ارائهٔ مهم یک بار بزنید.</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn" id="trun">اجرای تست‌ها</button>
+      <button class="btn" id="tclose">بازگشت</button>
+    </div>
+    <pre id="tres">هنوز اجرا نشده.</pre>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   محتوای ارائه — دوزبانه. فارسی اصل است، انگلیسی برای اجرا.
+   هر ادعای عددی منبع دارد؛ هیچ نقلِ‌قولی از شخصِ واقعی ساخته نشده.
+   ═══════════════════════════════════════════════════════════════ */
+const DECK_VERSION = "1.0.0";
+
+const DECK = [
+
+/* ─── ۰ · عنوان ─── */
+{ id:"open", kind:"title",
+  fa:{ t:"پَرِ سیمرغ",
+       sub:"سه زن، سه مهاجرت، و کاری که اروپا می‌تواند بکند",
+       body:["یک روایتِ خانوادگی از ایران — و اینکه چرا به خیابانِ شما مربوط است."],
+       notes:"صبر کن. به چشم‌ها نگاه کن. اسم خودت را بگو، نه عنوانت. «من مریم هستم. این داستانِ مادربزرگ من است، و بعد به خیابانِ خودتان می‌رسیم.»" },
+  en:{ t:"The Simorgh's Feather",
+       sub:"Three women, three migrations, and what Europe can actually do",
+       body:["A family story from Iran — and why it runs down your street."],
+       notes:"Pause. Make eye contact. Give your name, not your title. \"I'm Maryam. This is my grandmother's story, and it ends on your street.\"" } },
+
+/* ─── ۱ · قلاب: از اروپا شروع کن ─── */
+{ id:"hook", kind:"story",
+  fa:{ t:"استکهلم، ژانویهٔ ۲۰۲۴",
+       sub:"با یک نوجوان شروع می‌شود",
+       body:[
+         "یک نارنجک به سفارتی در استکهلم پرتاب می‌شود. تیراندازی به همان سفارت را نوجوانی چهارده ساله انجام می‌دهد — عضو یک باند خیابانی سوئدی.",
+         "چهار ماه بعد، بروکسل: دو نارنجکِ ایرسافت به یک سفارت. همان شبکهٔ جنایی.",
+         "مونیخ، آوریل همان سال: به کسی هزار یورو داده می‌شود که از یک هدف عکس بگیرد. او نمی‌داند برای که کار می‌کند.",
+         "هیچ‌کدام از این آدم‌ها ایرانی نیستند. هیچ‌کدام ایدئولوژیک نیستند. همه‌شان اجیرند."],
+       notes:"این را آرام بگو. اجازه بده شنونده خودش بپرسد «خب که چه؟» — جواب در اسلاید بعد است. به هیچ عنوان اسم کشور را زود نیاور." },
+  en:{ t:"Stockholm, January 2024",
+       sub:"It starts with a teenager",
+       body:[
+         "A grenade is thrown at an embassy in Stockholm. The shooting at the same embassy is carried out by a 14-year-old — a member of a Swedish street gang.",
+         "Four months later, Brussels: two airsoft grenades at an embassy. The same criminal network.",
+         "Munich, April that year: someone is paid €1,000 to photograph a target. He does not know who he is working for.",
+         "None of these people are Iranian. None are ideological. All of them were hired."],
+       notes:"Deliver this slowly. Let them ask 'so what?' — the answer is the next slide. Do not name the state too early." } },
+
+/* ─── ۲ · الگو ─── */
+{ id:"pattern", kind:"stat",
+  fa:{ t:"این حادثه نیست. الگوست.",
+       sub:"ارقام از مرکز بین‌المللی مقابله با تروریسم (ICCT)",
+       body:[
+         "۲۱۸ توطئهٔ مستندشدهٔ برون‌مرزی از ۱۹۷۹ تا امروز.",
+         "۱۰۲ تای آن‌ها در خاکِ اروپا.",
+         "۵۴ تا فقط در چهار سال ۲۰۲۱ تا ۲۰۲۴ — یعنی بیش از نیمِ کلِ تاریخِ اروپایی‌اش، در یک دههٔ اخیر فشرده شده.",
+         "بریتانیا: به گفتهٔ MI5، بیست توطئه از ژانویهٔ ۲۰۲۲.",
+         "هدف‌ها: ۳۴ مورد روزنامه‌نگار و مخالفِ ایرانی؛ ۱۰ مورد شهروند و دیپلماتِ اسرائیلی؛ ۷ مورد یهودیانِ اروپا."],
+       notes:"روی عدد ۵۴ مکث کن. بگو: «نیمی از یک تاریخِ چهل‌وپنج ساله، در چهار سال.» این عدد است که سالن را ساکت می‌کند." },
+  en:{ t:"This is not an incident. It's a pattern.",
+       sub:"Figures: International Centre for Counter-Terrorism (ICCT)",
+       body:[
+         "218 documented external plots since 1979.",
+         "102 of them on European soil.",
+         "54 in the four years 2021–2024 alone — more than half of the entire European record, compressed into one recent stretch.",
+         "United Kingdom: twenty Iran-backed plots since January 2022, according to MI5.",
+         "Targets: 34 cases against Iranian journalists and dissidents · 10 against Israeli citizens and diplomats · 7 against European Jews."],
+       notes:"Pause on 54. Say: 'Half of a forty-five-year record, in four years.' That number is what silences a room." } },
+
+/* ─── ۳ · روش ─── */
+{ id:"method", kind:"quote",
+  fa:{ t:"روشِ کار: پیمانکاری به جنایتِ سازمان‌یافته",
+       sub:"سرویس اطلاعات داخلی فرانسه (DGSI)، نقلِ‌قولِ مستقیم",
+       body:[
+         "«سرویس‌های ایرانی شیوهٔ عمل خود را تطبیق داده‌اند و اکنون به‌طور نظام‌مندتری ترجیح می‌دهند برای حملات در خارج از افراد محافل جنایی استفاده کنند.»",
+         "باندهایی که نامشان در پرونده‌ها آمده: فاکس‌ترات · هلز اِنجلز · رومبا.",
+         "چرا؟ چون قابل انکار است. اگر یک نوجوانِ سوئدی دستگیر شود، هیچ ردی به هیچ سفارتی نمی‌رسد.",
+         "نتیجهٔ جانبی برای اروپا: یک دولتِ خارجی دارد به باندهای جناییِ شهرِ شما پول و کار و اعتبار می‌دهد."],
+       notes:"این بندِ آخر مهم‌ترین جملهٔ کلِ ارائه برای شنوندهٔ اروپایی است. آهسته و جدا بگو." },
+  en:{ t:"The method: subcontracting to organised crime",
+       sub:"France's DGSI, direct quotation",
+       body:[
+         "\"The Iranian services have adapted their modus operandi and now more systematically prefer to use people from criminal circles\" for attacks abroad.",
+         "Networks named in the case files: Foxtrot · Hells Angels · Rumba.",
+         "Why? Deniability. If a Swedish teenager is arrested, no thread leads back to any embassy.",
+         "The side effect for Europe: a foreign state is putting money, work and standing into the criminal gangs of your city."],
+       notes:"That last line is the single most important sentence in this deck for a European audience. Say it slowly, on its own." } },
+
+/* ─── ۴ · تغییرِ زمین ─── */
+{ id:"shift", kind:"stat",
+  fa:{ t:"۱۹ فوریهٔ ۲۰۲۶ — اروپا تصمیم گرفت",
+       sub:"شورای اتحادیهٔ اروپا",
+       body:[
+         "شورا سپاه پاسداران را رسماً در فهرست تروریستیِ اتحادیه قرار داد — تصمیم (CFSP) ۲۰۲۶/۴۲۱ و آیین‌نامهٔ اجرایی (EU) ۲۰۲۶/۴۲۰.",
+         "توافقِ سیاسی: ۲۹ ژانویه. تصمیمِ رسمی: ۱۹ فوریه.",
+         "اثرِ حقوقی: انسدادِ دارایی‌ها در کشورهای عضو، و ممنوعیتِ در اختیار گذاشتنِ هرگونه منبعِ مالی از سوی هر فعالِ اقتصادیِ اروپایی.",
+         "این یعنی بحث تمام شد. حالا سؤال فقط اجراست."],
+       notes:"این اسلاید موضعِ تو را عوض می‌کند: تو دیگر خواهانِ چیزی نیستی که اروپا نپذیرفته. تو خواهانِ اجرای چیزی هستی که خودش تصویب کرده. این خیلی قوی‌تر است." },
+  en:{ t:"19 February 2026 — Europe decided",
+       sub:"Council of the European Union",
+       body:[
+         "The Council formally listed the IRGC as a terrorist organisation — Decision (CFSP) 2026/421 and Implementing Regulation (EU) 2026/420.",
+         "Political agreement: 29 January. Formal decision: 19 February.",
+         "Legal effect: funds and economic resources frozen across member states, and a prohibition on any EU operator making funds available to the group.",
+         "The argument is over. The only question left is enforcement."],
+       notes:"This slide changes your position: you are no longer asking Europe for something it has refused. You are asking it to enforce what it already voted for. That is a far stronger place to stand." } },
+
+/* ─── ۵ · ریشه ─── */
+{ id:"root", kind:"list",
+  fa:{ t:"چرا یک دولت چنین می‌کند؟",
+       sub:"ریشه، نه نیت",
+       body:[
+         "این رفتار انحراف نیست؛ ساختار است. نظامی که مشروعیتش را از انقلاب می‌گیرد و نه از صندوق، برای زنده ماندن به دشمنِ دائمی نیاز دارد.",
+         "دشمنِ بیرونی، سرکوبِ درونی را توجیه می‌کند. سرکوبِ درونی، مهاجرت می‌سازد. مهاجرت، مخالفانی در اروپا می‌سازد. و مخالفانِ اروپایی، دوباره هدف می‌شوند — و چرخه بسته می‌شود.",
+         "برای همین است که «تنش‌زدایی» چهل سال جواب نداده: تنش، محصولِ جانبی نیست؛ محصولِ اصلی است.",
+         "و برای همین است که این مسئله با توافق حل نمی‌شود — با تغییرِ آن ساختار حل می‌شود."],
+       notes:"این استدلالِ محوری توست. اگر فقط یک اسلاید در ذهنشان بماند، این باشد. تکرارش کن." },
+  en:{ t:"Why would a state do this?",
+       sub:"The root, not the motive",
+       body:[
+         "This is not a deviation; it is a structure. A system that draws legitimacy from a revolution rather than a ballot box needs a permanent enemy in order to survive.",
+         "The external enemy justifies internal repression. Internal repression produces emigration. Emigration produces dissidents in Europe. And European dissidents become targets — the circle closes.",
+         "This is why forty years of de-escalation has not worked: tension is not a by-product of this system. It is the product.",
+         "And it is why this cannot be settled by an agreement — only by a change in that structure."],
+       notes:"This is your core argument. If only one slide survives in their memory, make it this one. Repeat it." } },
+
+/* ─── ۶ · سه مریم ─── */
+{ id:"maryams", kind:"story",
+  fa:{ t:"سه مریم",
+       sub:"همان ساختار، اندازه‌گیری‌شده با کیلومتر",
+       body:[
+         "مادربزرگم مریم بود. بعد از ازدواج از روستایی به روستایی رفت. دوازده کیلومتر.",
+         "مادرم مریم بود. بعد از ازدواج از شهری به شهری رفت. سیصد کیلومتر.",
+         "من مریمم. بعد از ازدواج از کشوری به کشوری رفتم. چهار هزار کیلومتر.",
+         "سه نسل، یک کار، هر بار ده برابر دورتر. اگر فاصلهٔ لازم برای نجات در هر نسل ده برابر شده، یعنی آن چیزی که از آن می‌گریزیم کوچک‌تر نشده. بزرگ‌تر شده.",
+         "و در نسلِ چهارم، آن فاصله دیگر به اروپا می‌رسد. من این‌جا نشسته‌ام."],
+       notes:"این‌جا سرعت را کم کن. این تنها بخشی است که هیچ‌کس نمی‌تواند ردش کند، چون آمار نیست — خانوادهٔ توست. اگر بغض کردی، اشکالی ندارد؛ ادامه بده." },
+  en:{ t:"Three Maryams",
+       sub:"The same structure, measured in kilometres",
+       body:[
+         "My grandmother was called Maryam. After she married, she moved from one village to another. Twelve kilometres.",
+         "My mother was called Maryam. After she married, she moved from one city to another. Three hundred kilometres.",
+         "I am Maryam. After I married, I moved from one country to another. Four thousand kilometres.",
+         "Three generations, one act, ten times further each time. If the distance required for safety multiplied by ten in every generation, then the thing we are escaping did not shrink. It grew.",
+         "And in the fourth generation, that distance reaches Europe. I am sitting here."],
+       notes:"Slow right down. This is the one part nobody can argue with, because it isn't data — it's your family. If your voice catches, that's fine. Keep going." } },
+
+/* ─── ۷ · هزینهٔ اروپا ─── */
+{ id:"cost", kind:"list",
+  fa:{ t:"این برای اروپا چقدر آب می‌خورد",
+       sub:"پنج هزینهٔ واقعی و قابل شمارش",
+       body:[
+         "**امنیت:** محافظت از روزنامه‌نگاران و سفارت‌ها، پروندهٔ ضدتروری، ساعتِ پلیس — همه از بودجهٔ مالیاتیِ اروپا.",
+         "**جنایتِ سازمان‌یافته:** باندهای شهرِ شما با پولِ خارجی تقویت می‌شوند. این آسیب در حوزهٔ تروریسم نمی‌ماند؛ به مواد و اسلحه و باج‌گیری سرریز می‌کند.",
+         "**پهپاد و امنیتِ قاره:** انتقالِ فناوری پهپادِ ایرانی به روسیه، اقتصادِ دفاعِ هوایی اروپا را وارونه کرد — پهپادی چند ده هزار دلاری در برابر موشکِ رهگیرِ میلیون‌دلاری.",
+         "**دیپلماسیِ گروگان:** شهروندانِ اروپایی به‌عنوان ورقهٔ چانه‌زنی. هر معامله، معاملهٔ بعدی را می‌خرد.",
+         "**پناهجویی:** هر موجِ سرکوب، موجِ بعدیِ پناهجو را به مرزهای اروپا می‌فرستد. اروپا هزینهٔ نتیجه را می‌دهد، بی‌آنکه به علت دست بزند."],
+       notes:"هر بند را با یک انگشت بشمار. شنوندهٔ اروپایی با «حقوق بشر» تکان نمی‌خورد ولی با «بودجهٔ مالیاتیِ من» تکان می‌خورد. این واقعیت را بپذیر و ازش استفاده کن." },
+  en:{ t:"What this costs Europe",
+       sub:"Five real, countable costs",
+       body:[
+         "**Security:** protection for journalists and embassies, counter-terror casework, police hours — all from European tax revenue.",
+         "**Organised crime:** the gangs in your city are strengthened with foreign money. That damage does not stay in the terrorism column; it spills into drugs, weapons and extortion.",
+         "**Drones and continental security:** the transfer of Iranian drone technology to Russia inverted the economics of European air defence — a drone costing tens of thousands against an interceptor costing millions.",
+         "**Hostage diplomacy:** European citizens used as bargaining chips. Every deal buys the next one.",
+         "**Asylum:** each wave of repression sends the next wave of asylum seekers to Europe's borders. Europe pays for the consequence without touching the cause."],
+       notes:"Count each one on a finger. A European audience is not moved by 'human rights' but is moved by 'my tax money'. Accept that and use it." } },
+
+/* ─── ۸ · افراط‌گرایی ─── */
+{ id:"extremism", kind:"compare",
+  fa:{ t:"چرا این پرسشِ افراط‌گراییِ اروپاست",
+       sub:"و چرا باید خیلی دقیق حرف بزنیم",
+       body:[
+         "**این دربارهٔ یک دولت است، نه یک دین و نه یک جامعه.** میلیون‌ها مسلمانِ اروپایی هیچ ربطی به این پرونده‌ها ندارند؛ و بسیاری از قربانیانِ همین دستگاه، خودشان مسلمان‌اند. هرکس این مرز را مخدوش کند، هم دروغ گفته و هم استدلال را باخته.",
+         "**آنچه واقعاً اتفاق می‌افتد:** یک دولت، پول و شبکه و مشروعیت را به سمتِ رادیکال‌ترین صداهای داخلِ اروپا هدایت می‌کند — چون آن صداها برایش کارآمدند.",
+         "**و راستِ افراطی هم برنده می‌شود:** هر توطئه، هر گروگان، هر موجِ پناهجو، سوختِ احزابی می‌شود که می‌گویند «همه‌شان را بیرون کنید». افراطِ آن‌جا، افراطِ این‌جا را تغذیه می‌کند.",
+         "**نتیجه:** یک ایرانِ عادی‌شده، بادِ زیرِ بالِ هر دو افراط را می‌گیرد — هم آن‌ها که به نامِ دین می‌کشند، هم آن‌ها که به نامِ ترس رأی می‌گیرند."],
+       notes:"این حساس‌ترین اسلایدِ ارائه است. جملهٔ اول را حتماً کامل و بی‌کم‌وکاست بخوان. اگر آن را جا بیندازی، نیمی از سالن را از دست می‌دهی و حق دارند." },
+  en:{ t:"Why this is Europe's extremism question",
+       sub:"And why the wording has to be exact",
+       body:[
+         "**This is about a state — not a religion, and not a community.** Millions of European Muslims have nothing to do with these case files, and many of this apparatus's victims are themselves Muslims. Anyone who blurs that line has both lied and lost the argument.",
+         "**What is actually happening:** a state channels money, networks and standing towards the most radical voices inside Europe, because those voices are useful to it.",
+         "**And the far right wins too:** every plot, every hostage, every asylum wave becomes fuel for parties that say 'send them all back'. Extremism there feeds extremism here.",
+         "**Therefore:** a normalised Iran takes the wind out of both extremes — those who kill in the name of religion, and those who harvest votes in the name of fear."],
+       notes:"This is the most sensitive slide in the deck. Read the first line in full, exactly as written. Drop it and you lose half the room — and they would be right to go." } },
+
+/* ─── ۹ · امپریالیسم ─── */
+{ id:"imperialism", kind:"compare",
+  fa:{ t:"و چرا این ضدِ امپریالیسم است، نه نسخهٔ تازه‌اش",
+       sub:"پاسخ به آنچه چپِ اروپایی خواهد پرسید",
+       body:[
+         "**من از شما نمی‌خواهم کشوری را برای ما تغییر دهید.** هر چیزی که از بیرون تحمیل شود، همان چرخهٔ چهل‌ساله را از نو می‌سازد — و ایرانی‌ها این را در ۱۹۵۳ یاد گرفتند و فراموش نکرده‌اند.",
+         "**درخواست، مداخله نیست؛ برداشتنِ دست است.** آنچه می‌خواهم این است که پول، فناوری و مشروعیتِ اروپایی دیگر به دستگاهِ سرکوب نرسد. این کمتر کردنِ دخالت است، نه بیشتر کردنش.",
+         "**تصمیم با ایرانی‌هاست.** رفراندوم، مجلس مؤسسان، رأیِ آزاد. اگر نتیجه چیزی باشد که من دوستش ندارم، باز هم نتیجه است.",
+         "**عراق و لیبی درسِ درستی داده‌اند.** پس تفاوت را روشن بگو: نه اشغال، نه بمب، نه دولت‌سازیِ خارجی. تحریمِ هدفمندِ دستگاه، حفاظت از جامعهٔ مدنی، و بعد کنار ایستادن."],
+       notes:"در هر سالنِ اروپایی یک نفر هست که کلمهٔ «تغییر رژیم» را می‌شنود و می‌بندد. این اسلاید برای اوست. قبل از اینکه سؤال کند، جوابش را بده." },
+  en:{ t:"And why this is anti-imperialist, not a new edition of it",
+       sub:"An answer to what the European left will ask",
+       body:[
+         "**I am not asking you to change a country for us.** Anything imposed from outside rebuilds the same forty-year cycle — Iranians learned that in 1953 and have not forgotten it.",
+         "**The ask is not intervention; it is withdrawal of the hand.** What I want is that European money, technology and legitimacy stop reaching the repression apparatus. That is less interference, not more.",
+         "**The decision belongs to Iranians.** A referendum, a constituent assembly, a free vote. If the result is something I personally dislike, it is still the result.",
+         "**Iraq and Libya taught a real lesson.** So state the difference plainly: no occupation, no bombing, no foreign state-building. Targeted sanctions on the apparatus, protection for civil society, and then step back."],
+       notes:"In every European room there is someone who hears 'regime change' and shuts down. This slide is for them. Answer before they ask." } },
+
+/* ─── ۱۰ · مسیر ─── */
+{ id:"path", kind:"list",
+  fa:{ t:"مسیر: رفراندوم، نه بازگرداندنِ یک تخت",
+       sub:"و اینکه پادشاهی کجای این ماجراست",
+       body:[
+         "شاهزاده رضا پهلوی موضعش را روشن گفته است: گذار «از راهِ رفراندومِ ملی و مجلس مؤسسان»، و «من نسبت به نتیجهٔ نهایی بی‌طرفم، به شرطی که یک دموکراسیِ سکولار باشد.»",
+         "این یعنی آنچه روی میز است، یک انتخابِ آزاد است، نه بازگرداندنِ یک نهاد.",
+         "من خودم به پادشاهیِ مشروطه رأی می‌دهم: یک نمادِ ملیِ فراجناحی که ارتش و قضا و دین را از دستِ یک حزب بیرون می‌آورد، و پیوندِ کشور با تاریخِ پیش از ۱۳۵۷ را ترمیم می‌کند.",
+         "اما این رأیِ من است، نه شرطِ من. و برای شما فرقی نمی‌کند که من چه می‌خواهم — برای شما مهم است که کسی این را انتخاب کند."],
+       notes:"استراتژیک‌ترین اسلایدِ ارائه. اگر بگویی «پادشاهی را برگردانید» شنوندهٔ اروپایی می‌شنود «رژیمِ تحمیلی». اگر بگویی «رفراندوم، و رأیِ من این است» هم صادقی، هم برنده. موضعِ خودِ شاهزاده هم دقیقاً همین است." },
+  en:{ t:"The path: a referendum, not the return of a throne",
+       sub:"And where the monarchy fits in",
+       body:[
+         "Reza Pahlavi has stated his position plainly: a transition \"by means of national referendum and constitutional assembly\", and \"I'm impartial as to what the ultimate result will be, so long as it's a secular democracy.\"",
+         "So what is on the table is a free choice, not the restoration of an institution.",
+         "I will personally vote for a constitutional monarchy: a national symbol above faction, which takes the army, the courts and religion out of the hands of any one party, and repairs the country's link to its history before 1979.",
+         "But that is my vote, not my condition. And what I want should not matter to you — what matters to you is that somebody gets to choose it."],
+       notes:"The most strategic slide in the deck. Say 'restore the monarchy' and a European hears 'imposed regime'. Say 'a referendum, and here is my vote' and you are both honest and persuasive. It is also exactly the position Pahlavi himself takes." } },
+
+/* ─── ۱۱ · سود اروپا ─── */
+{ id:"upside", kind:"list",
+  fa:{ t:"اگر ایران عادی شود، اروپا چه به دست می‌آورد",
+       sub:"نه آرمان — منفعت",
+       body:[
+         "**یک بازارِ نودمیلیونی** با جمعیتی جوان و تحصیل‌کرده، دقیقاً در همسایگیِ اروپا، و منبعِ انرژی‌ای که وابستگیِ قاره را متنوع می‌کند.",
+         "**قطعِ یک خطِ تأمینِ جنایی:** پولی که امروز به باندهای اروپایی می‌رسد، خشک می‌شود.",
+         "**کاهشِ فشارِ مهاجرت از ریشه:** بسیاری از ایرانیانِ اروپا برمی‌گردند. مهاجرِ برگشتنی، بهترین سیاستِ مهاجرتیِ ممکن است.",
+         "**یک ایرانِ بی‌طرف یا هم‌سو،** به‌جای شریکِ پهپادیِ روسیه در جنگی که در قارهٔ شماست.",
+         "**و ثباتِ منطقه‌ای:** بخش بزرگی از بی‌ثباتیِ خاورمیانه — که هزینه‌اش را اروپا با پناهجو و انرژی و امنیت می‌دهد — از یک نقطه تأمین می‌شود."],
+       notes:"این‌جا لحن را عوض کن: از اندوه به فرصت. اروپایی‌ها با «کمک کنید» حرکت نمی‌کنند، با «این معاملهٔ خوبی است» حرکت می‌کنند." },
+  en:{ t:"What Europe gains from a normalised Iran",
+       sub:"Not an ideal — an interest",
+       body:[
+         "**A market of ninety million**, young and educated, directly in Europe's neighbourhood, and an energy source that diversifies the continent's dependence.",
+         "**A criminal supply line cut:** the money now reaching European gangs dries up.",
+         "**Migration pressure reduced at source:** many Iranians in Europe go home. A returning migrant is the best migration policy there is.",
+         "**A neutral or aligned Iran**, instead of Russia's drone partner in a war on your continent.",
+         "**And regional stability:** a large share of the Middle Eastern instability Europe pays for — in asylum, energy and security — is supplied from one address."],
+       notes:"Change register here: from grief to opportunity. Europeans do not move for 'please help'. They move for 'this is a good deal'." } },
+
+/* ─── ۱۲ · درخواست‌ها ─── */
+{ id:"asks", kind:"ask",
+  fa:{ t:"شش کارِ مشخص که می‌توانید بکنید",
+       sub:"هیچ‌کدام نیازی به جنگ ندارد",
+       body:[
+         "**۱. اجرا را بخواهید.** اتحادیه در فوریهٔ ۲۰۲۶ تصمیم گرفت؛ حالا از نمایندهٔ خودتان بپرسید در کشورِ شما چه کسی مسئولِ اجرای انسدادِ دارایی‌هاست و تا امروز چه کرده.",
+         "**۲. از روزنامه‌نگارِ تبعیدی محافظت کنید.** کسانی که در لندن و پاریس و برلین هدف بوده‌اند، شهروندانِ شمایند. حفاظتِ پلیسی برایشان یک هزینهٔ کوچک است.",
+         "**۳. معامله بر سرِ گروگان را متوقف کنید.** هر مبادله، بازارِ بعدی را می‌سازد. این را از دولتِ خودتان بخواهید، نه از من.",
+         "**۴. ویزا و حسابِ بانکی.** فعالِ مدنی‌ای که از ایران بیرون می‌آید، اغلب نه ویزا می‌گیرد نه حساب باز می‌کند. این با یک بخشنامه حل می‌شود، نه با بودجه.",
+         "**۵. رسانهٔ فارسی‌زبانِ مستقل را زنده نگه دارید.** ارزان‌ترین ابزارِ ضدِ اطلاعاتِ کاذب که وجود دارد.",
+         "**۶. دعوت کنید و گوش بدهید.** پارلمان، دانشگاه، اتحادیه، شورای شهر. همین که ایرانی‌ها بتوانند خودشان حرف بزنند، بخشی از راه‌حل است."],
+       notes:"برای هر بند یک «کارِ امروز» بگو. مثلاً: «امشب یک ایمیل به نمایندهٔ منطقه‌تان بزنید و همان یک سؤالِ بندِ اول را بپرسید.» درخواستِ مبهم، هیچ‌کس را تکان نمی‌دهد." },
+  en:{ t:"Six concrete things you can do",
+       sub:"None of them requires a war",
+       body:[
+         "**1 · Demand enforcement.** The Union decided in February 2026. Now ask your representative who in your country is responsible for enforcing the asset freeze, and what they have done so far.",
+         "**2 · Protect exiled journalists.** The people targeted in London, Paris and Berlin are your citizens. Police protection for them is a small line item.",
+         "**3 · Stop trading for hostages.** Every exchange creates the next market. Ask your own government this, not me.",
+         "**4 · Visas and bank accounts.** A civil-society activist who gets out of Iran often can get neither a visa nor a bank account. That is fixed by a circular, not a budget.",
+         "**5 · Keep independent Persian-language media alive.** It is the cheapest counter-disinformation instrument in existence.",
+         "**6 · Invite and listen.** Parliament, university, trade union, city council. Iranians being able to speak for themselves is already part of the solution."],
+       notes:"Attach a 'tonight' action to each. E.g. 'Send one email to your MP tonight and ask exactly the question in point one.' A vague ask moves nobody." } },
+
+/* ─── ۱۳ · سؤال‌های سخت ─── */
+{ id:"hard", kind:"qa",
+  fa:{ t:"میزِ سؤال‌های سخت",
+       sub:"این‌ها را از تو خواهند پرسید — جوابش را آماده داشته باش",
+       body:[
+         "**«پادشاهیِ قبلی هم سرکوب می‌کرد. ساواک.»** — درست است، و انکارش اعتبارت را می‌برد. بگو: برای همین است که حرف از پادشاهیِ مشروطه است، با پارلمان و قانونِ اساسیِ نو و دادگاهِ مستقل؛ و برای همین است که مسیر از رفراندوم می‌گذرد، نه از ادعای حق.",
+         "**«جامعهٔ تبعیدی تکه‌تکه است. کردها و جمهوری‌خواهان مخالف‌اند.»** — درست است. بگو: و درست به همین دلیل کسی حق ندارد نتیجه را از پیش تعیین کند. اختلاف، دلیلِ رفراندوم است نه مانعش.",
+         "**«شما ساختارِ گذار ندارید.»** — منتقدانِ اروپایی همین را گفته‌اند. اگر جوابِ مشخص نداری، بگو نداریم و داریم می‌سازیم. صداقت این‌جا از شعار قوی‌تر است.",
+         "**«این همان تغییرِ رژیمِ آمریکایی است.»** — به اسلاید ضدِ امپریالیسم برگرد. تفاوتِ «تحریمِ دستگاه» با «حملهٔ نظامی» را روشن بگو، و موضعِ خودت را دربارهٔ حملهٔ نظامی صریح اعلام کن. ابهام این‌جا کشنده است.",
+         "**«چرا ما باید هزینه بدهیم؟»** — به اسلاید هزینه برگرد. شما دارید همین حالا هزینه می‌دهید؛ فقط بابتِ نتیجه، نه بابتِ علت."],
+       notes:"این اسلاید را در ارائهٔ رسمی رد کن و برای پرسش‌وپاسخ نگه دار. ولی حفظش کن. سالن وقتی می‌بیند جوابِ سختِ سؤالِ سختش را داری، تازه باورت می‌کند." },
+  en:{ t:"The hard questions",
+       sub:"They will ask you these — have the answers ready",
+       body:[
+         "**\"The old monarchy repressed too. SAVAK.\"** — True, and denying it destroys your credibility. Say: that is precisely why the proposal is a constitutional monarchy, with a parliament, a new constitution and independent courts; and why the route runs through a referendum, not a claim of right.",
+         "**\"The exile community is fragmented. Kurds and republicans object.\"** — True. Say: and that is exactly why nobody may decide the outcome in advance. Disagreement is the reason for a referendum, not an obstacle to it.",
+         "**\"You have no transitional structure.\"** — European critics have said this. If you do not have a specific answer, say you do not and that it is being built. Honesty beats slogans here.",
+         "**\"This is American regime change.\"** — Go back to the anti-imperialism slide. Draw the line between sanctioning an apparatus and military attack, and state your own position on military attack explicitly. Ambiguity is fatal here.",
+         "**\"Why should we pay for this?\"** — Go back to the cost slide. You are already paying — for the consequence, not the cause."],
+       notes:"Skip this slide in the formal talk and keep it for Q&A. But memorise it. A room believes you only once it sees you have the hard answer to its hard question." } },
+
+/* ─── ۱۴ · بستن ─── */
+{ id:"close", kind:"title",
+  fa:{ t:"پَر",
+       sub:"در شاهنامه، سیمرغ پَری می‌دهد و می‌گوید: اگر روزی درماندی، بسوزانش. می‌آیم.",
+       body:[
+         "سیمرغ هیچ‌وقت به‌جای زال نمی‌جنگد. فقط وقتی می‌آید که زال خودش پَر را بسوزاند.",
+         "ما پَر را می‌سوزانیم. این کارِ ماست و از کسی نمی‌خواهیمش.",
+         "از شما فقط این را می‌خواهیم: کسی که دارد پَر را می‌سوزاند، شبانه در خیابانِ شما کشته نشود.",
+         "و مادربزرگم دوازده کیلومتر رفت. مادرم سیصد. من چهار هزار.",
+         "دخترم هیچ‌جا نرود."],
+       notes:"جملهٔ آخر را بگو و ساکت بایست. نشمار، دست تکان نده، تشکر نکن. بگذار سکوت کار خودش را بکند. بعد بگو: «متشکرم.»" },
+  en:{ t:"The feather",
+       sub:"In the Shahnameh, the Simorgh gives a feather and says: if you are ever without help, burn it. I will come.",
+       body:[
+         "The Simorgh never fights in Zal's place. She comes only once Zal burns the feather himself.",
+         "We will burn the feather. That is our work and we are not asking anyone else to do it.",
+         "From you we ask only this: that the person burning it is not killed one night on your street.",
+         "My grandmother travelled twelve kilometres. My mother, three hundred. I travelled four thousand.",
+         "Let my daughter travel nowhere."],
+       notes:"Say the last line and stand still. Do not count, do not gesture, do not thank. Let the silence work. Then: \"Thank you.\"" } }
+];
+
+const SOURCES = [
+  { fa:"شورای اتحادیهٔ اروپا — قرار دادن سپاه در فهرست تروریستی، ۱۹ فوریهٔ ۲۰۲۶",
+    en:"Council of the EU — IRGC designated a terrorist organisation, 19 Feb 2026",
+    url:"https://www.consilium.europa.eu/en/press/press-releases/2026/02/19/eu-terrorist-list-council-designates-the-islamic-revolutionary-guard-corps-as-a-terrorist-organisation/" },
+  { fa:"ICCT — عملیات برون‌مرزی ایران در اروپا: پیوند جنایی",
+    en:"ICCT — Iranian External Operations in Europe: The Criminal Connection",
+    url:"https://icct.nl/publication/iranian-external-operations-europe-criminal-connection" },
+  { fa:"چتم هاوس — تحلیل تصمیم اتحادیهٔ اروپا",
+    en:"Chatham House — The EU's IRGC terrorist designation marks a major shift on Iran",
+    url:"https://www.chathamhouse.org/2026/02/eus-irgc-terrorist-designation-marks-major-shift-iran" },
+  { fa:"بیانیهٔ مشترک ۱۴ کشور دربارهٔ توطئه‌های ترور و ربایش، ۲۰۲۵",
+    en:"Joint statement of 14 countries on Iranian state threat activity, 2025",
+    url:"https://www.aljazeera.com/news/2025/7/31/uk-us-and-allies-accuse-iran-of-cross-border-assassination-plots" },
+  { fa:"ایران اینترنشنال — مواضع شاهزاده رضا پهلوی دربارهٔ رفراندوم و مجلس مؤسسان، ژانویهٔ ۲۰۲۶",
+    en:"Iran International — Reza Pahlavi on referendum and constituent assembly, Jan 2026",
+    url:"https://www.iranintl.com/en/202601070595" },
+  { fa:"هوور — سفر اروپایی بهار ۲۰۲۶ و نقدهای مطرح‌شده",
+    en:"Hoover Institution — Pahlavi's spring 2026 European tour and the criticisms raised",
+    url:"https://www.hoover.org/research/prince-reza-pahlavis-european-tour-spring-2026-media-controversies-diaspora-conflicts-and" },
+  { fa:"بروگل — هزینهٔ دفاع هوایی و معنایش برای اروپا",
+    en:"Bruegel — The costs of air defence in the Iran conflict and what they mean for Europe",
+    url:"https://www.bruegel.org/first-glance/costs-and-failures-air-defence-iran-conflict-and-what-they-mean-europe" }
+];
+
+
+</script>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var KEY="simorgh_eu_deck_v1", PKEY="simorgh_eu_prefs_v1";
+
+/* ══ وضعیت ══ */
+var state={lang:"fa",idx:0,notes:false,timer:0,ticking:null};
+var deck=null;
+
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function safeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+
+function loadDeck(){
+  var raw=safeGet(KEY);
+  if(raw){
+    try{
+      var d=JSON.parse(raw);
+      if(Array.isArray(d)&&d.length&&d[0].fa&&d[0].en) return d;
+    }catch(e){}
+  }
+  return clone(DECK);
+}
+function saveDeck(){
+  var ok=safeSet(KEY,JSON.stringify(deck));
+  var el=$("#asave");
+  if(el) el.textContent = ok ? (state.lang==="fa"?"ذخیره شد ✓":"Saved ✓")
+                             : (state.lang==="fa"?"ذخیره نشد (حافظهٔ مرورگر بسته است)":"Not saved (storage unavailable)");
+  return ok;
+}
+function loadPrefs(){
+  var raw=safeGet(PKEY); if(!raw) return;
+  try{var p=JSON.parse(raw);
+    if(p.lang==="fa"||p.lang==="en") state.lang=p.lang;
+    if(typeof p.notes==="boolean") state.notes=p.notes;
+    if(p.theme==="dark"||p.theme==="light") document.documentElement.setAttribute("data-theme",p.theme);
+  }catch(e){}
+}
+function savePrefs(){
+  safeSet(PKEY,JSON.stringify({lang:state.lang,notes:state.notes,
+    theme:document.documentElement.getAttribute("data-theme")||""}));
+}
+
+/* ══ کمکی ══ */
+var FA="۰۱۲۳۴۵۶۷۸۹";
+function num(n){
+  n=String(n);
+  return state.lang==="fa" ? n.replace(/[0-9]/g,function(d){return FA[+d]}) : n;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})}
+function md(s){ /* فقط **پررنگ** — عمداً محدود، تا ورودی کاربر نتواند HTML تزریق کند */
+  return esc(s).replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>");
+}
+function visible(){return deck.filter(function(s){return s.on!==false})}
+function L(s){return s[state.lang]||s.fa}
+
+/* ══ ساخت اسلاید ══ */
+function slideHTML(s,i,total){
+  var c=L(s), lis=(c.body||[]).map(function(x){return "<li>"+md(x)+"</li>"}).join("");
+  return '<div class="sl" data-kind="'+esc(s.kind||"list")+'" data-id="'+esc(s.id)+'" id="sl-'+esc(s.id)+'">'
+    + '<span class="step">'+(state.lang==="fa"
+        ? num(i+1)+" از "+num(total)
+        : num(i+1)+" / "+num(total))+'</span>'
+    + '<h2>'+esc(c.t||"")+'</h2>'
+    + (c.sub?'<p class="sub">'+esc(c.sub)+'</p>':"")
+    + '<ul>'+lis+'</ul>'
+    + (c.notes?'<div class="notes">'+esc(c.notes)+'</div>':"")
+    + '</div>';
+}
+
+function renderStory(){
+  var v=visible();
+  $("#story").innerHTML = v.map(function(s,i){return slideHTML(s,i,v.length)}).join("");
+  renderSources();
+}
+function renderSources(){
+  var items=SOURCES.map(function(s){
+    return '<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s[state.lang]||s.fa)+'</a></li>';
+  }).join("");
+  $("#src").innerHTML='<h3>'+(state.lang==="fa"?"منابع":"Sources")+'</h3><ol>'+items+'</ol>';
+}
+function renderPresent(){
+  var v=visible();
+  if(!v.length){$("#pslide").innerHTML="";return}
+  if(state.idx>=v.length) state.idx=v.length-1;
+  if(state.idx<0) state.idx=0;
+  $("#pslide").innerHTML=slideHTML(v[state.idx],state.idx,v.length);
+  $("#counter").textContent=num(state.idx+1)+"/"+num(v.length);
+  $("#dots").innerHTML=v.map(function(s,i){
+    return '<button type="button" aria-label="'+esc(L(s).t)+'" data-go="'+i+'"'
+      +' class="'+(i===state.idx?"on":"")+'"></button>'}).join("")
+      .replace(/<button/g,"<b role=\"button\"").replace(/<\/button>/g,"</b>");
+  $("#progbar").style.width=(((state.idx+1)/v.length)*100).toFixed(1)+"%";
+  $("#stage").scrollTop=0;
+}
+function renderAll(){ renderStory(); if(document.body.classList.contains("presenting")) renderPresent(); }
+
+/* ══ زبان ══ */
+function setLang(l){
+  state.lang=l;
+  document.documentElement.lang=l;
+  document.documentElement.dir = (l==="fa") ? "rtl" : "ltr";
+  $("#lfa").classList.toggle("on",l==="fa");
+  $("#len").classList.toggle("on",l==="en");
+  var T={
+    fa:{brand:"پَرِ سیمرغ",present:"▶ ارائه",notes:"یادداشت",admin:"پنل",print:"چاپ",tests:"تست",
+        prev:"‹",next:"›",start:"شروع",stop:"توقف",full:"تمام‌صفحه",exit:"خروج",
+        admH:"پنلِ محتوا",admL:"هر چیزی این‌جا عوض کنید، فوری در ارائه اعمال می‌شود و در همین مرورگر ذخیره می‌ماند.",
+        back:"بازگشت",exp:"خروجی JSON",imp:"ورودی JSON",rst:"بازگشت به نسخهٔ اصلی"},
+    en:{brand:"The Simorgh's Feather",present:"▶ Present",notes:"Notes",admin:"Editor",print:"Print",tests:"Tests",
+        prev:"‹",next:"›",start:"Start",stop:"Stop",full:"Fullscreen",exit:"Exit",
+        admH:"Content editor",admL:"Anything you change here applies to the talk immediately and stays in this browser.",
+        back:"Back",exp:"Export JSON",imp:"Import JSON",rst:"Reset to original"}
+  }[l];
+  $("#brand").textContent=T.brand;
+  $("#bpresent").textContent=T.present; $("#bnotes").textContent=T.notes;
+  $("#badmin").textContent=T.admin; $("#bprint").textContent=T.print; $("#btests").textContent=T.tests;
+  $("#pprev").textContent=T.prev; $("#pnext").textContent=T.next;
+  $("#pfull").textContent=T.full; $("#pexit").textContent=T.exit;
+  $("#pnotes").textContent=T.notes;
+  $("#ptimer").textContent = state.ticking ? T.stop : T.start;
+  $("#adm-h").textContent=T.admH; $("#adm-l").textContent=T.admL;
+  $("#aclose").textContent=T.back; $("#aexport").textContent=T.exp;
+  $("#aimport").textContent=T.imp; $("#areset").textContent=T.rst;
+  renderAll();
+  if(document.body.classList.contains("admin-on")) renderAdmin();
+  savePrefs();
+}
+
+/* ══ ناوبری ارائه ══ */
+function go(i){ state.idx=i; renderPresent(); }
+function next(){ if(state.idx<visible().length-1) go(state.idx+1); }
+function prev(){ if(state.idx>0) go(state.idx-1); }
+function present(on){
+  document.body.classList.toggle("presenting",on);
+  if(on) renderPresent();
+  else { $("#progbar").style.width="0%"; }
+}
+
+/* ══ تایمر ══ */
+function fmt(s){
+  var m=Math.floor(s/60), r=s%60;
+  return num((m<10?"0":"")+m)+":"+num((r<10?"0":"")+r);
+}
+function toggleTimer(){
+  var T=state.lang==="fa"?{a:"شروع",b:"توقف"}:{a:"Start",b:"Stop"};
+  if(state.ticking){ clearInterval(state.ticking); state.ticking=null; $("#ptimer").textContent=T.a; }
+  else{
+    state.ticking=setInterval(function(){ state.timer++; $("#timer").textContent=fmt(state.timer); },1000);
+    $("#ptimer").textContent=T.b;
+  }
+}
+
+/* ══ پنل ══ */
+function renderAdmin(){
+  var box=$("#alist"); box.innerHTML="";
+  deck.forEach(function(s,i){
+    var d=document.createElement("div");
+    d.className="ed"+(s.on===false?" off":"");
+    d.innerHTML=
+      '<header><span class="id">'+esc(s.id)+'</span>'
+      +'<span class="ttl">'+esc(L(s).t||"")+'</span>'
+      +'<button class="btn mini" data-act="up" data-i="'+i+'">▲</button>'
+      +'<button class="btn mini" data-act="down" data-i="'+i+'">▼</button>'
+      +'<button class="btn mini" data-act="toggle" data-i="'+i+'">'
+        +(s.on===false?(state.lang==="fa"?"نمایش":"Show"):(state.lang==="fa"?"مخفی":"Hide"))+'</button>'
+      +'</header>'
+      +'<div class="two">'
+        +pane(i,"fa","فارسی")
+        +pane(i,"en","English")
+      +'</div>';
+    box.appendChild(d);
+  });
+}
+function pane(i,lg,title){
+  var c=deck[i][lg]||{t:"",sub:"",body:[],notes:""};
+  var lab = lg==="fa"
+    ? {t:"عنوان",s:"زیرعنوان",b:"بندها (هر خط یک بند · **پررنگ**)",n:"یادداشتِ گوینده"}
+    : {t:"Title",s:"Subtitle",b:"Points (one per line · **bold**)",n:"Speaker notes"};
+  return '<div class="pane '+lg+'"><b>'+title+'</b>'
+    +'<label>'+lab.t+'</label><input data-i="'+i+'" data-lg="'+lg+'" data-f="t" value="'+esc(c.t||"")+'">'
+    +'<label>'+lab.s+'</label><input data-i="'+i+'" data-lg="'+lg+'" data-f="sub" value="'+esc(c.sub||"")+'">'
+    +'<label>'+lab.b+'</label><textarea data-i="'+i+'" data-lg="'+lg+'" data-f="body">'+esc((c.body||[]).join("\n"))+'</textarea>'
+    +'<label>'+lab.n+'</label><textarea data-i="'+i+'" data-lg="'+lg+'" data-f="notes" style="min-height:60px">'+esc(c.notes||"")+'</textarea>'
+    +'</div>';
+}
+$("#alist").addEventListener("input",function(e){
+  var el=e.target, i=el.getAttribute("data-i"), lg=el.getAttribute("data-lg"), f=el.getAttribute("data-f");
+  if(i===null||!lg||!f) return;
+  i=+i;
+  if(!deck[i][lg]) deck[i][lg]={t:"",sub:"",body:[],notes:""};
+  deck[i][lg][f] = (f==="body") ? el.value.split("\n").filter(function(x){return x.trim()!==""}) : el.value;
+  saveDeck(); renderAll();
+});
+$("#alist").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-act]"); if(!b) return;
+  var i=+b.getAttribute("data-i"), a=b.getAttribute("data-act");
+  if(a==="up"&&i>0){ var t=deck[i-1]; deck[i-1]=deck[i]; deck[i]=t; }
+  if(a==="down"&&i<deck.length-1){ var u=deck[i+1]; deck[i+1]=deck[i]; deck[i]=u; }
+  if(a==="toggle") deck[i].on = (deck[i].on===false);
+  saveDeck(); renderAdmin(); renderAll();
+});
+
+/* ══ ورودی / خروجی ══ */
+$("#aexport").addEventListener("click",function(){
+  var blob=new Blob([JSON.stringify(deck,null,2)],{type:"application/json"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob); a.download="simorgh-deck.json"; a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
+});
+$("#aimport").addEventListener("click",function(){$("#afile").click()});
+$("#afile").addEventListener("change",function(e){
+  var f=e.target.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(){
+    try{
+      var d=JSON.parse(r.result);
+      if(!Array.isArray(d)||!d.length||!d[0].fa) throw new Error("shape");
+      deck=d; saveDeck(); renderAdmin(); renderAll();
+      $("#asave").textContent=state.lang==="fa"?"وارد شد ✓":"Imported ✓";
+    }catch(err){
+      $("#asave").textContent=state.lang==="fa"?"فایل معتبر نبود":"Invalid file";
+    }
+  };
+  r.readAsText(f); e.target.value="";
+});
+$("#areset").addEventListener("click",function(){
+  deck=clone(DECK); saveDeck(); renderAdmin(); renderAll();
+  $("#asave").textContent=state.lang==="fa"?"به نسخهٔ اصلی برگشت ✓":"Reset ✓";
+});
+
+/* ══ دکمه‌ها ══ */
+$("#lfa").addEventListener("click",function(){setLang("fa")});
+$("#len").addEventListener("click",function(){setLang("en")});
+$("#bpresent").addEventListener("click",function(){present(true)});
+$("#pexit").addEventListener("click",function(){present(false)});
+$("#pprev").addEventListener("click",prev);
+$("#pnext").addEventListener("click",next);
+$("#ptimer").addEventListener("click",toggleTimer);
+$("#dots").addEventListener("click",function(e){
+  var b=e.target.closest("[data-go]"); if(b) go(+b.getAttribute("data-go"));
+});
+function toggleNotes(){
+  state.notes=!state.notes;
+  document.body.classList.toggle("notes-on",state.notes);
+  $("#bnotes").classList.toggle("on",state.notes);
+  $("#pnotes").classList.toggle("on",state.notes);
+  savePrefs();
+}
+$("#bnotes").addEventListener("click",toggleNotes);
+$("#pnotes").addEventListener("click",toggleNotes);
+$("#badmin").addEventListener("click",function(){
+  document.body.classList.add("admin-on"); renderAdmin();
+});
+$("#aclose").addEventListener("click",function(){document.body.classList.remove("admin-on")});
+$("#btests").addEventListener("click",function(){document.body.classList.add("tests-on")});
+$("#tclose").addEventListener("click",function(){document.body.classList.remove("tests-on")});
+$("#bprint").addEventListener("click",function(){window.print()});
+$("#btheme").addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("data-theme");
+  var isDark = cur ? cur==="dark"
+    : (window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches);
+  document.documentElement.setAttribute("data-theme", isDark?"light":"dark");
+  savePrefs();
+});
+$("#pfull").addEventListener("click",function(){
+  if(!document.fullscreenElement){ if(document.documentElement.requestFullscreen)
+      document.documentElement.requestFullscreen().catch(function(){}); }
+  else if(document.exitFullscreen) document.exitFullscreen().catch(function(){});
+});
+
+/* ══ کیبورد ══ */
+document.addEventListener("keydown",function(e){
+  if(e.target.closest("input,textarea")) return;
+  if(document.body.classList.contains("admin-on")||document.body.classList.contains("tests-on")){
+    if(e.key==="Escape"){document.body.classList.remove("admin-on","tests-on")}
+    return;
+  }
+  var rtl = document.documentElement.dir==="rtl";
+  if(e.key==="ArrowLeft"){ e.preventDefault(); rtl?next():prev(); }
+  else if(e.key==="ArrowRight"){ e.preventDefault(); rtl?prev():next(); }
+  else if(e.key===" "||e.key==="PageDown"){ e.preventDefault(); next(); }
+  else if(e.key==="PageUp"){ e.preventDefault(); prev(); }
+  else if(e.key==="Home"){ e.preventDefault(); go(0); }
+  else if(e.key==="End"){ e.preventDefault(); go(visible().length-1); }
+  else if(e.key==="Escape"){ present(false); }
+  else if(e.key==="n"||e.key==="N"){ toggleNotes(); }
+  else if(e.key==="p"||e.key==="P"){ present(!document.body.classList.contains("presenting")); }
+});
+
+/* ══ کشیدن انگشت ══ */
+(function(){
+  var x0=null,y0=null;
+  var st=$("#stage");
+  st.addEventListener("touchstart",function(e){
+    if(e.touches.length!==1) return;
+    x0=e.touches[0].clientX; y0=e.touches[0].clientY;
+  },{passive:true});
+  st.addEventListener("touchend",function(e){
+    if(x0===null) return;
+    var t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.6){
+      var rtl=document.documentElement.dir==="rtl";
+      if(dx<0) rtl?prev():next(); else rtl?next():prev();
+    }
+    x0=null;y0=null;
+  },{passive:true});
+})();
+
+/* ══ پیشرفتِ حالت روایت ══ */
+window.addEventListener("scroll",function(){
+  if(document.body.classList.contains("presenting")) return;
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  $("#progbar").style.width = h>0 ? ((window.scrollY/h)*100).toFixed(1)+"%" : "0%";
+},{passive:true});
+
+/* ══ تست‌های درون‌برنامه‌ای ══ */
+var TESTS=[
+ ["دادهٔ ارائه بارگذاری شده و ساختارش سالم است", function(){
+   if(!Array.isArray(DECK)||DECK.length<10) throw new Error("DECK too small: "+(DECK||[]).length);
+   DECK.forEach(function(s){
+     if(!s.id) throw new Error("slide without id");
+     ["fa","en"].forEach(function(l){
+       if(!s[l]) throw new Error(s.id+" missing "+l);
+       if(!s[l].t) throw new Error(s.id+"."+l+" missing title");
+       if(!Array.isArray(s[l].body)||!s[l].body.length) throw new Error(s.id+"."+l+" empty body");
+     });
+   });
+   return DECK.length+" slides";
+ }],
+ ["شناسه‌ها یکتا هستند", function(){
+   var seen={}; DECK.forEach(function(s){ if(seen[s.id]) throw new Error("dup id "+s.id); seen[s.id]=1; });
+   return "ok";
+ }],
+ ["فارسی و انگلیسی تعداد بندِ برابر دارند", function(){
+   var bad=DECK.filter(function(s){return s.fa.body.length!==s.en.body.length});
+   if(bad.length) throw new Error("mismatch: "+bad.map(function(s){return s.id}).join(","));
+   return "ok";
+ }],
+ ["هر اسلاید یادداشتِ گوینده دارد", function(){
+   var bad=DECK.filter(function(s){return !s.fa.notes||!s.en.notes});
+   if(bad.length) throw new Error("no notes: "+bad.map(function(s){return s.id}).join(","));
+   return "ok";
+ }],
+ ["منابع لینکِ https دارند", function(){
+   if(!SOURCES.length) throw new Error("no sources");
+   SOURCES.forEach(function(s){ if(!/^https:\/\//.test(s.url)) throw new Error("bad url "+s.url); });
+   return SOURCES.length+" sources";
+ }],
+ ["رندرِ روایت همهٔ اسلایدهای فعال را می‌سازد", function(){
+   renderStory();
+   var n=document.querySelectorAll("#story .sl").length;
+   if(n!==visible().length) throw new Error("rendered "+n+" expected "+visible().length);
+   return n+" rendered";
+ }],
+ ["ورودی کاربر به HTML تبدیل نمی‌شود (ضدِ تزریق)", function(){
+   var probe='<img src=x onerror="window.__XSS=1">';
+   var out=md(probe);
+   if(/<img/i.test(out)) throw new Error("markup leaked");
+   if(window.__XSS) throw new Error("script executed");
+   return "escaped";
+ }],
+ ["**پررنگ** به تگِ b تبدیل می‌شود", function(){
+   if(md("a **b** c").indexOf("<b>b</b>")<0) throw new Error("bold failed");
+   return "ok";
+ }],
+ ["تعویضِ زبان جهتِ صفحه را عوض می‌کند", function(){
+   var before=state.lang;
+   setLang("en"); if(document.documentElement.dir!=="ltr") throw new Error("en not ltr");
+   setLang("fa"); if(document.documentElement.dir!=="rtl") throw new Error("fa not rtl");
+   setLang(before);
+   return "rtl/ltr ok";
+ }],
+ ["ناوبری ارائه از مرزها بیرون نمی‌زند", function(){
+   var keep=state.idx;
+   go(0); prev(); if(state.idx!==0) throw new Error("underflow "+state.idx);
+   go(visible().length-1); next();
+   if(state.idx!==visible().length-1) throw new Error("overflow "+state.idx);
+   go(keep);
+   return "bounded";
+ }],
+ ["شمارندهٔ اسلاید با زبان هماهنگ است", function(){
+   var keep=state.idx, kl=state.lang;
+   setLang("fa"); go(0); renderPresent();
+   if($("#counter").textContent.indexOf("۱")<0) throw new Error("fa digits missing: "+$("#counter").textContent);
+   setLang("en"); renderPresent();
+   if($("#counter").textContent.indexOf("1")<0) throw new Error("en digits missing: "+$("#counter").textContent);
+   setLang(kl); go(keep);
+   return "ok";
+ }],
+ ["مخفی کردنِ اسلاید از ارائه حذفش می‌کند", function(){
+   var n0=visible().length;
+   deck[1].on=false;
+   var n1=visible().length;
+   deck[1].on=true;
+   if(n1!==n0-1) throw new Error("hide had no effect: "+n0+"→"+n1);
+   return "ok";
+ }],
+ ["ویرایش در پنل روی خروجی اثر می‌گذارد", function(){
+   var orig=deck[0].fa.t;
+   deck[0].fa.t="__TEST__"; renderStory();
+   var has=$("#story").textContent.indexOf("__TEST__")>=0;
+   deck[0].fa.t=orig; renderStory();
+   if(!has) throw new Error("edit not reflected");
+   return "ok";
+ }],
+ ["حافظهٔ مرورگر بدونِ خطا پاسخ می‌دهد", function(){
+   var ok=safeSet("__probe__","1");
+   try{localStorage.removeItem("__probe__")}catch(e){}
+   return ok?"writable":"read-only (app still works)";
+ }],
+ ["تایمر درست قالب‌بندی می‌شود", function(){
+   var kl=state.lang; setLang("en");
+   if(fmt(0)!=="00:00") throw new Error("fmt(0)="+fmt(0));
+   if(fmt(75)!=="01:15") throw new Error("fmt(75)="+fmt(75));
+   setLang(kl);
+   return "ok";
+ }],
+ ["اسلایدِ حساس دربارهٔ افراط‌گرایی، جملهٔ تفکیک را دارد", function(){
+   var s=DECK.filter(function(x){return x.id==="extremism"})[0];
+   if(!s) throw new Error("slide missing");
+   if(s.fa.body[0].indexOf("نه یک دین")<0) throw new Error("FA safeguard line missing");
+   if(s.en.body[0].indexOf("not a religion")<0) throw new Error("EN safeguard line missing");
+   return "safeguard present";
+ }]
+];
+function runTests(){
+  var out=$("#tres"); out.innerHTML="";
+  var pass=0,fail=0;
+  function line(txt,cls){var s=document.createElement("span");
+    if(cls)s.className=cls; s.textContent=txt+"\n"; out.appendChild(s);}
+  line("in-app test run — "+new Date().toISOString(),"t-head");
+  line("");
+  TESTS.forEach(function(t,i){
+    try{ var r=t[1](); pass++; line("PASS  "+(i+1)+". "+t[0]+(r?"  ("+r+")":""),"t-pass"); }
+    catch(e){ fail++; line("FAIL  "+(i+1)+". "+t[0]+"  →  "+e.message,"t-fail"); }
+  });
+  line("");
+  line("passed "+pass+" / "+(pass+fail)+(fail?("   FAILURES: "+fail):"   all green"),fail?"t-fail":"t-head");
+  return {pass:pass,fail:fail};
+}
+$("#trun").addEventListener("click",runTests);
+window.__runTests=runTests;
+window.__state=state;
+window.__deck=function(){return deck};
+
+/* ══ راه‌اندازی ══ */
+loadPrefs();
+deck=loadDeck();
+document.body.classList.toggle("notes-on",state.notes);
+$("#bnotes").classList.toggle("on",state.notes);
+$("#pnotes").classList.toggle("on",state.notes);
+setLang(state.lang);
+$("#timer").textContent=fmt(0);
+})();
+</script>
+</body>
+</html>
