@@ -174,6 +174,154 @@
       '<path d="M112 104h96M112 122h72M112 140h84"/></g>', 'کارت‌های قواعد');
   };
 
+  /* ════════════════════════════════════════════════════════════
+     تصویرها و نمودارهای صفحهٔ «یک قدم» و «کتابخانه»
+     همهٔ اعداد از منابعِ نام‌برده در خودِ صفحه‌اند؛ هیچ عددی ساختگی نیست.
+     ════════════════════════════════════════════════════════════ */
+  function fa(s) {
+    return String(s).replace(/[0-9]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[+d]; });
+  }
+  var FONT = 'font-family="Vazirmatn,IRANSans,Tahoma,sans-serif"';
+
+  /* ── پله‌ها: یک قدم ── */
+  A.step = function () {
+    var p = 'M312 196 h-54 v-28 h-54 v-28 h-54 v-28 h-54 v-28 h-54';
+    return svg(340, 220,
+      '<path d="' + p + '" fill="none" stroke="' + T + '" stroke-width="1.8" ' +
+      'stroke-linejoin="round" stroke-linecap="round" opacity=".45"/>' +
+      '<path d="M312 196h-54v-28h-54" fill="none" stroke="' + G + '" stroke-width="2.6" ' +
+      'stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="286" cy="150" r="7.5" fill="none" stroke="' + G + '" stroke-width="2"/>' +
+      '<path d="M286 158v20M276 190l10-12 10 12" fill="none" stroke="' + G + '" ' +
+      'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      'پله‌هایی که یکی‌یکی بالا می‌روند');
+  };
+
+  /* ── جمعیت: چند نفر فکر می‌کنند، چند نفر می‌گویند ──
+     تصویرِ «پنهان‌سازیِ ترجیح»: همه یک چیز فکر می‌کنند، کمی می‌گویند. */
+  A.crowd = function () {
+    var b = '', spoken = { 2: 1, 9: 1, 13: 1, 18: 1, 20: 1, 5: 1 }, k = 0;
+    for (var r = 0; r < 3; r++) {
+      for (var c = 0; c < 8; c++, k++) {
+        var x = 316 - c * 40, y = 54 + r * 60, on = !!spoken[k];
+        b += '<g stroke="' + (on ? G : M) + '" stroke-width="1.6" fill="none" ' +
+             'opacity="' + (on ? 1 : .55) + '">' +
+             '<circle cx="' + x + '" cy="' + y + '" r="7"/>' +
+             '<path d="M' + (x - 11) + ' ' + (y + 23) + ' q11 -14 22 0" stroke-linecap="round"/>' +
+             '<circle cx="' + x + '" cy="' + (y - 17) + '" r="4.2"' +
+             (on ? '' : ' stroke-dasharray="2 2.4"') + '/></g>';
+      }
+    }
+    return svg(340, 210, b, 'بیست‌وچهار نفر که همه یک چیز فکر می‌کنند و شش نفر آن را می‌گویند');
+  };
+
+  /* ── نمودار: نرخِ موفقیت ──
+     دادهٔ NAVCO، ۳۲۳ کارزار، ۱۹۰۰ تا ۲۰۰۶ (چنووث و استفان). */
+  A.chartSuccess = function () {
+    var rows = [
+      { t: "خیزشِ خشونت‌پرهیز", v: 53, on: 1 },
+      { t: "خیزشِ مسلحانه", v: 26, on: 0 }
+    ];
+    var X = 306, MAXW = 236, b = '';
+    /* شبکهٔ پس‌زمینه — پس‌رونده */
+    [0, 25, 50, 75, 100].forEach(function (g) {
+      var x = X - g / 100 * MAXW;
+      b += '<line x1="' + x + '" y1="34" x2="' + x + '" y2="150" stroke="' + M +
+           '" stroke-width="1" opacity=".18"/>' +
+           '<text x="' + x + '" y="166" ' + FONT + ' font-size="10" fill="' + M +
+           '" text-anchor="middle">' + fa(g) + '٪</text>';
+    });
+    /* در متنِ راست‌به‌چپ، text-anchor="start" یعنی لبهٔ راست.
+       اگر "end" بگذاریم متن به راست سرریز می‌کند و بریده می‌شود. */
+    rows.forEach(function (r, i) {
+      var y = 48 + i * 56, h = 30, w = r.v / 100 * MAXW, col = r.on ? B : M;
+      b += '<text x="' + X + '" y="' + (y - 7) + '" ' + FONT + ' font-size="13" ' +
+           'font-weight="700" fill="' + T + '" text-anchor="start" direction="rtl">' +
+           r.t + '</text>' +
+           '<path d="M' + X + ' ' + y + ' h' + -(w - 4) + ' a4 4 0 0 0 -4 4 v' + (h - 8) +
+           ' a4 4 0 0 0 4 4 h' + (w - 4) + ' z" fill="' + col + '" opacity="' +
+           (r.on ? 1 : .42) + '"/>' +
+           '<text x="' + (X - w - 10) + '" y="' + (y + 20) + '" ' + FONT + ' font-size="14" ' +
+           'font-weight="700" fill="' + T + '" text-anchor="start" direction="rtl">' +
+           fa(r.v) + '٪</text>';
+    });
+    return svg(340, 178, b,
+      'نمودار: خیزش‌های خشونت‌پرهیز ۵۳ درصد و خیزش‌های مسلحانه ۲۶ درصد به هدفشان رسیده‌اند');
+  };
+
+  /* ── ۳٫۵٪ چقدر است؟ هزار نقطه، سی‌وپنج‌تاش پررنگ ──
+     پررنگ‌ها به‌شکلِ یک بلوکِ ۷×۵ در گوشهٔ بالا-راست جمع شده‌اند
+     تا چشم «مقدار» را ببیند، نه یک نوارِ پخش‌شده. */
+  A.dots35 = function () {
+    var COLS = 40, ROWS = 25, P = 7, b = '';
+    for (var r = 0; r < ROWS; r++) {
+      for (var c = 0; c < COLS; c++) {
+        var x = 296 - c * P, y = 16 + r * P, on = (c < 7 && r < 5);
+        b += '<circle cx="' + x + '" cy="' + y + '" r="' + (on ? 2.8 : 2) + '" fill="' +
+             (on ? G : M) + '" opacity="' + (on ? 1 : .22) + '"/>';
+      }
+    }
+    b += '<rect x="' + (296 - 6 * P - 5) + '" y="11" width="' + (6 * P + 10) +
+         '" height="' + (4 * P + 10) + '" rx="5" fill="none" stroke="' + G +
+         '" stroke-width="1.4" opacity=".65"/>';
+    return svg(310, 205, b,
+      'هزار نقطه که سی‌وپنج‌تای آن پررنگ و در یک کادر جمع شده — یعنی سه و نیم درصد');
+  };
+
+  /* ── موج‌های اعتراض: فاصله‌ها کوتاه‌تر می‌شود ── */
+  A.waves = function () {
+    var YS = [1285, 1357, 1378, 1388, 1396, 1398, 1401, 1404],
+        A0 = 1285, A1 = 1406, X0 = 24, W = 296, Y = 74, b = '';
+    function px(y) { return X0 + (A1 - y) / (A1 - A0) * W; }
+    b += '<line x1="' + X0 + '" y1="' + Y + '" x2="' + (X0 + W) + '" y2="' + Y +
+         '" stroke="' + M + '" stroke-width="1.4" opacity=".4"/>';
+    YS.forEach(function (y) {
+      b += '<circle cx="' + px(y) + '" cy="' + Y + '" r="4.6" fill="' + G + '"/>';
+    });
+    [[1285, "مشروطه"], [1357, "انقلاب"], [1388, "سبز"]].forEach(function (d) {
+      var x = px(d[0]);
+      b += '<line x1="' + x + '" y1="' + (Y - 8) + '" x2="' + x + '" y2="' + (Y - 26) +
+           '" stroke="' + M + '" stroke-width="1" opacity=".5"/>' +
+           '<text x="' + x + '" y="' + (Y - 32) + '" ' + FONT + ' font-size="11.5" ' +
+           'font-weight="700" fill="' + T + '" text-anchor="middle">' + d[1] + '</text>' +
+           '<text x="' + x + '" y="' + (Y + 22) + '" ' + FONT + ' font-size="10" fill="' +
+           M + '" text-anchor="middle">' + fa(d[0]) + '</text>';
+    });
+    /* هشدار: «·» میانِ ارقامِ فارسی در رندرِ دوجهته جابه‌جا می‌شود
+       («۷ · ۲» شبیهِ «۷۲» می‌شود). این‌جا اصلاً عدد پشتِ‌هم نمی‌گذاریم. */
+    /* برچسبِ خوشه از راست لنگر می‌شود، وگرنه از لبهٔ چپ بیرون می‌زند و بریده می‌شود. */
+    var xa = px(1404), xb = px(1396);
+    b += '<path d="M' + xa + ' ' + (Y + 14) + ' v8 H' + xb + ' v-8" fill="none" stroke="' +
+         M + '" stroke-width="1.2" opacity=".6"/>' +
+         '<path d="M' + ((xa + xb) / 2) + ' ' + (Y + 22) + ' v12" stroke="' + M +
+         '" stroke-width="1.2" opacity=".6" fill="none"/>' +
+         '<text x="' + (X0 + W) + '" y="' + (Y + 40) + '" ' + FONT + ' font-size="10.5" ' +
+         'font-weight="700" fill="' + T + '" text-anchor="start" direction="rtl">' +
+         'چهار موج در هشت سالِ آخر</text>' +
+         '<text x="' + (X0 + W) + '" y="' + (Y + 58) + '" ' + FONT + ' font-size="10.5" fill="' +
+         M + '" text-anchor="start" direction="rtl">فاصلهٔ موج‌ها کوتاه‌تر شده است</text>';
+    return svg(340, 152, b,
+      'خط زمانِ موج‌های اعتراضی ایران از مشروطه تا امروز؛ فاصله‌ها پیوسته کوتاه‌تر شده');
+  };
+
+  /* ── قفسهٔ کتاب ── */
+  A.shelf = function () {
+    var b = '', ws = [16, 22, 13, 26, 18, 15, 24, 12, 20, 17];
+    for (var s = 0; s < 3; s++) {
+      var y = 46 + s * 58, x = 306;
+      for (var i = 0; i < 8; i++) {
+        var w = ws[(s * 8 + i) % ws.length], h = 40 - (i % 3) * 5;
+        x -= w + 3;
+        b += '<rect x="' + x + '" y="' + (y - h) + '" width="' + w + '" height="' + h +
+             '" rx="2" fill="none" stroke="' + (i % 3 === 0 ? G : T) + '" stroke-width="1.5" ' +
+             'opacity="' + (i % 3 === 0 ? .95 : .5) + '"/>';
+      }
+      b += '<line x1="34" y1="' + y + '" x2="308" y2="' + y + '" stroke="' + T +
+           '" stroke-width="1.8" opacity=".6"/>';
+    }
+    return svg(340, 200, b, 'قفسه‌ای از کتاب‌ها');
+  };
+
   /* ── نصب ── */
   function mount() {
     var els = document.querySelectorAll("[data-art]");
