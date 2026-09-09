@@ -322,6 +322,59 @@
     return svg(340, 200, b, 'قفسه‌ای از کتاب‌ها');
   };
 
+  /* ── ۲۶۰۰ سال در برابر ۴۷ سال ──
+     نسبتِ واقعی: دشمنیِ رسمی از ۱۳۵۷ حدودِ ۱٫۸٪ عمرِ این رابطه است. */
+  A.ratio2600 = function () {
+    /* چیدمان با فاصله‌های صریح — برچسبِ بزرگ‌نمایی سمتِ راستِ نوار می‌نشیند
+       تا رویش نیفتد، و ارتفاعِ viewBox جای آخرین خط را دارد. */
+    var X0 = 22, XR = 300, W = XR - X0, H = 30, Y = 30;
+    var wNew = Math.max(4, W * (47 / 2600));        /* ≈ ۵ پیکسل */
+    var ZY = 98, ZH = 22, ZW = 92;
+    var b = '';
+
+    b += '<text x="' + XR + '" y="20" ' + FONT + ' font-size="12" font-weight="700" fill="' +
+         T + '" text-anchor="start" direction="rtl">دو هزار و ششصد سال همسایگی</text>';
+    b += '<rect x="' + (X0 + wNew) + '" y="' + Y + '" width="' + (W - wNew) +
+         '" height="' + H + '" rx="4" fill="' + F + '" opacity=".85"/>';
+    b += '<rect x="' + X0 + '" y="' + Y + '" width="' + wNew + '" height="' + H +
+         '" rx="2" fill="' + R + '"/>';
+
+    /* خطوطِ راهنما از نوارِ سرخِ باریک به نوارِ بزرگ‌شده */
+    b += '<path d="M' + X0 + ' ' + (Y + H + 3) + ' L' + X0 + ' ' + (ZY - 3) +
+         ' M' + (X0 + wNew) + ' ' + (Y + H + 3) + ' L' + (X0 + ZW) + ' ' + (ZY - 3) +
+         '" fill="none" stroke="' + R + '" stroke-width="1" opacity=".45"/>';
+
+    b += '<text x="' + XR + '" y="' + (ZY - 8) + '" ' + FONT + ' font-size="10.5" fill="' +
+         M + '" text-anchor="start" direction="rtl">همان نوارِ سرخ، بزرگ‌شده</text>';
+    b += '<rect x="' + X0 + '" y="' + ZY + '" width="' + ZW + '" height="' + ZH +
+         '" rx="3" fill="' + R + '"/>';
+    b += '<text x="' + XR + '" y="' + (ZY + 16) + '" ' + FONT + ' font-size="12" ' +
+         'font-weight="700" fill="' + R + '" text-anchor="start" direction="rtl">' +
+         'چهل و هفت سال دشمنی</text>';
+
+    b += '<text x="' + XR + '" y="' + (ZY + 52) + '" ' + FONT + ' font-size="10.5" fill="' +
+         M + '" text-anchor="start" direction="rtl">' +
+         'کمتر از دو درصدِ عمرِ این رابطه</text>';
+
+    return svg(322, 168, b,
+      'نمودار: دو هزار و ششصد سال رابطه، که دشمنیِ رسمیِ چهل و هفت ساله کمتر از دو درصدِ آن است');
+  };
+
+  /* ── دو رشته: جدا، به‌هم‌تابیده، جدا ── */
+  A.threads = function () {
+    var a = 'M300 40 C240 40 210 62 150 62 C90 62 58 96 20 96',
+        c = 'M300 96 C240 96 210 74 150 74 C90 74 58 40 20 40';
+    return svg(320, 140,
+      '<g fill="none" stroke-width="2.2" stroke-linecap="round">' +
+      '<path d="' + a + '" stroke="' + F + '"/>' +
+      '<path d="' + c + '" stroke="' + G + '"/></g>' +
+      '<g fill="none" stroke="' + M + '" stroke-width="1" opacity=".45" ' +
+      'stroke-dasharray="3 3"><path d="M150 24V112"/></g>' +
+      '<circle cx="150" cy="62" r="3.4" fill="' + F + '"/>' +
+      '<circle cx="150" cy="74" r="3.4" fill="' + G + '"/>',
+      'دو رشته که کنارِ هم می‌آیند، به هم نزدیک می‌شوند و بعد از هم جدا می‌شوند');
+  };
+
   /* ── نصب ── */
   function mount() {
     var els = document.querySelectorAll("[data-art]");
