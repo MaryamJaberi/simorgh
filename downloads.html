@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1116">
 <title>دانلود و منابع — پَرِ سیمرغ</title>
-<meta name="description" content="پاورپوینت، سند QA، ابزارها و فهرستِ کاملِ منابع.">
+<meta name="description" content="پاورپوینت، سندهای QA، ابزارها و فهرستِ منابع.">
 <meta property="og:title" content="دانلود و منابع — پَرِ سیمرغ">
-<meta property="og:description" content="پاورپوینت، سند QA، ابزارها و فهرستِ کاملِ منابع.">
+<meta property="og:description" content="پاورپوینت، سندهای QA، ابزارها و فهرستِ منابع.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Markazi+Text:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shell.css">
 <link rel="stylesheet" href="assets/page.css">
+<script>window.SHELL_BASE="";window.SHELL_ASSETS="assets/";window.SHELL_OTHER=null;</script>
 <script defer src="assets/art.js"></script>
 <script defer src="assets/shell.js"></script>
 </head>
@@ -34,7 +35,7 @@
   </div>
 </div>
 
-<section class="blk">
+<section id="فایلها" class="blk">
   <div class="wrap">
     <h2>فایل‌ها</h2>
     <p class="lede">راست‌کلیک → ذخیره، یا فقط کلیک کنید.</p>
@@ -88,7 +89,7 @@
   </div>
 </section>
 
-<section class="blk">
+<section id="اجازه-استفاده" class="blk">
   <div class="wrap">
     <h2>اجازهٔ استفاده</h2>
     <p class="lede" style="max-width:70ch">
@@ -100,15 +101,14 @@
 </section>
 
 <footer class="site"><div class="wrap">
-  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ بازی و اسطوره.</p>
-  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند.
-     هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
+  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ یک بازی و یک اسطوره.</p>
+  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
   <p>برای جست‌وجو در همهٔ مطالب، کلیدِ <code>/</code> را بزنید یا دکمهٔ «همهٔ مطالب» را.</p>
 </div></footer>
 <script>
 document.addEventListener("click",function(e){
   var a=e.target.closest("[data-open-shell]");
-  if(a){e.preventDefault();var b=document.getElementById("shellbtn");if(b)b.click();}
+  if(a){e.preventDefault();var b=document.getElementById("tb-menu");if(b)b.click();}
 });
 </script>
 </body>
