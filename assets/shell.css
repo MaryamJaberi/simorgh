@@ -1,12 +1,13 @@
 /* ════════════════════════════════════════════════════════════
-   پوستهٔ سایت — کمینه، تزریق‌شده در همهٔ صفحه‌ها.
-   با چیدمانِ داخلیِ هیچ صفحه‌ای تصادم نمی‌کند چون همه‌اش fixed است.
+   پوستهٔ سایت — نوارِ بالا، پله‌ها، کشو، اشتراک.
+   همه‌اش fixed یا در بالای سند است تا با چیدمانِ صفحه‌ها تصادم نکند.
    ════════════════════════════════════════════════════════════ */
 :root{
   --s-bg:#f6f5f2; --s-surface:#fff; --s-surface2:#eceae5; --s-line:#dcd8d0;
   --s-text:#16181d; --s-muted:#666d7c; --s-zar:#a8791c; --s-shangarf:#b1402f;
   --s-firuze:#1e7d70; --s-lajvard:#2f5390;
   --s-shadow:0 4px 24px rgba(20,25,35,.10);
+  --s-bar:62px; --s-spine:0px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --s-bg:#0e1116; --s-surface:#161a21; --s-surface2:#1c212a; --s-line:#2b323e;
@@ -20,37 +21,130 @@
   --s-firuze:#4cc7b4; --s-lajvard:#7ba3e8;
   --s-shadow:0 4px 28px rgba(0,0,0,.55);
 }
+:root:lang(en){ --s-fa:"Inter","Segoe UI",system-ui,sans-serif; }
 
-/* ── دکمهٔ شناور ── */
-#shellbtn{
-  position:fixed; top:12px; inset-inline-start:12px; z-index:9000;
-  display:flex; align-items:center; gap:7px;
-  background:var(--s-surface); color:var(--s-text);
-  border:1px solid var(--s-line); border-radius:99px;
-  padding:8px 15px; font:600 .82rem/1 var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
-  cursor:pointer; box-shadow:var(--s-shadow); transition:.16s;
-  min-height:38px; padding-top:0; padding-bottom:0;
+/* ══ نوارِ بالا ══ */
+#topbar{
+  position:sticky; top:0; z-index:9000;
+  display:flex; align-items:center; gap:12px; padding:0 16px; min-height:var(--s-bar);
+  background:color-mix(in srgb,var(--s-bg) 92%,transparent);
+  backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--s-line);
+  font-family:var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
+  color:var(--s-text);
 }
-#shellbtn:hover{border-color:var(--s-zar); color:var(--s-zar)}
-#shellbtn svg{width:15px;height:15px;flex:none}
-body.shell-open #shellbtn{opacity:0;pointer-events:none}
-@media print{#shellbtn{display:none!important}}
+#tb-menu{
+  display:inline-flex; align-items:center; gap:7px; flex:none; cursor:pointer;
+  background:var(--s-surface); color:var(--s-text); border:1px solid var(--s-line);
+  border-radius:99px; padding:0 15px; min-height:38px;
+  font:700 .82rem/1 inherit; transition:.16s;
+}
+#tb-menu:hover{border-color:var(--s-zar);color:var(--s-zar)}
+#tb-menu svg{width:15px;height:15px;flex:none}
+#tb-crumbs{
+  display:flex; align-items:center; gap:8px; min-width:0; flex:1;
+  font-size:.86rem; overflow:hidden;
+}
+#tb-crumbs .crumb{
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  text-decoration:none; color:var(--s-muted);
+}
+#tb-crumbs .crumb:hover{color:var(--s-zar)}
+#tb-crumbs .now{color:var(--s-text);font-weight:700;display:inline-flex;align-items:center;gap:6px}
+#tb-crumbs .now i{
+  font-style:normal; width:19px; height:19px; border-radius:99px; flex:none;
+  background:var(--s-zar); color:#12161f; font-size:.66rem; font-weight:800;
+  display:grid; place-items:center;
+}
+#tb-crumbs .sep{color:var(--s-muted);opacity:.6;flex:none}
+#tb-act{display:flex;align-items:center;gap:8px;flex:none}
+#tb-share,#tb-lang{
+  display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+  background:var(--s-surface); color:var(--s-text); border:1px solid var(--s-line);
+  border-radius:99px; padding:0 14px; min-height:38px;
+  font:700 .8rem/1 inherit; text-decoration:none; transition:.16s;
+}
+#tb-share:hover,#tb-lang:hover{border-color:var(--s-zar);color:var(--s-zar)}
+#tb-share svg{width:15px;height:15px}
+@media(max-width:720px){
+  #tb-menu span,#tb-share span{display:none}
+  #tb-menu,#tb-share{padding:0 12px}
+  #tb-crumbs .crumb:not(.now){display:none}
+  #tb-crumbs .sep{display:none}
+}
+@media print{#topbar,#spine{display:none!important}}
 
-/* ── کشو ── */
+/* ══ نوارِ پنج پله ══ */
+#spine{
+  position:sticky; top:var(--s-bar); z-index:8900;
+  background:var(--s-surface2); border-bottom:1px solid var(--s-line);
+  font-family:var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
+  overflow-x:auto; scrollbar-width:none;
+}
+#spine::-webkit-scrollbar{display:none}
+#spine .in{display:flex;gap:6px;padding:9px 14px;max-width:1120px;margin:0 auto;min-width:max-content}
+#spine a b{white-space:nowrap}
+#spine a{
+  display:flex; align-items:baseline; gap:7px; text-decoration:none; white-space:nowrap;
+  color:var(--s-muted); border:1px solid transparent; border-radius:99px;
+  padding:6px 13px; transition:.15s;
+}
+#spine a i{
+  font-style:normal; width:18px; height:18px; border-radius:99px; flex:none;
+  background:var(--s-line); color:var(--s-text); font-size:.64rem; font-weight:800;
+  display:inline-grid; place-items:center; align-self:center;
+}
+#spine a b{font-size:.85rem;font-weight:700}
+#spine a:hover{color:var(--s-text);border-color:var(--s-line)}
+#spine a.on{background:var(--s-surface);border-color:var(--s-zar);color:var(--s-text)}
+#spine a.on i{background:var(--s-zar);color:#12161f}
+#spine a.on b{color:var(--s-zar)}
+
+/* لنگرها زیرِ نوارِ چسبان پنهان نشوند */
+:target{scroll-margin-top:calc(var(--s-bar) + 56px)}
+[id]{scroll-margin-top:calc(var(--s-bar) + 56px)}
+
+/* ══ دکمهٔ کپیِ نشانیِ بخش ══ */
+.anchor-copy{
+  display:inline-grid; place-items:center; vertical-align:middle;
+  width:28px; height:28px; margin-inline-start:9px; padding:0;
+  background:transparent; border:1px solid transparent; border-radius:8px;
+  color:var(--s-muted); cursor:pointer; opacity:0; transition:.15s;
+}
+.anchor-copy svg{width:14px;height:14px}
+h2:hover .anchor-copy,h3:hover .anchor-copy,.anchor-copy:focus-visible{opacity:1}
+.anchor-copy:hover{color:var(--s-zar);border-color:var(--s-line);background:var(--s-surface)}
+@media(hover:none){.anchor-copy{opacity:.55}}
+@media print{.anchor-copy{display:none}}
+
+/* ══ پیامِ کوتاه ══ */
+#tb-toast{
+  position:fixed; inset-inline:0; bottom:24px; margin:0 auto; z-index:9500;
+  width:max-content; max-width:88vw;
+  background:var(--s-text); color:var(--s-bg);
+  font:600 .86rem/1.5 var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
+  padding:11px 20px; border-radius:99px; box-shadow:var(--s-shadow);
+  opacity:0; transform:translateY(10px); pointer-events:none; transition:.22s;
+}
+#tb-toast.on{opacity:1;transform:none}
+
+/* ══ کشو ══ */
 #shell{
   position:fixed; inset:0; z-index:9100; display:none;
   background:var(--s-bg); overflow-y:auto;
   font-family:var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
-  color:var(--s-text); direction:rtl; text-align:start;
+  color:var(--s-text); text-align:start;
 }
+body.shell-open{overflow:hidden}
 body.shell-open #shell{display:block}
 #shell .in{max-width:1080px;margin:0 auto;padding:22px 20px 80px}
 #shell .top{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
 #shell .brand{font-family:"Lalezar",var(--s-fa,sans-serif);font-size:1.3rem;color:var(--s-zar);
   font-weight:400;margin-inline-end:auto}
 #shell .x{cursor:pointer;background:var(--s-surface);border:1px solid var(--s-line);
-  border-radius:10px;color:var(--s-text);font:600 .82rem/1 inherit;padding:9px 15px;min-height:38px}
-#shell .x:hover{border-color:var(--s-zar)}
+  border-radius:10px;color:var(--s-text);font:600 .82rem/1 inherit;padding:9px 15px;
+  min-height:38px;text-decoration:none;display:inline-flex;align-items:center}
+#shell .x:hover{border-color:var(--s-zar);color:var(--s-zar)}
 
 #shellq{width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--s-line);
   background:var(--s-surface2);color:var(--s-text);font:400 .98rem/1.6 inherit;margin-bottom:6px}
@@ -59,11 +153,12 @@ body.shell-open #shell{display:block}
 #shellhits a{display:block;background:var(--s-surface);border:1px solid var(--s-line);
   border-radius:12px;padding:11px 15px;text-decoration:none;color:var(--s-text)}
 #shellhits a:hover{border-color:var(--s-zar)}
-#shellhits .pg{display:block;font-size:.7rem;color:var(--s-zar);font-weight:700;letter-spacing:.05em;margin-bottom:1px}
+#shellhits .pg{display:block;font-size:.7rem;color:var(--s-zar);font-weight:700;
+  letter-spacing:.05em;margin-bottom:1px}
 #shellhits a b{display:block;font-size:.94rem}
 #shellhits .sn{font-size:.86rem;color:var(--s-muted);line-height:1.7;margin-top:2px}
-#shellhits em{color:var(--s-text);font-style:normal;background:color-mix(in srgb,var(--s-zar) 26%,transparent);
-  border-radius:3px;padding:0 2px}
+#shellhits em{color:var(--s-text);font-style:normal;
+  background:color-mix(in srgb,var(--s-zar) 26%,transparent);border-radius:3px;padding:0 2px}
 #shellnone{color:var(--s-muted);font-size:.88rem}
 
 #shell .grp{margin-bottom:22px}
@@ -73,8 +168,18 @@ body.shell-open #shell{display:block}
 #shell .links a{display:block;background:var(--s-surface);border:1px solid var(--s-line);
   border-radius:12px;padding:12px 15px;text-decoration:none;color:var(--s-text);transition:.15s}
 #shell .links a:hover{border-color:var(--s-zar);transform:translateY(-2px);box-shadow:var(--s-shadow)}
-#shell .links b{display:block;font-size:.95rem;font-weight:700}
+#shell .links b{display:flex;align-items:center;gap:7px;font-size:.95rem;font-weight:700}
+#shell .links b .num{
+  font-style:normal; width:18px; height:18px; border-radius:99px; flex:none;
+  background:var(--s-surface2); color:var(--s-zar); font-size:.64rem; font-weight:800;
+  display:grid; place-items:center;
+}
+#shell .links .faonly{
+  font-style:normal;font-size:.64rem;font-weight:700;letter-spacing:.04em;
+  background:var(--s-surface2);color:var(--s-muted);border-radius:5px;padding:2px 6px;
+}
 #shell .links span{display:block;font-size:.79rem;color:var(--s-muted);line-height:1.65;margin-top:2px}
 #shell .links a[aria-current]{border-color:var(--s-zar)}
 #shell .links a[aria-current] b{color:var(--s-zar)}
-#shell .foot{border-top:1px solid var(--s-line);padding-top:14px;color:var(--s-muted);font-size:.79rem;line-height:1.9}
+#shell .foot{border-top:1px solid var(--s-line);padding-top:14px;color:var(--s-muted);
+  font-size:.79rem;line-height:1.9}

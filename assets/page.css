@@ -12,9 +12,9 @@ body{
 a{color:var(--s-lajvard)}
 
 /* ── هرو ── */
-.hero{padding:92px 0 54px;position:relative;overflow:hidden}
+.hero{padding:54px 0 48px;position:relative;overflow:hidden}
 .hero .grid{display:grid;grid-template-columns:1fr 300px;gap:44px;align-items:center}
-@media(max-width:860px){.hero{padding:78px 0 34px}.hero .grid{grid-template-columns:1fr;gap:20px}
+@media(max-width:860px){.hero{padding:34px 0 30px}.hero .grid{grid-template-columns:1fr;gap:20px}
   .hero .art{order:-1;max-width:190px;margin:0 auto}}
 .hero .eyebrow{font-size:.74rem;letter-spacing:.16em;color:var(--s-zar);font-weight:700;margin-bottom:14px}
 .hero h1{font-family:"Lalezar",serif;font-weight:400;font-size:clamp(2.6rem,7vw,4.6rem);
@@ -225,3 +225,50 @@ figure.fig th{background:var(--s-surface2);color:var(--s-zar);font-size:.78rem}
 .two{display:grid;grid-template-columns:1fr 320px;gap:34px;align-items:start}
 @media(max-width:900px){.two{grid-template-columns:1fr;gap:22px}
   .two .side{order:-1;max-width:340px;margin:0 auto}}
+
+
+/* ── پنج پله، روی صفحهٔ میز ── */
+.five{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:15px}
+.five a{
+  position:relative;display:flex;flex-direction:column;gap:7px;
+  background:var(--s-surface);border:1px solid var(--s-line);border-radius:16px;
+  padding:22px 22px 20px;text-decoration:none;color:var(--s-text);transition:.17s;
+}
+.five a:hover{border-color:var(--s-zar);box-shadow:var(--s-shadow);transform:translateY(-3px)}
+.five a i{
+  font-style:normal;width:32px;height:32px;border-radius:99px;
+  background:var(--s-surface2);color:var(--s-zar);font-size:.92rem;font-weight:800;
+  display:grid;place-items:center;margin-bottom:3px;
+}
+.five a b{font-family:"Lalezar",serif;font-weight:400;font-size:1.32rem;color:var(--s-zar)}
+.five a span{font-size:.87rem;color:var(--s-muted);line-height:1.8;flex:1}
+.five a em{
+  font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.05em;
+  color:var(--s-muted);border-top:1px solid var(--s-line);padding-top:10px;margin-top:4px;
+}
+.five a.on{border-color:var(--s-zar);background:var(--s-surface2)}
+.five a.on i{background:var(--s-zar);color:#12161f}
+.five a.on em{color:var(--s-zar)}
+:root:lang(en) .five a b{font-family:inherit;font-weight:800;font-size:1.16rem}
+:root:lang(en) .hero h1,:root:lang(en) section.blk>.wrap>h2,
+:root:lang(en) .aud .who,:root:lang(en) .steps .who,
+:root:lang(en) .prose h1,:root:lang(en) .prose h2,:root:lang(en) .stat .big{
+  font-family:"Inter","Segoe UI",system-ui,sans-serif;font-weight:800;letter-spacing:-.015em;
+}
+
+/* ── نوارِ «متنِ کامل فارسی است» برای صفحه‌های انگلیسی ── */
+.faonly-note{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--s-surface2);border:1px solid var(--s-line);border-radius:14px;
+  padding:15px 18px;font-size:.9rem;line-height:1.8;color:var(--s-muted);margin:0 0 26px;
+}
+.faonly-note b{color:var(--s-text)}
+.faonly-note svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--s-zar)}
+
+/* نشانِ «فقط فارسی» داخلِ متن */
+.faonly-inline{
+  font-style:normal;font-size:.66rem;font-weight:700;letter-spacing:.04em;
+  background:var(--s-surface2);color:var(--s-muted);
+  border:1px solid var(--s-line);border-radius:5px;padding:2px 6px;
+  white-space:nowrap;margin-inline-start:5px;vertical-align:middle;
+}
