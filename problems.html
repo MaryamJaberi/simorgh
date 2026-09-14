@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1116">
+<title>نقشهٔ مشکل‌ها — پَرِ سیمرغ</title>
+<meta name="description" content="دو محور — فراوانی و شدتِ زیسته — و اینکه جای هر مشکل روی نقشه، جنسِ پاسخِ درست را تعیین می‌کند.">
+<meta property="og:title" content="نقشهٔ مشکل‌ها — پَرِ سیمرغ">
+<meta property="og:description" content="دو محور — فراوانی و شدتِ زیسته — و اینکه جای هر مشکل روی نقشه، جنسِ پاسخِ درست را تعیین می‌کند.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Markazi+Text:wght@400;600&family=Gulzar&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shell.css">
+<link rel="stylesheet" href="assets/page.css">
+<script>window.SHELL_BASE="";window.SHELL_ASSETS="assets/";window.SHELL_OTHER=null;</script>
+<script defer src="assets/art.js"></script>
+<script defer src="assets/shell.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="hero db">
+  <div class="txt">
+    <p class="kick">لایهٔ داده</p>
+    <h1>نقشهٔ مشکل‌ها</h1>
+    <p class="dek">دو محورِ عمود: <b>فراوانی</b> — چند نفر درگیرند — و <b>شدتِ زیسته</b> —
+      چقدر زندگیِ روزمره را مختل می‌کند. هر مشکلی جایی روی این صفحه می‌افتد،
+      و <b>جایی که می‌افتد تعیین می‌کند چه جور پاسخی به دردش می‌خورد</b>.</p>
+    <p class="warn"><b>قیدی که نباید حذف شود:</b> جایگاهِ این نقطه‌ها برای
+      <b>آموزشِ چارچوب</b> است، نه برآوردِ آماری از جامعهٔ یک کشورِ مشخص.
+      اندازهٔ معناییِ همهٔ نقطه‌ها یکسان است. برای استفادهٔ پژوهشی، هر نقطه باید با
+      دادهٔ شیوع و مقیاسِ شدتِ همان جامعه جابه‌جا شود. برخلافِ
+      <a href="data.html">میزِ داده</a>، این صفحه <b>ادعای عددی نمی‌کند</b>.</p>
+  </div>
+  <div class="art"><div data-art="quad"></div></div>
+</header>
+
+<section id="نقشه" class="blk"><div class="wrap">
+  <h2>نقشه</h2>
+  <div class="filters">
+    <input id="pq" type="search" placeholder="جست‌وجوی مشکل…" aria-label="جست‌وجو">
+    <div class="chips"><button class="chip" data-f="dom" data-v="eco">اقتصادی و معیشت</button><button class="chip" data-f="dom" data-v="health">سلامت جسم و درمان</button><button class="chip" data-f="dom" data-v="housing">مسکن، شهر، محیط</button><button class="chip" data-f="dom" data-v="psych">روانی و پیوند اجتماعی</button><button class="chip" data-f="dom" data-v="safety">امنیت و آسیب حاد</button><button class="chip" data-f="dom" data-v="edu">آموزش و فرصت</button></div>
+    <div class="chips"><button class="chip" data-f="lvl" data-v="ساختاری">سطح: ساختاری</button><button class="chip" data-f="lvl" data-v="فردی">سطح: فردی</button><button class="chip" data-f="lvl" data-v="خانوار">سطح: خانوار</button><button class="chip" data-f="lvl" data-v="محله">سطح: محله</button>
+      <button class="chip" data-f="pop" data-v="زنان">زنان</button><button class="chip" data-f="pop" data-v="کودکان">کودکان</button><button class="chip" data-f="pop" data-v="اقلیت‌ها">اقلیت‌ها</button><button class="chip" data-f="pop" data-v="مهاجران">مهاجران</button><button class="chip" data-f="pop" data-v="سالمندان">سالمندان</button>
+      <button class="chip clear" id="pclear">همه</button></div>
+    <p class="count" id="pcount" aria-live="polite"></p>
+  </div>
+  <div class="pmap" role="img" aria-label="نقشهٔ دو محوریِ مشکل‌ها؛ فهرستِ کاملِ متنی زیرِ نمودار آمده است">
+    <span class="ax ay">شدتِ زیسته — اختلال در زندگیِ روزمره</span>
+    <span class="ax ax2">فراوانی — نسبتِ درگیر در جمعیت</span>
+    <span class="end e-tl">ویرانگر</span><span class="end e-bl">خفیف</span>
+    <span class="end e-lo">کم‌شیوع</span><span class="end e-hi">پرشیوع</span>
+    <div class="plane">
+      <span class="qq q1">شایع و سنگین</span>
+      <span class="qq q2">نادر اما ویرانگر</span>
+      <span class="qq q3">شایع و آزارنده</span>
+      <span class="qq q4">کم‌شیوع و خفیف</span>
+      <a class="dot d-eco" href="#p-tavarom"
+      style="left:92%;top:28%"
+      data-dom="eco" data-lvl="ساختاری" data-pop=""
+      data-q="فشار معیشت و تورم"
+      title="فشار معیشت و تورم — فراوانی ۹۲، شدت ۷۲"><i></i><b>فشار معیشت و تورم</b></a><a class="dot d-eco" href="#p-bikari"
+      style="left:78%;top:32%"
+      data-dom="eco" data-lvl="فردی" data-pop=""
+      data-q="بیکاری و شغل ناپایدار"
+      title="بیکاری و شغل ناپایدار — فراوانی ۷۸، شدت ۶۸"><i></i><b>بیکاری و شغل ناپایدار</b></a><a class="dot d-housing" href="#p-maskan"
+      style="left:84%;top:30%"
+      data-dom="housing" data-lvl="خانوار" data-pop=""
+      data-q="هزینهٔ مسکن"
+      title="هزینهٔ مسکن — فراوانی ۸۴، شدت ۷۰"><i></i><b>هزینهٔ مسکن</b></a><a class="dot d-housing" href="#p-keyfiat"
+      style="left:72%;top:45%"
+      data-dom="housing" data-lvl="محله" data-pop=""
+      data-q="کیفیت پایین مسکن"
+      title="کیفیت پایین مسکن — فراوانی ۷۲، شدت ۵۵"><i></i><b>کیفیت پایین مسکن</b></a><a class="dot d-health" href="#p-darman"
+      style="left:70%;top:26%"
+      data-dom="health" data-lvl="خانوار" data-pop=""
+      data-q="هزینهٔ درمان"
+      title="هزینهٔ درمان — فراوانی ۷۰، شدت ۷۴"><i></i><b>هزینهٔ درمان</b></a><a class="dot d-eco hid" href="#p-bedehi"
+      style="left:58%;top:32%"
+      data-dom="eco" data-lvl="خانوار" data-pop=""
+      data-q="بدهی خانوار"
+      title="بدهی خانوار — فراوانی ۵۸، شدت ۶۸"><i></i><b>بدهی خانوار</b></a><a class="dot d-housing" href="#p-aloodegi"
+      style="left:80%;top:56%"
+      data-dom="housing" data-lvl="محله" data-pop=""
+      data-q="آلودگی هوا"
+      title="آلودگی هوا — فراوانی ۸۰، شدت ۴۴"><i></i><b>آلودگی هوا</b></a><a class="dot d-housing" href="#p-terafik"
+      style="left:91%;top:67%"
+      data-dom="housing" data-lvl="ساختاری" data-pop=""
+      data-q="ترافیک و زمان تلف‌شده"
+      title="ترافیک و زمان تلف‌شده — فراوانی ۹۱، شدت ۳۳"><i></i><b>ترافیک و زمان تلف‌شده</b></a><a class="dot d-housing" href="#p-boroukrasi"
+      style="left:83%;top:81%"
+      data-dom="housing" data-lvl="ساختاری" data-pop=""
+      data-q="صف و بوروکراسی"
+      title="صف و بوروکراسی — فراوانی ۸۳، شدت ۱۹"><i></i><b>صف و بوروکراسی</b></a><a class="dot d-health hid" href="#p-ravan"
+      style="left:76%;top:64%"
+      data-dom="health" data-lvl="فردی" data-pop=""
+      data-q="سلامت روان روزمره"
+      title="سلامت روان روزمره — فراوانی ۷۶، شدت ۳۶"><i></i><b>سلامت روان روزمره</b></a><a class="dot d-psych hid" href="#p-tanhaee"
+      style="left:64%;top:56%"
+      data-dom="psych" data-lvl="فردی" data-pop=""
+      data-q="تنهایی و انزوا"
+      title="تنهایی و انزوا — فراوانی ۶۴، شدت ۴۴"><i></i><b>تنهایی و انزوا</b></a><a class="dot d-safety hid" href="#p-khoshoonat"
+      style="left:46%;top:12%"
+      data-dom="safety" data-lvl="خانوار" data-pop="زنان کودکان"
+      data-q="خشونت خانگی"
+      title="خشونت خانگی — فراوانی ۴۶، شدت ۸۸"><i></i><b>خشونت خانگی</b></a><a class="dot d-psych hid" href="#p-farsoodegi"
+      style="left:45%;top:35%"
+      data-dom="psych" data-lvl="خانوار" data-pop="زنان"
+      data-q="فرسودگی مراقبت"
+      title="فرسودگی مراقبت — فراوانی ۴۵، شدت ۶۵"><i></i><b>فرسودگی مراقبت</b></a><a class="dot d-health" href="#p-bimari"
+      style="left:51%;top:28%"
+      data-dom="health" data-lvl="فردی" data-pop=""
+      data-q="بیماری مزمن"
+      title="بیماری مزمن — فراوانی ۵۱، شدت ۷۲"><i></i><b>بیماری مزمن</b></a><a class="dot d-health" href="#p-maloliat"
+      style="left:36%;top:34%"
+      data-dom="health" data-lvl="ساختاری" data-pop=""
+      data-q="معلولیت بدون حمایت"
+      title="معلولیت بدون حمایت — فراوانی ۳۶، شدت ۶۶"><i></i><b>معلولیت بدون حمایت</b></a><a class="dot d-safety" href="#p-etiad"
+      style="left:27%;top:23%"
+      data-dom="safety" data-lvl="خانوار" data-pop=""
+      data-q="اعتیاد شدید"
+      title="اعتیاد شدید — فراوانی ۲۷، شدت ۷۷"><i></i><b>اعتیاد شدید</b></a><a class="dot d-housing" href="#p-bikhanemani"
+      style="left:18%;top:20%"
+      data-dom="housing" data-lvl="فردی" data-pop=""
+      data-q="بی‌خانمانی"
+      title="بی‌خانمانی — فراوانی ۱۸، شدت ۸۰"><i></i><b>بی‌خانمانی</b></a><a class="dot d-safety" href="#p-bohran"
+      style="left:16%;top:8%"
+      data-dom="safety" data-lvl="ساختاری" data-pop=""
+      data-q="فاجعه و بحران حاد"
+      title="فاجعه و بحران حاد — فراوانی ۱۶، شدت ۹۲"><i></i><b>فاجعه و بحران حاد</b></a><a class="dot d-edu" href="#p-tark"
+      style="left:60%;top:62%"
+      data-dom="edu" data-lvl="خانوار" data-pop="کودکان"
+      data-q="ترک تحصیل"
+      title="ترک تحصیل — فراوانی ۶۰، شدت ۳۸"><i></i><b>ترک تحصیل</b></a><a class="dot d-edu" href="#p-nabarabari"
+      style="left:46%;top:70%"
+      data-dom="edu" data-lvl="ساختاری" data-pop=""
+      data-q="نابرابری فرصت شغلی"
+      title="نابرابری فرصت شغلی — فراوانی ۴۶، شدت ۳۰"><i></i><b>نابرابری فرصت شغلی</b></a><a class="dot d-edu" href="#p-digital"
+      style="left:38%;top:78%"
+      data-dom="edu" data-lvl="محله" data-pop=""
+      data-q="شکاف دیجیتال"
+      title="شکاف دیجیتال — فراوانی ۳۸، شدت ۲۲"><i></i><b>شکاف دیجیتال</b></a><a class="dot d-psych hid" href="#p-tard"
+      style="left:34%;top:56%"
+      data-dom="psych" data-lvl="ساختاری" data-pop="اقلیت‌ها"
+      data-q="طرد اجتماعی اقلیت"
+      title="طرد اجتماعی اقلیت — فراوانی ۳۴، شدت ۴۴"><i></i><b>طرد اجتماعی اقلیت</b></a><a class="dot d-psych hid" href="#p-mohajer"
+      style="left:24%;top:40%"
+      data-dom="psych" data-lvl="فردی" data-pop="مهاجران"
+      data-q="بی‌ثباتی وضعِ اقامت"
+      title="بی‌ثباتی وضعِ اقامت — فراوانی ۲۴، شدت ۶۰"><i></i><b>بی‌ثباتی وضعِ اقامت</b></a><a class="dot d-health hid" href="#p-salmand"
+      style="left:40%;top:49%"
+      data-dom="health" data-lvl="خانوار" data-pop="سالمندان"
+      data-q="تنهاییِ سالمندی و مراقبت"
+      title="تنهاییِ سالمندی و مراقبت — فراوانی ۴۰، شدت ۵۱"><i></i><b>تنهاییِ سالمندی و مراقبت</b></a>
+    </div>
+  </div>
+  <p class="note">دایرهٔ توپُر: در آمار و خدمات بیشتر دیده می‌شود.
+    دایرهٔ توخالیِ خط‌چین: در زندگی زیاد است اما در دادهٔ رسمی کم ثبت می‌شود —
+    خشونتِ خانگی، تنهایی، کارِ مراقبتی.
+    <b>۸ مورد از ۲۴</b> در این دسته‌اند.</p>
+</div></section>
+
+<section id="چهار-ربع-چهار-جور-پاسخ" class="blk"><div class="wrap">
+  <h2>چهار ربع، چهار جورِ پاسخ</h2>
+  <div class="tiers">
+    <div class="td tc1"><b>شایع و سنگین</b><p>اولویتِ اضطراریِ سیاست — این‌جا سیاستِ کلان لازم است، نه پروژهٔ موردی.</p></div><div class="td tc1"><b>نادر اما ویرانگر</b><p>چترِ حمایت و آمادگیِ بحران — هدفمند، نه سراسری.</p></div><div class="td tc3"><b>شایع و آزارنده</b><p>اصلاحِ روزمره و خدماتِ عمومی — طراحیِ خدمت و کاهشِ اصطکاک.</p></div><div class="td tc3"><b>کم‌شیوع و خفیف</b><p>پایش — منابع را این‌جا انبار نکنید.</p></div>
+  </div>
+  <p class="note">فایدهٔ این چارچوب همین است: <b>«مهم‌ترین مشکل» یک پرسشِ بد است.</b>
+    پرسشِ خوب این است که یک مشکل در کدام ربع می‌افتد، چون پاسخِ درست برای هر ربع
+    جنسِ متفاوتی دارد. منابعی که برای ربعِ «نادر اما ویرانگر» ساخته شده‌اند،
+    اگر روی ربعِ «شایع و آزارنده» ریخته شوند هدر می‌روند — و برعکس.</p>
+</div></section>
+
+<section id="فهرست-کامل" class="blk"><div class="wrap">
+  <h2>فهرستِ کامل</h2>
+  <p class="lede">همان ۲۴ نقطه، این بار خواندنی — مرتب‌شده بر اساسِ
+    حاصل‌ضربِ فراوانی در شدت. جایی که نقطه‌ای به ادعای ثبت‌شده‌ای در میزِ داده
+    وصل است، لینکش آمده.</p>
+  <div class="claims"><article class="cl pr" id="p-tavarom"
+      data-dom="eco" data-lvl="ساختاری" data-pop=""
+      data-q="فشار معیشت و تورم شایع‌ترین و یکی از سنگین‌ترین‌ها؛ در آمارِ رسمی هم کاملاً دیده می‌شود.">
+    <div class="cl-h">
+      <span class="swatch s-eco"></span>
+      <b>فشار معیشت و تورم</b>
+      
+      <span class="topic">اقتصادی و معیشت · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۹۲</b><b>شدت ۷۲</b>
+      <span>شایع و سنگین</span></div>
+    <p class="cl-s">شایع‌ترین و یکی از سنگین‌ترین‌ها؛ در آمارِ رسمی هم کاملاً دیده می‌شود.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-inflation">۸۷٫۹٪ — تورمِ نقطه‌به‌نقطه ۸۷٫۹٪ (تیر ۱۴۰۵)؛ پوششِ سبدِ معیشت …</a><a href="data.html#c-food-inflation">۱۱۲٫۷٪ — تورمِ خوراکی ۱۱۲٫۷٪ در برابرِ تورمِ عمومی — یعنی شوک ب…</a><a href="data.html#c-poverty">۳۰٪ — نرخِ فقر در دو سال حدود هشت واحد بالا رفت و روی ۳۰٪ تث…</a></dd></dl>
+  </article><article class="cl pr" id="p-maskan"
+      data-dom="housing" data-lvl="خانوار" data-pop=""
+      data-q="هزینهٔ مسکن برای خانوارِ شهری بزرگ‌ترین قلمِ هزینه.">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>هزینهٔ مسکن</b>
+      
+      <span class="topic">مسکن، شهر، محیط · خانوار</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۸۴</b><b>شدت ۷۰</b>
+      <span>شایع و سنگین</span></div>
+    <p class="cl-s">برای خانوارِ شهری بزرگ‌ترین قلمِ هزینه.</p>
+    
+  </article><article class="cl pr" id="p-bikari"
+      data-dom="eco" data-lvl="فردی" data-pop=""
+      data-q="بیکاری و شغل ناپایدار با اشتغالِ غیررسمیِ بالا، «شاغل بودن» تضمینِ امنیت نیست.">
+    <div class="cl-h">
+      <span class="swatch s-eco"></span>
+      <b>بیکاری و شغل ناپایدار</b>
+      
+      <span class="topic">اقتصادی و معیشت · فردی</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۷۸</b><b>شدت ۶۸</b>
+      <span>شایع و سنگین</span></div>
+    <p class="cl-s">با اشتغالِ غیررسمیِ بالا، «شاغل بودن» تضمینِ امنیت نیست.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-informal">۶۰٪ — حدودِ ۶۰٪ اشتغالِ ایران غیررسمی است — یعنی یک هفته توق…</a><a href="data.html#c-grad-unemployment">۴۰٪ — ۴۰٪ بیکارانِ کشور فارغ‌التحصیلِ دانشگاهی‌اند.…</a></dd></dl>
+  </article><article class="cl pr" id="p-darman"
+      data-dom="health" data-lvl="خانوار" data-pop=""
+      data-q="هزینهٔ درمان ">
+    <div class="cl-h">
+      <span class="swatch s-health"></span>
+      <b>هزینهٔ درمان</b>
+      
+      <span class="topic">سلامت جسم و درمان · خانوار</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۷۰</b><b>شدت ۷۴</b>
+      <span>شایع و سنگین</span></div>
+    
+    
+  </article><article class="cl pr" id="p-khoshoonat"
+      data-dom="safety" data-lvl="خانوار" data-pop="زنان کودکان"
+      data-q="خشونت خانگی نمونهٔ روشنِ «کم‌ثبت، پرشدت»: در آمارِ رسمی به‌شدت کمتر از واقعیت دیده می‌شود.">
+    <div class="cl-h">
+      <span class="swatch s-safety"></span>
+      <b>خشونت خانگی</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">امنیت و آسیب حاد · خانوار · زنان، کودکان</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۴۶</b><b>شدت ۸۸</b>
+      <span>نادر اما ویرانگر</span></div>
+    <p class="cl-s">نمونهٔ روشنِ «کم‌ثبت، پرشدت»: در آمارِ رسمی به‌شدت کمتر از واقعیت دیده می‌شود.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-home-bargaining">کیفی — یکی از ماندگارترین تغییراتِ ۱۴۰۱، جابه‌جاییِ قدرتِ چان…</a></dd></dl>
+  </article><article class="cl pr" id="p-keyfiat"
+      data-dom="housing" data-lvl="محله" data-pop=""
+      data-q="کیفیت پایین مسکن ">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>کیفیت پایین مسکن</b>
+      
+      <span class="topic">مسکن، شهر، محیط · محله</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۷۲</b><b>شدت ۵۵</b>
+      <span>شایع و سنگین</span></div>
+    
+    
+  </article><article class="cl pr" id="p-bedehi"
+      data-dom="eco" data-lvl="خانوار" data-pop=""
+      data-q="بدهی خانوار در زندگی زیاد است ولی در دادهٔ رسمی کم ثبت می‌شود.">
+    <div class="cl-h">
+      <span class="swatch s-eco"></span>
+      <b>بدهی خانوار</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">اقتصادی و معیشت · خانوار</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۵۸</b><b>شدت ۶۸</b>
+      <span>شایع و سنگین</span></div>
+    <p class="cl-s">در زندگی زیاد است ولی در دادهٔ رسمی کم ثبت می‌شود.</p>
+    
+  </article><article class="cl pr" id="p-bimari"
+      data-dom="health" data-lvl="فردی" data-pop=""
+      data-q="بیماری مزمن ">
+    <div class="cl-h">
+      <span class="swatch s-health"></span>
+      <b>بیماری مزمن</b>
+      
+      <span class="topic">سلامت جسم و درمان · فردی</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۵۱</b><b>شدت ۷۲</b>
+      <span>شایع و سنگین</span></div>
+    
+    
+  </article><article class="cl pr" id="p-aloodegi"
+      data-dom="housing" data-lvl="محله" data-pop=""
+      data-q="آلودگی هوا ">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>آلودگی هوا</b>
+      
+      <span class="topic">مسکن، شهر، محیط · محله</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۸۰</b><b>شدت ۴۴</b>
+      <span>شایع و آزارنده</span></div>
+    
+    
+  </article><article class="cl pr" id="p-terafik"
+      data-dom="housing" data-lvl="ساختاری" data-pop=""
+      data-q="ترافیک و زمان تلف‌شده ">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>ترافیک و زمان تلف‌شده</b>
+      
+      <span class="topic">مسکن، شهر، محیط · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۹۱</b><b>شدت ۳۳</b>
+      <span>شایع و آزارنده</span></div>
+    
+    
+  </article><article class="cl pr" id="p-farsoodegi"
+      data-dom="psych" data-lvl="خانوار" data-pop="زنان"
+      data-q="فرسودگی مراقبت کارِ مراقبتیِ بی‌مزد، عمدتاً بر دوشِ زنان و عمدتاً نامرئی در آمار.">
+    <div class="cl-h">
+      <span class="swatch s-psych"></span>
+      <b>فرسودگی مراقبت</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">روانی و پیوند اجتماعی · خانوار · زنان</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۴۵</b><b>شدت ۶۵</b>
+      <span>نادر اما ویرانگر</span></div>
+    <p class="cl-s">کارِ مراقبتیِ بی‌مزد، عمدتاً بر دوشِ زنان و عمدتاً نامرئی در آمار.</p>
+    
+  </article><article class="cl pr" id="p-tanhaee"
+      data-dom="psych" data-lvl="فردی" data-pop=""
+      data-q="تنهایی و انزوا ">
+    <div class="cl-h">
+      <span class="swatch s-psych"></span>
+      <b>تنهایی و انزوا</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">روانی و پیوند اجتماعی · فردی</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۶۴</b><b>شدت ۴۴</b>
+      <span>شایع و آزارنده</span></div>
+    
+    
+  </article><article class="cl pr" id="p-ravan"
+      data-dom="health" data-lvl="فردی" data-pop=""
+      data-q="سلامت روان روزمره پنهان‌تر: بیشتر از آنچه ثبت می‌شود تجربه می‌شود.">
+    <div class="cl-h">
+      <span class="swatch s-health"></span>
+      <b>سلامت روان روزمره</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">سلامت جسم و درمان · فردی</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۷۶</b><b>شدت ۳۶</b>
+      <span>شایع و آزارنده</span></div>
+    <p class="cl-s">پنهان‌تر: بیشتر از آنچه ثبت می‌شود تجربه می‌شود.</p>
+    
+  </article><article class="cl pr" id="p-maloliat"
+      data-dom="health" data-lvl="ساختاری" data-pop=""
+      data-q="معلولیت بدون حمایت ">
+    <div class="cl-h">
+      <span class="swatch s-health"></span>
+      <b>معلولیت بدون حمایت</b>
+      
+      <span class="topic">سلامت جسم و درمان · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۳۶</b><b>شدت ۶۶</b>
+      <span>نادر اما ویرانگر</span></div>
+    
+    
+  </article><article class="cl pr" id="p-tark"
+      data-dom="edu" data-lvl="خانوار" data-pop="کودکان"
+      data-q="ترک تحصیل ">
+    <div class="cl-h">
+      <span class="swatch s-edu"></span>
+      <b>ترک تحصیل</b>
+      
+      <span class="topic">آموزش و فرصت · خانوار · کودکان</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۶۰</b><b>شدت ۳۸</b>
+      <span>شایع و آزارنده</span></div>
+    
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-students">۴٫۸م ← ۳٫۱۸م — جمعیتِ دانشجویی از اوجِ ۴٫۸ میلیون به حدودِ ۳٫۱۸ میلیو…</a></dd></dl>
+  </article><article class="cl pr" id="p-etiad"
+      data-dom="safety" data-lvl="خانوار" data-pop=""
+      data-q="اعتیاد شدید ">
+    <div class="cl-h">
+      <span class="swatch s-safety"></span>
+      <b>اعتیاد شدید</b>
+      
+      <span class="topic">امنیت و آسیب حاد · خانوار</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۲۷</b><b>شدت ۷۷</b>
+      <span>نادر اما ویرانگر</span></div>
+    
+    
+  </article><article class="cl pr" id="p-salmand"
+      data-dom="health" data-lvl="خانوار" data-pop="سالمندان"
+      data-q="تنهاییِ سالمندی و مراقبت با سالمندیِ پنج‌برابریِ نرخِ رشدِ جمعیت، سهمِ این نقطه بالا می‌رود.">
+    <div class="cl-h">
+      <span class="swatch s-health"></span>
+      <b>تنهاییِ سالمندی و مراقبت</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">سلامت جسم و درمان · خانوار · سالمندان</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۴۰</b><b>شدت ۵۱</b>
+      <span>نادر اما ویرانگر</span></div>
+    <p class="cl-s">با سالمندیِ پنج‌برابریِ نرخِ رشدِ جمعیت، سهمِ این نقطه بالا می‌رود.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-aging">۵× نرخِ رشدِ کل — سالمندی با پنج برابرِ نرخِ رشدِ کلِ جمعیت پیش می‌رود.…</a><a href="data.html#c-fertility">۱٫۳۵–۱٫۷ — باروری ۱٫۳۵ تا ۱٫۷ — زیرِ سطحِ جانشینی.…</a></dd></dl>
+  </article><article class="cl pr" id="p-boroukrasi"
+      data-dom="housing" data-lvl="ساختاری" data-pop=""
+      data-q="صف و بوروکراسی ">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>صف و بوروکراسی</b>
+      
+      <span class="topic">مسکن، شهر، محیط · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۸۳</b><b>شدت ۱۹</b>
+      <span>شایع و آزارنده</span></div>
+    
+    
+  </article><article class="cl pr" id="p-tard"
+      data-dom="psych" data-lvl="ساختاری" data-pop="اقلیت‌ها"
+      data-q="طرد اجتماعی اقلیت برای گروهِ هدف بسیار سنگین است، حتی وقتی سهمِ جمعیتی‌اش کوچک است.">
+    <div class="cl-h">
+      <span class="swatch s-psych"></span>
+      <b>طرد اجتماعی اقلیت</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">روانی و پیوند اجتماعی · ساختاری · اقلیت‌ها</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۳۴</b><b>شدت ۴۴</b>
+      <span>کم‌شیوع و خفیف</span></div>
+    <p class="cl-s">برای گروهِ هدف بسیار سنگین است، حتی وقتی سهمِ جمعیتی‌اش کوچک است.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-babi">۱۸۴۴–۱۸۵۰ — جنبشِ باب از ۱۸۴۴ آغاز شد و باب در ۱۸۵۰ اعدام شد؛ اثرِ…</a><a href="data.html#c-not-always-good">تصحیحِ ادعا — «تا ۱۹۷۹ تقریباً بی‌وقفه مثبت» اغراق است: در صفوی و او…</a></dd></dl>
+  </article><article class="cl pr" id="p-bohran"
+      data-dom="safety" data-lvl="ساختاری" data-pop=""
+      data-q="فاجعه و بحران حاد نادر ولی ویرانگر — پاسخش آمادگی است، نه سیاستِ روزمره.">
+    <div class="cl-h">
+      <span class="swatch s-safety"></span>
+      <b>فاجعه و بحران حاد</b>
+      
+      <span class="topic">امنیت و آسیب حاد · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۱۶</b><b>شدت ۹۲</b>
+      <span>نادر اما ویرانگر</span></div>
+    <p class="cl-s">نادر ولی ویرانگر — پاسخش آمادگی است، نه سیاستِ روزمره.</p>
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-war-1404">اسفند ۱۴۰۴ – — از اسفندِ ۱۴۰۴ جنگی در جریان بوده که در آن ایران زیرِ …</a></dd></dl>
+  </article><article class="cl pr" id="p-bikhanemani"
+      data-dom="housing" data-lvl="فردی" data-pop=""
+      data-q="بی‌خانمانی ">
+    <div class="cl-h">
+      <span class="swatch s-housing"></span>
+      <b>بی‌خانمانی</b>
+      
+      <span class="topic">مسکن، شهر، محیط · فردی</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۱۸</b><b>شدت ۸۰</b>
+      <span>نادر اما ویرانگر</span></div>
+    
+    
+  </article><article class="cl pr" id="p-mohajer"
+      data-dom="psych" data-lvl="فردی" data-pop="مهاجران"
+      data-q="بی‌ثباتی وضعِ اقامت ">
+    <div class="cl-h">
+      <span class="swatch s-psych"></span>
+      <b>بی‌ثباتی وضعِ اقامت</b>
+      <span class="flag">کم‌ثبت در آمارِ رسمی</span>
+      <span class="topic">روانی و پیوند اجتماعی · فردی · مهاجران</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۲۴</b><b>شدت ۶۰</b>
+      <span>نادر اما ویرانگر</span></div>
+    
+    
+  </article><article class="cl pr" id="p-nabarabari"
+      data-dom="edu" data-lvl="ساختاری" data-pop=""
+      data-q="نابرابری فرصت شغلی ">
+    <div class="cl-h">
+      <span class="swatch s-edu"></span>
+      <b>نابرابری فرصت شغلی</b>
+      
+      <span class="topic">آموزش و فرصت · ساختاری</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۴۶</b><b>شدت ۳۰</b>
+      <span>کم‌شیوع و خفیف</span></div>
+    
+    <dl class="cl-m"><dt>ادعای مرتبط</dt><dd class="wh"><a href="data.html#c-middle-class">۸۴٪ ← ۵۶٪ — طبقهٔ متوسط از ۸۴٪ (سناریوی بدونِ تحریم) به ۵۶٪ واقعیت…</a></dd></dl>
+  </article><article class="cl pr" id="p-digital"
+      data-dom="edu" data-lvl="محله" data-pop=""
+      data-q="شکاف دیجیتال ">
+    <div class="cl-h">
+      <span class="swatch s-edu"></span>
+      <b>شکاف دیجیتال</b>
+      
+      <span class="topic">آموزش و فرصت · محله</span>
+    </div>
+    <div class="cl-v"><b>فراوانی ۳۸</b><b>شدت ۲۲</b>
+      <span>کم‌شیوع و خفیف</span></div>
+    
+    
+  </article></div>
+  <p class="none" id="pnone" hidden>هیچ موردی با این فیلترها نیست.</p>
+</div></section>
+</div>
+<footer class="site"><div class="wrap">
+  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ یک بازی و یک اسطوره.</p>
+  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
+  <p>برای جست‌وجو در همهٔ مطالب، کلیدِ <code>/</code> را بزنید یا دکمهٔ «همهٔ مطالب» را.</p>
+</div></footer>
+<script>
+document.addEventListener("click",function(e){
+  var a=e.target.closest("[data-open-shell]");
+  if(a){e.preventDefault();var b=document.getElementById("tb-menu");if(b)b.click();}
+});
+</script>
+</body>
+</html>
