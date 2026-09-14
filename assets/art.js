@@ -387,6 +387,69 @@
       'دو ستون روی یک زمین: قطبِ ایرانشهری و قطبِ شیعی، با رشته‌ای میانشان');
   };
 
+  /* ── دفتر: سطرهای داده با یک ستونِ پررنگ ── */
+  A.ledger = function () {
+    var b = '<rect x="26" y="18" width="268" height="200" rx="9" fill="none" stroke="' + M + '" stroke-width="1.4"/>';
+    b += '<path d="M26 46H294" stroke="' + M + '" stroke-width="1.4"/>';
+    b += '<path d="M212 18V218" stroke="' + M + '" stroke-width="1.2" stroke-dasharray="4 4"/>';
+    for (var i = 0; i < 6; i++) {
+      var y = 64 + i * 26;
+      b += '<path d="M40 ' + y + 'H198" stroke="' + M + '" stroke-width="1.3" opacity="' + (0.8 - i * 0.09) + '"/>';
+      var w = [30, 22, 26, 18, 24, 20][i];
+      b += '<rect x="226" y="' + (y - 7) + '" width="' + w + '" height="9" rx="2" fill="' + G + '" opacity="' + (0.95 - i * 0.1) + '"/>';
+    }
+    b += '<circle cx="34" cy="32" r="3" fill="' + G + '"/>';
+    b += '<path d="M46 32h70" stroke="' + G + '" stroke-width="1.6"/>';
+    return svg(320, 236, b, 'دفتری با سطرهای داده و یک ستونِ عددیِ پررنگ');
+  };
+
+  /* ── مارپیچ: زمانِ فشرده‌شونده ── */
+  A.spiral = function () {
+    var b = '', cx = 160, cy = 118, pts = [];
+    for (var t = 0; t <= 760; t += 4) {
+      var a = t * Math.PI / 180, r = 8 + t * 0.125;
+      pts.push((cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a) * 0.62).toFixed(1));
+    }
+    b += '<path d="M' + pts.join('L') + '" fill="none" stroke="' + M +
+         '" stroke-width="1.4" stroke-linecap="round"/>';
+    var marks = [70, 190, 330, 470, 560, 630, 690, 730];
+    for (var k = 0; k < marks.length; k++) {
+      var aa = marks[k] * Math.PI / 180, rr = 8 + marks[k] * 0.125;
+      b += '<circle cx="' + (cx + rr * Math.cos(aa)).toFixed(1) + '" cy="' +
+           (cy + rr * Math.sin(aa) * 0.62).toFixed(1) + '" r="' + (3 + k * 0.35).toFixed(1) +
+           '" fill="' + (k > 4 ? G : B) + '"/>';
+    }
+    return svg(320, 236, b, 'مارپیچِ زمان — رویدادها هرچه به امروز نزدیک‌تر، متراکم‌تر');
+  };
+
+  /* ── ذره‌بین روی یک سطر ── */
+  A.loupe = function () {
+    var b = '';
+    for (var i = 0; i < 5; i++)
+      b += '<path d="M34 ' + (48 + i * 30) + 'H240" stroke="' + M +
+           '" stroke-width="1.4" opacity="' + (0.75 - i * 0.1) + '"/>';
+    b += '<path d="M34 108H190" stroke="' + R + '" stroke-width="2.4"/>';
+    b += '<circle cx="196" cy="132" r="52" fill="none" stroke="' + G + '" stroke-width="2.4"/>';
+    b += '<circle cx="196" cy="132" r="52" fill="' + G + '" opacity="0.07"/>';
+    b += '<path d="M233 169L272 208" stroke="' + G + '" stroke-width="4" stroke-linecap="round"/>';
+    return svg(320, 236, b, 'ذره‌بینی که روی یکی از سطرها ایستاده');
+  };
+
+  /* ── چهار ربع با نقطه‌های پراکنده ── */
+  A.quad = function () {
+    var b = '<rect x="26" y="20" width="268" height="176" rx="9" fill="none" stroke="' + M + '" stroke-width="1.4"/>';
+    b += '<path d="M160 20V196M26 108H294" stroke="' + M + '" stroke-width="1.1"/>';
+    var pts = [[232,52,G],[262,66,R],[210,44,G],[246,88,B],[196,74,F],
+               [96,50,R],[72,72,R],[120,62,F],
+               [242,140,B],[268,160,B],[214,132,F],[252,176,G],
+               [88,150,G],[112,168,B],[66,136,F]];
+    for (var i = 0; i < pts.length; i++)
+      b += '<circle cx="' + pts[i][0] + '" cy="' + pts[i][1] + '" r="5" fill="' + pts[i][2] + '" opacity="0.85"/>';
+    b += '<circle cx="140" cy="86" r="5" fill="none" stroke="' + R + '" stroke-width="1.6" stroke-dasharray="3 2"/>';
+    b += '<circle cx="178" cy="120" r="5" fill="none" stroke="' + B + '" stroke-width="1.6" stroke-dasharray="3 2"/>';
+    return svg(320, 216, b, 'نقشهٔ چهارربعی با نقطه‌های پراکنده، بعضی توپُر و بعضی خط‌چین');
+  };
+
   A.threads = function () {
     var a = 'M300 40 C240 40 210 62 150 62 C90 62 58 96 20 96',
         c = 'M300 96 C240 96 210 74 150 74 C90 74 58 40 20 40';

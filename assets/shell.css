@@ -72,37 +72,11 @@
   #tb-crumbs .crumb:not(.now){display:none}
   #tb-crumbs .sep{display:none}
 }
-@media print{#topbar,#spine{display:none!important}}
-
-/* ══ نوارِ پنج پله ══ */
-#spine{
-  position:sticky; top:var(--s-bar); z-index:8900;
-  background:var(--s-surface2); border-bottom:1px solid var(--s-line);
-  font-family:var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
-  overflow-x:auto; scrollbar-width:none;
-}
-#spine::-webkit-scrollbar{display:none}
-#spine .in{display:flex;gap:6px;padding:9px 14px;max-width:1120px;margin:0 auto;min-width:max-content}
-#spine a b{white-space:nowrap}
-#spine a{
-  display:flex; align-items:baseline; gap:7px; text-decoration:none; white-space:nowrap;
-  color:var(--s-muted); border:1px solid transparent; border-radius:99px;
-  padding:6px 13px; transition:.15s;
-}
-#spine a i{
-  font-style:normal; width:18px; height:18px; border-radius:99px; flex:none;
-  background:var(--s-line); color:var(--s-text); font-size:.64rem; font-weight:800;
-  display:inline-grid; place-items:center; align-self:center;
-}
-#spine a b{font-size:.85rem;font-weight:700}
-#spine a:hover{color:var(--s-text);border-color:var(--s-line)}
-#spine a.on{background:var(--s-surface);border-color:var(--s-zar);color:var(--s-text)}
-#spine a.on i{background:var(--s-zar);color:#12161f}
-#spine a.on b{color:var(--s-zar)}
+@media print{#topbar{display:none!important}}
 
 /* لنگرها زیرِ نوارِ چسبان پنهان نشوند */
-:target{scroll-margin-top:calc(var(--s-bar) + 56px)}
-[id]{scroll-margin-top:calc(var(--s-bar) + 56px)}
+:target{scroll-margin-top:calc(var(--s-bar) + 14px)}
+[id]{scroll-margin-top:calc(var(--s-bar) + 14px)}
 
 /* ══ دکمهٔ کپیِ نشانیِ بخش ══ */
 .anchor-copy{
@@ -183,3 +157,14 @@ body.shell-open #shell{display:block}
 #shell .links a[aria-current] b{color:var(--s-zar)}
 #shell .foot{border-top:1px solid var(--s-line);padding-top:14px;color:var(--s-muted);
   font-size:.79rem;line-height:1.9}
+
+/* ══ غربالِ وجه در کشو ══ */
+#shell .fsieve{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+#shell .fchip{cursor:pointer;background:var(--s-surface);color:var(--s-muted);
+  border:1px solid var(--s-line);border-radius:99px;padding:7px 15px;min-height:36px;
+  font:700 .79rem/1 inherit;transition:.15s}
+#shell .fchip:hover{color:var(--s-text);border-color:var(--s-zar)}
+#shell .fchip.on{background:var(--s-zar);border-color:var(--s-zar);color:#12161f}
+#shell .links .fl{display:flex;gap:5px;margin-top:7px}
+#shell .links .fl i{font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.03em;
+  border-radius:5px;padding:2px 7px;background:var(--s-surface2);color:var(--s-muted)}

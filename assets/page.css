@@ -272,3 +272,233 @@ figure.fig th{background:var(--s-surface2);color:var(--s-zar);font-size:.78rem}
   border:1px solid var(--s-line);border-radius:5px;padding:2px 6px;
   white-space:nowrap;margin-inline-start:5px;vertical-align:middle;
 }
+
+/* ════════════════════════════════════════════════════════════
+   لایهٔ داده — میزِ داده، خطِ زمان، دفترِ ممیزی، و نمایهٔ تخت.
+   ════════════════════════════════════════════════════════════ */
+
+/* ── کاشی‌های آمار ── */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0 0 18px}
+.tile{background:var(--s-surface);border:1px solid var(--s-line);border-radius:14px;padding:16px 18px}
+.tile b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:1.9rem;line-height:1.1;color:var(--s-zar);font-weight:600}
+.tile span{display:block;font-size:.79rem;color:var(--s-muted);line-height:1.65;margin-top:5px}
+.tile.em{background:color-mix(in srgb,var(--s-shangarf) 7%,var(--s-surface));
+  border-color:color-mix(in srgb,var(--s-shangarf) 26%,var(--s-line))}
+.tile.em b{color:var(--s-shangarf)}
+
+/* ── راهنمای رده ── */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:0 0 14px}
+.td{border:1px solid var(--s-line);border-radius:12px;padding:14px 16px;background:var(--s-surface)}
+.td b{display:block;font-size:.92rem;margin-bottom:5px}
+.td p{margin:0;font-size:.85rem;line-height:1.8;color:var(--s-muted)}
+.td.tc1{border-inline-start:4px solid var(--s-lajvard)}
+.td.tc2{border-inline-start:4px solid color-mix(in srgb,var(--s-lajvard) 55%,var(--s-bg))}
+.td.tc3{border-inline-start:4px solid color-mix(in srgb,var(--s-lajvard) 26%,var(--s-bg))}
+
+/* ── غربال ── */
+.filters{margin:0 0 20px}
+.filters input[type=search]{width:100%;padding:13px 16px;border-radius:12px;
+  border:1px solid var(--s-line);background:var(--s-surface2);color:var(--s-text);
+  font:400 .96rem/1.6 inherit;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px}
+.chip{cursor:pointer;background:var(--s-surface);color:var(--s-muted);
+  border:1px solid var(--s-line);border-radius:99px;padding:7px 14px;min-height:36px;
+  font:700 .78rem/1 inherit;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+.chip:hover{color:var(--s-text);border-color:var(--s-zar)}
+.chip.on{background:var(--s-zar);border-color:var(--s-zar);color:#12161f}
+.chip i{font-style:normal;font-size:.68rem;font-weight:800;opacity:.72;
+  font-family:"IBM Plex Mono",ui-monospace,monospace}
+.chip em{font-style:normal;font-weight:400;font-size:.72rem;opacity:.7;
+  display:block;margin-top:2px}
+.chips.wide .chip{flex-direction:column;align-items:flex-start;gap:0;
+  border-radius:12px;padding:9px 14px;text-align:start}
+.chip.warn.on{background:var(--s-shangarf);border-color:var(--s-shangarf);color:#fff}
+.chip.clear{border-style:dashed}
+.count{font-size:.8rem;color:var(--s-muted);margin:4px 0 0}
+.none{color:var(--s-muted);font-size:.9rem}
+
+/* ── کارتِ ادعا ── */
+.claims{display:grid;gap:12px}
+.cl{background:var(--s-surface);border:1px solid var(--s-line);border-radius:14px;padding:16px 18px;
+  scroll-margin-top:calc(var(--s-bar,62px) + 16px)}
+.cl:target{border-color:var(--s-zar);box-shadow:0 0 0 3px color-mix(in srgb,var(--s-zar) 22%,transparent)}
+.cl-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:9px}
+.cl-h .n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+  color:var(--s-muted);min-width:2.1em}
+.tier{font-size:.66rem;font-weight:700;letter-spacing:.02em;border-radius:6px;padding:3px 8px;
+  background:var(--s-surface2);color:var(--s-muted)}
+.tier.t1{background:color-mix(in srgb,var(--s-lajvard) 18%,var(--s-surface));color:var(--s-lajvard)}
+.tier.t2{background:color-mix(in srgb,var(--s-lajvard) 10%,var(--s-surface));color:var(--s-lajvard)}
+.cl-h .flag{font-size:.66rem;font-weight:700;border-radius:6px;padding:3px 8px;
+  background:color-mix(in srgb,var(--s-shangarf) 14%,var(--s-surface));color:var(--s-shangarf)}
+.cl-h .topic{margin-inline-start:auto;font-size:.7rem;color:var(--s-muted)}
+.cl-s{margin:0 0 10px;font-size:1rem;line-height:1.95}
+.cl-v{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin:0 0 12px;
+  padding:9px 13px;border-radius:10px;background:var(--s-surface2)}
+.cl-v b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1rem;color:var(--s-zar)}
+.cl-v span{font-size:.76rem;color:var(--s-muted)}
+.cl-m{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;align-items:baseline}
+.cl-m dt{font-size:.7rem;font-weight:700;color:var(--s-muted);white-space:nowrap}
+.cl-m dd{margin:0;font-size:.86rem;line-height:1.85}
+.cl-m dd.fals{color:var(--s-muted)}
+.cl-m dd.warn-i{color:var(--s-shangarf)}
+.cl-m dd.wh{display:flex;flex-wrap:wrap;gap:8px}
+.cl-m dd.wh a{font-size:.8rem}
+@media(max-width:560px){.cl-m{grid-template-columns:1fr;gap:2px 0}
+  .cl-m dt{margin-top:8px}}
+
+/* ── خطِ زمان ── */
+.bands{display:grid;gap:34px;margin:26px 0 10px}
+.band-h{border-block-end:2px solid var(--s-zar);padding-bottom:9px;margin-bottom:16px}
+.band-h h2{margin:0;font-size:1.35rem}
+.band-h p{margin:4px 0 0;display:flex;gap:12px;font-size:.78rem;color:var(--s-muted)}
+.band-h .span{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;inset-block:6px;inset-inline-start:7px;
+  width:2px;background:var(--s-line)}
+.ev{position:relative;padding-inline-start:30px;padding-bottom:20px}
+.ev::before{content:"";position:absolute;inset-inline-start:1px;top:7px;width:14px;height:14px;
+  border-radius:99px;background:var(--s-bg);border:2px solid var(--s-lajvard)}
+.ev.tv2::before{border-color:color-mix(in srgb,var(--s-lajvard) 55%,var(--s-bg))}
+.ev.tv3::before{border-color:color-mix(in srgb,var(--s-lajvard) 28%,var(--s-bg))}
+.ev .yr{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.76rem;color:var(--s-zar);font-weight:600;margin-bottom:3px}
+.ev .bd p{margin:0 0 5px;font-size:.94rem;line-height:1.9}
+.ev .bd .meta{font-size:.76rem;color:var(--s-muted);display:flex;flex-wrap:wrap;
+  align-items:center;gap:6px}
+.ev .bd .meta b{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--s-text)}
+.tg{font-size:.64rem;font-weight:700;border-radius:5px;padding:2px 7px;
+  background:var(--s-surface2);color:var(--s-muted)}
+.tg.warn{background:color-mix(in srgb,var(--s-shangarf) 14%,var(--s-surface));color:var(--s-shangarf)}
+.ev .bd .src{font-size:.76rem;color:var(--s-muted);font-style:italic}
+.ev .go{font-size:.77rem}
+.pts{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.pts li{font-size:.95rem;line-height:1.95;padding-inline-start:16px;position:relative}
+.pts li::before{content:"";position:absolute;inset-inline-start:0;top:.78em;width:6px;height:6px;
+  border-radius:99px;background:var(--s-zar)}
+
+/* ── ممیزی ── */
+.finds.audit article{border-inline-start:4px solid var(--s-line)}
+.sev{font-size:.64rem;font-weight:800;border-radius:5px;padding:3px 8px;
+  margin-inline-end:8px;vertical-align:middle}
+.sev.s-hi{background:var(--s-shangarf);color:#fff}
+.sev.s-md{background:color-mix(in srgb,var(--s-zar) 82%,var(--s-bg));color:#12161f}
+.sev.s-ok{background:var(--s-surface2);color:var(--s-muted)}
+.finds.audit .fix{border-top:1px dashed var(--s-line);padding-top:9px;margin-top:10px;
+  font-size:.88rem;color:var(--s-muted)}
+
+/* ── نمایهٔ تخت ── */
+.ixgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ix{display:flex;gap:14px;align-items:flex-start;background:var(--s-surface);
+  border:1px solid var(--s-line);border-radius:14px;padding:14px 16px;
+  text-decoration:none;color:var(--s-text);transition:.16s}
+.ix:hover{border-color:var(--s-zar);transform:translateY(-2px);box-shadow:var(--s-shadow)}
+.ix.core{border-color:color-mix(in srgb,var(--s-zar) 40%,var(--s-line));
+  background:color-mix(in srgb,var(--s-zar) 4%,var(--s-surface))}
+.ix-a{flex:none;width:62px;height:62px;opacity:.92}
+.ix-b{min-width:0}
+.ix-b b{display:block;font-size:1rem;margin-bottom:3px}
+.ix-d{display:block;font-size:.82rem;color:var(--s-muted);line-height:1.75}
+.ix-m{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ix-m i{font-style:normal;font-size:.64rem;font-weight:700;border-radius:5px;padding:2px 7px;
+  background:var(--s-surface2);color:var(--s-muted)}
+.ix-m i.cl{background:color-mix(in srgb,var(--s-lajvard) 13%,var(--s-surface));color:var(--s-lajvard)}
+.ix-m i.fc{background:transparent;border:1px solid var(--s-line)}
+.faonly{font-style:normal;font-size:.62rem;font-weight:700;border-radius:5px;padding:2px 6px;
+  background:var(--s-surface2);color:var(--s-muted);vertical-align:middle}
+.isnt ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.isnt li{font-size:.92rem;line-height:1.9;padding-inline-start:18px;position:relative}
+.isnt li::before{position:absolute;inset-inline-start:0;top:0;font-weight:800}
+.isnt.ok li::before{content:"✓";color:var(--s-firuze)}
+.isnt.no li::before{content:"✕";color:var(--s-shangarf)}
+.isnt h3{font-size:1rem;margin:0 0 10px}
+.hero.db .art{max-width:210px}
+
+/* ── نقشهٔ مشکل‌ها ──
+   نمودار با هندسهٔ فیزیکی (LTR) چیده می‌شود — فراوانی به راست، شدت به بالا —
+   چون خودِ چارچوب همین‌طور خوانده می‌شود. برچسب‌ها RTL می‌مانند. */
+.pmap{position:relative;margin:8px 0 14px;padding:26px 58px 44px 58px}
+.pmap .plane{direction:ltr;position:relative;aspect-ratio:16/10;min-height:360px;
+  border:1px solid var(--s-line);border-radius:12px;overflow:hidden;
+  background:
+    linear-gradient(to right,
+      color-mix(in srgb,var(--s-lajvard) 7%,transparent) 0 50%,
+      color-mix(in srgb,var(--s-shangarf) 7%,transparent) 50%) top/100% 50% no-repeat,
+    linear-gradient(to right,
+      color-mix(in srgb,var(--s-firuze) 7%,transparent) 0 50%,
+      color-mix(in srgb,var(--s-zar) 8%,transparent) 50%) bottom/100% 50% no-repeat,
+    var(--s-surface)}
+.pmap .plane::before,.pmap .plane::after{content:"";position:absolute;background:var(--s-line)}
+.pmap .plane::before{left:0;right:0;top:50%;height:1px}
+.pmap .plane::after{top:0;bottom:0;left:50%;width:1px}
+.pmap .ax{position:absolute;font-size:.73rem;color:var(--s-muted);font-weight:700}
+.pmap .ax2{left:0;right:0;bottom:8px;text-align:center}
+.pmap .ay{top:0;bottom:44px;right:10px;writing-mode:vertical-rl;
+  display:flex;align-items:center;justify-content:center}
+.pmap .end{position:absolute;font-size:.66rem;color:var(--s-muted);opacity:.85}
+.pmap .e-tl{top:20px;left:12px}
+.pmap .e-bl{bottom:46px;left:12px}
+.pmap .e-lo{bottom:26px;left:58px}
+.pmap .e-hi{bottom:26px;right:58px}
+.pmap .qq{position:absolute;direction:rtl;font-size:.7rem;font-weight:700;
+  color:var(--s-muted);opacity:.8;pointer-events:none;z-index:1;max-width:38%}
+.pmap .q1{top:12px;right:14px;text-align:right}
+.pmap .q2{top:12px;left:14px;text-align:left}
+.pmap .q3{bottom:12px;right:14px;text-align:right}
+.pmap .q4{bottom:12px;left:14px;text-align:left}
+.dot{position:absolute;transform:translate(-50%,-50%);text-decoration:none;
+  direction:rtl;display:grid;justify-items:center;gap:3px;z-index:2;
+  width:max-content;max-width:118px}
+.dot i{width:13px;height:13px;border-radius:99px;display:block;
+  background:var(--dc,var(--s-zar));border:2px solid var(--dc,var(--s-zar));transition:.15s}
+.dot.hid i{background:transparent;border-style:dashed}
+.dot b{font-size:.65rem;font-weight:700;color:var(--s-text);text-align:center;
+  line-height:1.45;background:color-mix(in srgb,var(--s-bg) 84%,transparent);
+  border-radius:4px;padding:0 3px}
+.dot:hover{z-index:5}
+.dot:hover i{transform:scale(1.5)}
+.dot:hover b{color:var(--dc,var(--s-zar))}
+.d-eco{--dc:var(--s-zar)} .d-health{--dc:var(--s-firuze)}
+.d-housing{--dc:var(--s-lajvard)}
+.d-psych{--dc:color-mix(in srgb,var(--s-lajvard) 60%,var(--s-shangarf))}
+.d-safety{--dc:var(--s-shangarf)}
+.d-edu{--dc:color-mix(in srgb,var(--s-zar) 70%,var(--s-firuze))}
+.swatch{width:11px;height:11px;border-radius:99px;flex:none;background:var(--dc,var(--s-zar))}
+.swatch.s-eco{--dc:var(--s-zar)} .swatch.s-health{--dc:var(--s-firuze)}
+.swatch.s-housing{--dc:var(--s-lajvard)}
+.swatch.s-psych{--dc:color-mix(in srgb,var(--s-lajvard) 60%,var(--s-shangarf))}
+.swatch.s-safety{--dc:var(--s-shangarf)}
+.swatch.s-edu{--dc:color-mix(in srgb,var(--s-zar) 70%,var(--s-firuze))}
+.cl.pr .cl-h b{font-size:1rem}
+.cl.pr .cl-v b{font-size:.85rem}
+@media(max-width:720px){
+  .pmap{padding:20px 34px 38px 22px}
+  .pmap .plane{aspect-ratio:auto;height:58vh;min-height:300px}
+  .dot b{display:none}
+  .dot i{width:15px;height:15px}
+  .dot{max-width:none}
+  .pmap .qq{font-size:.6rem;max-width:44%}
+  .pmap .end{font-size:.58rem}
+}
+
+/* هدرِ صفحه‌های ساخته‌شده: .txt و .art مستقیم بچهٔ .hero اند (بدونِ .grid) */
+.hero.home,.hero.db{display:grid;grid-template-columns:1fr 300px;gap:44px;align-items:center}
+.hero.home .art,.hero.db .art{max-width:260px;justify-self:center}
+.hero.db .art{max-width:210px}
+.hero.home .txt,.hero.db .txt{min-width:0}
+.hero .kick{font-size:.74rem;letter-spacing:.16em;color:var(--s-zar);font-weight:700;margin:0 0 12px}
+.hero.db h1{font-size:clamp(2.2rem,5vw,3.4rem)}
+.hero.db .warn{font-size:.92rem;line-height:1.9;max-width:64ch}
+.cta a.p{background:var(--s-zar);border-color:var(--s-zar);color:#12161f}
+@media(max-width:860px){
+  .hero.home,.hero.db{grid-template-columns:1fr;gap:18px}
+  .hero.home .art,.hero.db .art{order:-1;max-width:170px;margin:0 auto}
+}
+
+/* IBM Plex Mono گلیفِ فارسی ندارد؛ روی متنِ فارسی هر حرف به فونتِ دیگری
+   می‌افتد و فاصله‌ها خراب می‌شود. پس مونو فقط جایی که واقعاً عدد است. */
+.cl-v b,.ev .bd .meta b{font-family:inherit;font-weight:700}
+.tier{display:inline-flex;align-items:center;gap:6px}
+.tier i{font-style:normal;font-weight:800;
+  padding-inline-end:6px;border-inline-end:1px solid currentColor;opacity:.75}

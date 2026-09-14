@@ -32,63 +32,46 @@
     foot: "هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی."
   };
 
-  /* ══ ستونِ روایت: پنج پله سرِ میز ══
-     هر صفحه دقیقاً روی یکی از این‌ها می‌نشیند، تا خواننده همیشه بداند کجاست. */
-  var SPINE = EN ? [
-    { n: 1, k: "table",   t: "The Table",    h: "index.html",  d: "What this is, and why a game" },
-    { n: 2, k: "rules",   t: "The Rules",    h: "rules.html",  d: "How the table works — in ten minutes" },
-    { n: 3, k: "players", t: "The Players",  h: "players.html",d: "Who is sitting here" },
-    { n: 4, k: "nights",  t: "Seven Nights", h: "nights.html", d: "Every round played so far" },
-    { n: 5, k: "card",    t: "Your Card",    h: "gam.html",    d: "What you can do tonight" }
-  ] : [
-    { n: 1, k: "table",   t: "میز",          h: "index.html",  d: "این چیست، و چرا به شکلِ بازی" },
-    { n: 2, k: "rules",   t: "قاعده‌ها",      h: "rules.html",  d: "میز چطور کار می‌کند — در ده دقیقه" },
-    { n: 3, k: "players", t: "بازیکن‌ها",     h: "players.html",d: "چه کسی این‌جا نشسته" },
-    { n: 4, k: "nights",  t: "هفت شب",       h: "nights.html", d: "هر دوری که تا حالا بازی شده" },
-    { n: 5, k: "card",    t: "کارتِ تو",      h: "gam.html",    d: "امشب چه می‌توانی بکنی" }
-  ];
-
-  /* کدام فایل روی کدام پله می‌نشیند */
-  var ON_STEP = {
-    "index.html": "table", "": "table",
-    "rules.html": "rules", "game.html": "rules",
-    "players.html": "players", "map.html": "players", "roles.html": "players",
-    "nights.html": "nights",
-    "gam.html": "card"
+  /* ══ نمایهٔ تخت ══
+     پنج‌پلهٔ قبلی برداشته شد. سلسله‌مراتبی نیست: یک فهرست، و وجه‌هایی که
+     غربال می‌کنند نه گروه‌بندی. یک مدخل می‌تواند چند وجه داشته باشد. */
+  var FACETS = EN ? {
+    shavahed: "Evidence", tarikh: "History", konesh: "Action", ravayat: "Narrative"
+  } : {
+    shavahed: "شواهد", tarikh: "تاریخ", konesh: "کنش", ravayat: "روایت"
   };
-
-  /* ══ بقیهٔ مطالب — بیرون از پنج پله ══ */
-  var OFF = EN ? [
-    { g: "Behind the cards", items: [
-      { h: "library.html", t: "Library", d: "Where every claim comes from — including what contradicts us" },
-      { h: "shared.html", t: "Iranians & Israelis", d: "47 years of enmity, 2,600 years of contact" },
-      { h: "../europe.html", t: "The Europe talk", d: "Bilingual, with slide mode and speaker notes" }
-    ]},
-    { g: "Persian only", items: [
-      { h: "../two-irans.html", t: "Two Irans", d: "How Shi'ism became Iranian, why Judaism did not, and 500 years of clerical ascent", fa: 1 },
-      { h: "../game.html", t: "The full game", d: "12 chapters, 37 characters, 44 comic panels", fa: 1 },
-      { h: "../story.html", t: "A House in Afsariyeh", d: "The novel — three Maryams, three migrations", fa: 1 },
-      { h: "../roles.html", t: "47 social roles", d: "The expanded role book", fa: 1 },
-      { h: "../map.html", t: "The Venn map", d: "74 nodes — the diagram reads without Persian", fa: 1 },
-      { h: "../downloads.html", t: "Downloads", d: "Slides, QA documents, tools", fa: 1 }
-    ]}
+  var NAV = EN ? [
+    { h: "index.html",  t: "Index",              d: "Everything, flat", f: [] },
+    { h: "../data.html",   t: "The Data Table",     d: "76 claims, each with source and tier", f: ["shavahed"], fa: 1 },
+    { h: "../problems.html", t: "Problem Map",  d: "Prevalence against lived severity", f: ["shavahed","konesh"], fa: 1 },
+    { h: "../audit.html",  t: "The Audit Log",      d: "What is weak here, in our own words", f: ["shavahed"], fa: 1 },
+    { h: "../timeline.html", t: "Timeline",         d: "The same claims, placed on time", f: ["shavahed","tarikh"], fa: 1 },
+    { h: "library.html", t: "Library",           d: "50 sources, including those that contradict us", f: ["shavahed"] },
+    { h: "shared.html", t: "Iranians & Israelis", d: "47 years of enmity, 2,600 years of contact", f: ["tarikh","shavahed"] },
+    { h: "gam.html",    t: "Your Card",          d: "18 cards — the smallest possible step", f: ["konesh"] },
+    { h: "../two-irans.html", t: "Two Irans",    d: "500 years of clerical ascent", f: ["tarikh","ravayat"], fa: 1 },
+    { h: "../game.html", t: "The Full Game",     d: "12 chapters, unabridged", f: ["ravayat","konesh","tarikh"], fa: 1 },
+    { h: "../map.html", t: "The Venn Map",       d: "The diagram reads without Persian", f: ["konesh"], fa: 1 },
+    { h: "../roles.html", t: "47 Social Roles",  d: "The expanded role book", f: ["konesh"], fa: 1 },
+    { h: "../story.html", t: "A House in Afsariyeh", d: "The novel", f: ["ravayat"], fa: 1 },
+    { h: "../europe.html", t: "The Europe Talk", d: "Slide mode and speaker notes", f: ["ravayat","shavahed"] },
+    { h: "../downloads.html", t: "Downloads",    d: "Slides, QA documents, tools", f: ["shavahed"], fa: 1 }
   ] : [
-    { g: "پشتِ کارت‌ها", items: [
-      { h: "two-irans.html", t: "دو ایران", d: "چطور شیعه ایرانی شد، چرا یهودی نشد، و روحانیت در پانصد سال چطور بالا آمد" },
-      { h: "library.html", t: "کتابخانه", d: "هر ادعا از کجا آمده — از جمله آنچه ما را رد می‌کند" },
-      { h: "shared.html", t: "ایرانیان و اسرائیلی‌ها", d: "۴۷ سال دشمنی، ۲۶۰۰ سال رابطه" },
-      { h: "europe.html", t: "ارائهٔ اروپا", d: "دوزبانه، با حالتِ اسلاید و یادداشتِ گوینده" }
-    ]},
-    { g: "متنِ کامل", items: [
-      { h: "game.html", t: "بازیِ کامل", d: "۱۲ دفتر، ۳۷ شخصیت، ۴۴ کادرِ کمیک" },
-      { h: "map.html", t: "نقشهٔ میز — نمودارِ ون", d: "۷۴ گره، هفت ناحیه، دو لایه" },
-      { h: "game.html#comic", t: "دفترچهٔ کمیک", d: "۴۴ کادر در ۸ پرده، کشیده‌شده" },
-      { h: "game.html#hazine", t: "برآوردِ هزینه", d: "جانی و مالی — مدل، نه پیش‌بینی" },
-      { h: "game.html#naghd", t: "میزِ نقد", d: "نُه جناح این سند را نقد می‌کنند" },
-      { h: "roles.html", t: "۴۷ نقشِ جامعه‌شناختی", d: "نسخهٔ گسترده‌ترِ نقش‌ها" },
-      { h: "story.html", t: "خانه‌ای در افسریه", d: "رمانِ رئالیسم جادویی — سه مریم" },
-      { h: "downloads.html", t: "دانلود و منابع", d: "پاورپوینت، سندهای QA، ابزارها" }
-    ]}
+    { h: "index.html",  t: "نمایه",               d: "همه‌چیز، تخت و بی‌سلسله‌مراتب", f: [] },
+    { h: "data.html",   t: "میزِ داده",            d: "۷۶ ادعا، هر کدام با منبع و ردهٔ اعتبار", f: ["shavahed"] },
+    { h: "problems.html", t: "نقشهٔ مشکل‌ها",       d: "دو محور: فراوانی و شدتِ زیسته", f: ["shavahed","konesh"] },
+    { h: "audit.html",  t: "دفترِ ممیزی",          d: "چه چیزی این‌جا سست است — به قلمِ خودمان", f: ["shavahed"] },
+    { h: "timeline.html", t: "خطِ زمان",           d: "همان ادعاها، این بار روی زمان", f: ["shavahed","tarikh"] },
+    { h: "library.html", t: "کتابخانه",           d: "۵۰ منبع، از جمله آن‌ها که ما را رد می‌کنند", f: ["shavahed"] },
+    { h: "shared.html", t: "ایرانیان و اسرائیلی‌ها", d: "۴۷ سال دشمنی، ۲۶۰۰ سال رابطه", f: ["tarikh","shavahed"] },
+    { h: "two-irans.html", t: "دو ایران",          d: "پانصد سال بالا رفتنِ روحانیت", f: ["tarikh","ravayat"] },
+    { h: "gam.html",    t: "قدمِ تو",              d: "۱۸ کارت — کوچک‌ترین قدمِ ممکن", f: ["konesh"] },
+    { h: "map.html",    t: "نقشهٔ میز",            d: "نمودارِ ون — سه دایره، هفت ناحیه", f: ["konesh"] },
+    { h: "roles.html",  t: "۴۷ نقشِ اجتماعی",      d: "نسخهٔ گسترده‌ترِ نقش‌ها", f: ["konesh"] },
+    { h: "game.html",   t: "متنِ کاملِ بازی",       d: "۱۲ دفتر، بی‌خلاصه", f: ["ravayat","konesh","tarikh"] },
+    { h: "story.html",  t: "خانه‌ای در افسریه",     d: "رمانِ رئالیسمِ جادویی", f: ["ravayat"] },
+    { h: "europe.html", t: "ارائهٔ اروپا",          d: "دوزبانه، با حالتِ اسلاید", f: ["ravayat","shavahed"] },
+    { h: "downloads.html", t: "دانلود و منابع",    d: "پاورپوینت، سندهای QA، ابزارها", f: ["shavahed"] }
   ];
 
   function el(tag, attrs, html) {
@@ -103,19 +86,14 @@
     });
   }
 
-  var step = ON_STEP[here] || null;
-  var cur = null;
-  for (var i = 0; i < SPINE.length; i++) if (SPINE[i].k === step) cur = SPINE[i];
 
   /* ══════════ نوارِ بالا ══════════ */
   var bar = el("header", { id: "topbar" });
-  var crumbs = cur
-    ? '<a class="crumb" href="' + BASE + 'index.html">' + (EN ? "Home" : "خانه") + '</a>' +
-      '<span class="sep" aria-hidden="true">›</span>' +
-      '<span class="crumb now" aria-current="page"><i>' + cur.n + '</i>' + esc(cur.t) + '</span>'
-    : '<a class="crumb" href="' + BASE + 'index.html">' + (EN ? "Home" : "خانه") + '</a>' +
-      '<span class="sep" aria-hidden="true">›</span>' +
-      '<span class="crumb now" aria-current="page">' + esc(document.title.split("—")[0].trim()) + '</span>';
+  var crumbs =
+    '<a class="crumb" href="' + BASE + 'index.html">' + (EN ? "Index" : "نمایه") + '</a>' +
+    '<span class="sep" aria-hidden="true">\u203a</span>' +
+    '<span class="crumb now" aria-current="page">' +
+      esc(document.title.split("\u2014")[0].trim()) + '</span>';
 
   bar.innerHTML =
     '<button id="tb-menu" type="button" aria-label="' + esc(T.map) + '">' +
@@ -135,33 +113,28 @@
   document.body.insertBefore(bar, document.body.firstChild);
   document.body.classList.add("has-topbar");
 
-  /* ══════════ نوارِ پله‌ها ══════════ */
-  if (cur) {
-    var sp = el("nav", { id: "spine", "aria-label": EN ? "Where you are" : "کجای مسیرید" });
-    sp.innerHTML = '<div class="in">' + SPINE.map(function (s) {
-      var on = s.k === cur.k;
-      return '<a href="' + BASE + s.h + '"' + (on ? ' aria-current="step" class="on"' : '') +
-        ' title="' + esc(s.d) + '"><i>' + s.n + '</i><b>' + esc(s.t) + '</b></a>';
-    }).join("") + '</div>';
-    bar.parentNode.insertBefore(sp, bar.nextSibling);
-  }
-
-  /* ══════════ کشو ══════════ */
-  var groups = '<div class="grp"><h3>' + (EN ? "The five steps" : "پنج پله") + '</h3><div class="links">' +
-    SPINE.map(function (s) {
-      var on = (s.h.split("#")[0] === here) ? ' aria-current="page"' : '';
-      return '<a href="' + BASE + s.h + '"' + on + '><b><i class="num">' + s.n + '</i>' +
-        esc(s.t) + '</b><span>' + esc(s.d) + '</span></a>';
-    }).join("") + '</div></div>' +
-    OFF.map(function (g) {
-      return '<div class="grp"><h3>' + esc(g.g) + '</h3><div class="links">' +
-        g.items.map(function (it) {
-          var on = (it.h.split("#")[0] === here) ? ' aria-current="page"' : '';
-          return '<a href="' + BASE + it.h + '"' + on + '><b>' + esc(it.t) +
-            (it.fa ? ' <em class="faonly">' + esc(T.faOnly) + '</em>' : '') +
-            '</b><span>' + esc(it.d) + '</span></a>';
-        }).join("") + '</div></div>';
-    }).join("");
+  /* ══════════ کشو — یک فهرستِ تخت، با غربالِ وجه ══════════ */
+  var groups =
+    '<div class="grp"><div class="fsieve" role="group" aria-label="' +
+      (EN ? "Filter by facet" : "غربالِ وجه") + '">' +
+      Object.keys(FACETS).map(function (k) {
+        return '<button class="fchip" type="button" data-fc="' + k + '">' +
+               esc(FACETS[k]) + '</button>';
+      }).join("") +
+      '<button class="fchip clear on" type="button" data-fc="">' +
+      (EN ? "All" : "همه") + '</button>' +
+    '</div><div class="links" id="navlinks">' +
+      NAV.map(function (it) {
+        var on = (it.h.split("#")[0].replace("../", "") === here) ? ' aria-current="page"' : '';
+        return '<a href="' + BASE + it.h + '"' + on + ' data-fc="' + it.f.join(" ") + '">' +
+          '<b>' + esc(it.t) +
+          (it.fa ? ' <em class="faonly">' + esc(T.faOnly) + '</em>' : '') + '</b>' +
+          '<span>' + esc(it.d) + '</span>' +
+          (it.f.length ? '<span class="fl">' + it.f.map(function (f) {
+            return '<i class="f-' + f + '">' + esc(FACETS[f]) + '</i>'; }).join("") + '</span>' : '') +
+        '</a>';
+      }).join("") +
+    '</div></div>';
 
   var box = el("div", { id: "shell", role: "dialog", "aria-label": T.map });
   box.innerHTML =
@@ -178,6 +151,23 @@
       '<div class="foot">' + T.foot + '</div>' +
     '</div>';
   document.body.appendChild(box);
+
+
+  /* غربالِ وجه در کشو */
+  (function () {
+    var sieve = document.querySelector("#shell .fsieve");
+    if (!sieve) return;
+    sieve.addEventListener("click", function (e) {
+      var b = e.target.closest(".fchip"); if (!b) return;
+      var f = b.getAttribute("data-fc");
+      Array.prototype.forEach.call(sieve.querySelectorAll(".fchip"), function (x) {
+        x.classList.toggle("on", x === b);
+      });
+      Array.prototype.forEach.call(document.querySelectorAll("#navlinks a"), function (a) {
+        a.hidden = !!f && (" " + a.getAttribute("data-fc") + " ").indexOf(" " + f + " ") < 0;
+      });
+    });
+  })();
 
   var q = document.getElementById("shellq"), hits = document.getElementById("shellhits");
   function open() { document.body.classList.add("shell-open"); setTimeout(function () { q.focus(); }, 40); }
@@ -311,4 +301,86 @@
     tmr = setTimeout(function () { search(v); }, 130);
   });
   q.addEventListener("focus", load);
+})();
+
+/* ════════════════════════════════════════════════════════════
+   غربالِ صفحه‌ای — میزِ داده و نمایه.
+   یک موتور برای هر دو: چیپ‌های data-f/data-v و یک جست‌وجوی متنی.
+   ════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+  function norm(s) {
+    return String(s || "").toLowerCase()
+      .replace(/[ً-ْٰـ]/g, "")
+      .replace(/ك/g, "ک").replace(/[يى]/g, "ی")
+      .replace(/ة/g, "ه").replace(/[أإآ]/g, "ا")
+      .replace(/[۰-۹]/g, function (d) { return String(d.charCodeAt(0) - 0x6f0); })
+      .replace(/[٠-٩]/g, function (d) { return String(d.charCodeAt(0) - 0x660); })
+      .replace(/‌/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function wire(opts) {
+    var box = document.getElementById(opts.q);
+    var items = document.querySelectorAll(opts.items);
+    if (!items.length) return;
+    var chips = document.querySelectorAll(opts.chips + " .chip[data-f]");
+    var clear = document.getElementById(opts.clear);
+    var count = document.getElementById(opts.count);
+    var none = opts.none ? document.getElementById(opts.none) : null;
+    var active = {};
+
+    function apply() {
+      var term = norm(box && box.value);
+      var shown = 0;
+      Array.prototype.forEach.call(items, function (el) {
+        var ok = true;
+        for (var f in active) {
+          if (!active[f]) continue;
+          var v = el.getAttribute("data-" + f) || "";
+          if ((" " + v + " ").indexOf(" " + active[f] + " ") < 0) { ok = false; break; }
+        }
+        if (ok && term) ok = norm(el.getAttribute("data-q")).indexOf(term) >= 0;
+        el.hidden = !ok;
+        if (ok) shown++;
+      });
+      if (count) count.textContent = opts.label(shown, items.length);
+      if (none) none.hidden = shown !== 0;
+    }
+    Array.prototype.forEach.call(chips, function (c) {
+      c.addEventListener("click", function () {
+        var f = c.getAttribute("data-f"), v = c.getAttribute("data-v");
+        var off = active[f] === v;
+        active[f] = off ? null : v;
+        Array.prototype.forEach.call(chips, function (x) {
+          if (x.getAttribute("data-f") === f) x.classList.remove("on");
+        });
+        if (!off) c.classList.add("on");
+        apply();
+      });
+    });
+    if (clear) clear.addEventListener("click", function () {
+      active = {}; if (box) box.value = "";
+      Array.prototype.forEach.call(chips, function (x) { x.classList.remove("on"); });
+      apply();
+    });
+    if (box) box.addEventListener("input", apply);
+    apply();
+  }
+  var EN = (document.documentElement.getAttribute("lang") || "fa") === "en";
+  function fa(n) { return EN ? String(n) : String(n).replace(/\d/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; }); }
+
+  wire({ q: "cq", items: ".claims .cl", chips: ".filters", clear: "cclear",
+         count: "ccount", none: "cnone",
+         label: function (n, t) {
+           return EN ? n + " of " + t + " claims shown"
+                     : fa(n) + " ادعا از " + fa(t) + " نشان داده می‌شود"; } });
+  wire({ q: "pq", items: ".pmap .dot, .claims .pr", chips: ".filters", clear: "pclear",
+         count: "pcount", none: "pnone",
+         label: function (n, t) {
+           var d = document.querySelectorAll(".claims .pr").length || 1;
+           return fa(Math.round(n / (n && t ? (t / d) : 1))) + " مشکل از " + fa(d); } });
+  wire({ q: "ixq", items: ".ixgrid .ix", chips: ".ixf", clear: "ixclear",
+         count: "ixcount",
+         label: function (n, t) {
+           return EN ? n + " of " + t + " entries"
+                     : fa(n) + " مدخل از " + fa(t); } });
 })();
