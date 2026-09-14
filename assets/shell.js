@@ -65,6 +65,7 @@
       { h: "../europe.html", t: "The Europe talk", d: "Bilingual, with slide mode and speaker notes" }
     ]},
     { g: "Persian only", items: [
+      { h: "../two-irans.html", t: "Two Irans", d: "How Shi'ism became Iranian, why Judaism did not, and 500 years of clerical ascent", fa: 1 },
       { h: "../game.html", t: "The full game", d: "12 chapters, 37 characters, 44 comic panels", fa: 1 },
       { h: "../story.html", t: "A House in Afsariyeh", d: "The novel — three Maryams, three migrations", fa: 1 },
       { h: "../roles.html", t: "47 social roles", d: "The expanded role book", fa: 1 },
@@ -73,6 +74,7 @@
     ]}
   ] : [
     { g: "پشتِ کارت‌ها", items: [
+      { h: "two-irans.html", t: "دو ایران", d: "چطور شیعه ایرانی شد، چرا یهودی نشد، و روحانیت در پانصد سال چطور بالا آمد" },
       { h: "library.html", t: "کتابخانه", d: "هر ادعا از کجا آمده — از جمله آنچه ما را رد می‌کند" },
       { h: "shared.html", t: "ایرانیان و اسرائیلی‌ها", d: "۴۷ سال دشمنی، ۲۶۰۰ سال رابطه" },
       { h: "europe.html", t: "ارائهٔ اروپا", d: "دوزبانه، با حالتِ اسلاید و یادداشتِ گوینده" }
@@ -231,7 +233,7 @@
 
   /* دکمهٔ کپیِ نشانی کنارِ هر عنوانِ شناسه‌دار */
   var heads = document.querySelectorAll(
-    "section[id] > .wrap > h2, h2[id], .steps article[id] > .who, .finds article[id] > h3");
+    "section[id] > .wrap > h2, h2[id], .steps article[id] > .who, .finds article[id] > h3, .essay section[id] > h3");
   Array.prototype.forEach.call(heads, function (h) {
     var own = h.closest("article[id]");
     var id = h.id || (own && own.id) || (h.closest("section[id]") || {}).id;

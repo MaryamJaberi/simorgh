@@ -361,6 +361,32 @@
   };
 
   /* ── دو رشته: جدا، به‌هم‌تابیده، جدا ── */
+  /* ── دو ایران: دو ستون روی یک زمین ── */
+  A.twoPoles = function () {
+    var b = '';
+    /* زمینِ مشترک */
+    b += '<path d="M18 214H302" stroke="' + M + '" stroke-width="1.4"/>';
+    /* ستونِ راست — ایرانشهری */
+    b += '<g fill="none" stroke="' + G + '" stroke-width="1.6" stroke-linecap="round">';
+    b += '<path d="M206 214V78"/><path d="M250 214V78"/>';
+    b += '<path d="M196 78h64"/><path d="M198 214h60"/>';
+    for (var i = 0; i < 4; i++) b += '<path d="M' + (214 + i * 10) + ' 88v118"/>';
+    b += '<path d="M228 78V46"/><circle cx="228" cy="40" r="5"/>';
+    b += '</g>';
+    /* ستونِ چپ — شیعی */
+    b += '<g fill="none" stroke="' + F + '" stroke-width="1.6" stroke-linecap="round">';
+    b += '<path d="M70 214V96"/><path d="M114 214V96"/>';
+    b += '<path d="M60 96h64"/><path d="M62 214h60"/>';
+    for (var j = 0; j < 4; j++) b += '<path d="M' + (78 + j * 10) + ' 106v100"/>';
+    b += '<path d="M92 96C92 74 78 70 78 56C78 44 92 38 92 24C92 38 106 44 106 56C106 70 92 74 92 96"/>';
+    b += '</g>';
+    /* رشتهٔ میان دو ستون */
+    b += '<path d="M114 150C142 128 178 172 206 150" fill="none" stroke="' + B +
+         '" stroke-width="1.5" stroke-dasharray="5 5"/>';
+    return svg(320, 236, b,
+      'دو ستون روی یک زمین: قطبِ ایرانشهری و قطبِ شیعی، با رشته‌ای میانشان');
+  };
+
   A.threads = function () {
     var a = 'M300 40 C240 40 210 62 150 62 C90 62 58 96 20 96',
         c = 'M300 96 C240 96 210 74 150 74 C90 74 58 40 20 40';
