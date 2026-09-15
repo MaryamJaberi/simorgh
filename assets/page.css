@@ -502,3 +502,11 @@ figure.fig th{background:var(--s-surface2);color:var(--s-zar);font-size:.78rem}
 .tier{display:inline-flex;align-items:center;gap:6px}
 .tier i{font-style:normal;font-weight:800;
   padding-inline-end:6px;border-inline-end:1px solid currentColor;opacity:.75}
+
+/* ── خلاصهٔ اجرایی روی نمایه ── */
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:16px 0 14px}
+.sc{background:var(--s-surface);border:1px solid var(--s-line);border-radius:14px;padding:16px 18px;
+  border-inline-start:4px solid var(--s-zar)}
+.sc b{display:block;font-size:.98rem;margin-bottom:6px;line-height:1.6}
+.sc p{margin:0;font-size:.88rem;line-height:1.9;color:var(--s-muted)}
+.sc p b{display:inline;font-size:inherit;color:var(--s-text)}

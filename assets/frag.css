@@ -89,3 +89,44 @@ section[id],[id]{scroll-margin-top:calc(var(--s-bar,62px) + 60px)}
   .toc button,#filters button,#cfilters button{padding:6px 11px;font-size:.76rem;min-height:34px}
 }
 @media print{.toc,#filters,#cfilters,#progbar,#bar{display:none!important}}
+
+/* ════════════════════════════════════════════════════════════
+   متنِ کاملِ بازی: از «ورق‌زن» به «سند».
+
+   این صفحه با section[id]{display:none} یک فصل را نشان می‌داد و بقیه را
+   پنهان می‌کرد. نتیجه این بود که هر ورود — و هر لینکِ عمیق — حسِ
+   «وارد جای دیگری شدم» می‌داد، و خواننده هرگز شکلِ کلِ سند را نمی‌دید.
+   حالا همه‌چیز یک‌جا و پیوسته است. ریلِ عناوین فقط می‌پَرَد، نه ورق بزند.
+   ════════════════════════════════════════════════════════════ */
+#app section[id]{display:block!important}
+#app .hero{display:block!important}
+
+/* شمارندهٔ «گام ۱ از ۱۲» در سندِ پیوسته بی‌معناست */
+#app .prog,#progbar,.step-of{display:none!important}
+
+/* دفترچهٔ کمیک از ارائه برداشته شد */
+#comic,[data-go="comic"]{display:none!important}
+
+/* فاصلهٔ فصل‌ها در سندِ پیوسته */
+#app section[id]{padding-block:26px 8px;border-block-start:1px solid var(--s-line)}
+#app section[id]:first-of-type{border-block-start:0}
+
+/* ══ فهرستِ عناوینِ سند ══ */
+.docmap{margin:22px auto 8px;max-width:1120px;padding:0 20px}
+.docmap .in{background:var(--s-surface);border:1px solid var(--s-line);
+  border-radius:16px;padding:20px 24px}
+.docmap h2{margin:0 0 4px;font-size:1.15rem}
+.docmap p{margin:0 0 16px;font-size:.86rem;color:var(--s-muted);line-height:1.8}
+.docmap ol{margin:0;padding:0;list-style:none;counter-reset:dm;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px 18px}
+.docmap li{counter-increment:dm}
+.docmap a{display:flex;gap:10px;align-items:baseline;text-decoration:none;
+  color:var(--s-text);padding:9px 10px;border-radius:9px;transition:.14s;
+  border-block-end:1px solid transparent}
+.docmap a:hover{background:var(--s-surface2);color:var(--s-zar)}
+.docmap a::before{content:counter(dm,persian);font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.72rem;color:var(--s-muted);min-width:1.8em;text-align:end;flex:none}
+.docmap a b{font-weight:600;font-size:.94rem;line-height:1.6}
+.docmap a i{font-style:normal;font-size:.75rem;color:var(--s-muted);margin-inline-start:auto;flex:none}
+@media(max-width:720px){.docmap{padding:0 14px}.docmap .in{padding:16px 16px}}
+@media print{.docmap{break-after:page}}

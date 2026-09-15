@@ -279,6 +279,62 @@
     });
   })();
 
+
+  /* ══ سندِ پیوسته: فهرستِ عناوین، و خاموش‌کردنِ ورق‌زن ══
+     متنِ کامل دیگر فصل‌به‌فصل نیست. پس ریلِ عناوین فقط می‌پَرَد،
+     و بالای سند یک فهرستِ کامل می‌نشیند تا خواننده شکلِ کلِ سند را
+     پیش از خواندن ببیند — همان چیزی که برای یک سندِ راهبردی لازم است. */
+  (function () {
+    var app = document.getElementById("app");
+    if (!app) return;
+    var rail = document.querySelector(".toc");
+    if (!rail) return;
+
+    /* کمیک از ارائه برداشته شد */
+    var comic = document.getElementById("comic");
+    if (comic) comic.remove();
+    var cbtn = rail.querySelector('[data-go="comic"]');
+    if (cbtn) cbtn.remove();
+
+    /* ریل دیگر ورق نمی‌زند — فقط پرش */
+    rail.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-go]");
+      if (!b) return;
+      var t = document.getElementById(b.getAttribute("data-go"));
+      if (t) { e.stopPropagation(); t.scrollIntoView({ block: "start", behavior: "smooth" }); }
+    }, true);
+
+    /* فهرستِ عناوینِ سند */
+    var secs = [].slice.call(app.querySelectorAll("section[id]"));
+    var rows = secs.map(function (sec) {
+      var h = sec.querySelector("h2, h3");
+      var t = h && h.textContent ? h.textContent.replace(/\s+/g, " ").trim() : "";
+      if (!t) return null;
+      var subs = sec.querySelectorAll("h3").length;
+      return { id: sec.id, t: t, subs: subs };
+    }).filter(Boolean);
+    if (rows.length < 4) return;
+
+    var words = app.textContent.split(/\s+/).filter(Boolean).length;
+    var mins = Math.max(1, Math.round(words / 220));
+    function fa(n) { return String(n).replace(/\d/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; }); }
+
+    var box = document.createElement("nav");
+    box.className = "docmap";
+    box.setAttribute("aria-label", "فهرستِ سند");
+    box.innerHTML = '<div class="in">' +
+      '<h2>فهرستِ سند</h2>' +
+      '<p>' + fa(rows.length) + ' فصل \u00b7 حدودِ ' + fa(mins) + ' دقیقه خواندن. ' +
+      'این یک سندِ پیوسته است — از هر فصلی می‌شود شروع کرد و همه‌اش در یک صفحه است.</p>' +
+      '<ol>' + rows.map(function (r) {
+        return '<li><a href="#' + r.id + '"><b>' + r.t + '</b>' +
+          (r.subs ? '<i>' + fa(r.subs) + ' بخش</i>' : '') + '</a></li>';
+      }).join("") + '</ol></div>';
+
+    var first = secs[0];
+    if (first && first.parentNode) first.parentNode.insertBefore(box, first);
+  })();
+
   /* غربالِ وجه در کشو */
   (function () {
     var sieve = document.querySelector("#shell .fsieve");
