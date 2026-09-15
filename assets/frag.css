@@ -1,0 +1,91 @@
+/* ════════════════════════════════════════════════════════════
+   یکپارچه‌سازیِ صفحه‌های قدیمی (بازی، ۴۷ نقش، نقشهٔ ون، ارائهٔ اروپا).
+
+   این چهار صفحه اپ‌های مستقلی بودند که فقط پوسته رویشان گذاشته شده بود:
+   پالتِ خودشان را داشتند (بازی حتی پیش‌فرضْ تاریک بود، در حالی که سایت
+   روشن است) و ناوبریِ خودشان را. نتیجه این بود که کاربر با یک کلیک
+   «وارد جای دیگری» می‌شد. این فایل بعد از استایلِ خودشان بار می‌شود و:
+
+     ۱ · متغیرهای رنگشان را به توکن‌های سایت (--s-*) گره می‌زند،
+         پس تمِ روشن/تاریکِ سایت را می‌گیرند.
+     ۲ · ناوبریِ داخلیِ هر کدام را به یک «ریلِ بخش» یکسان تبدیل می‌کند
+         که زیرِ نوارِ بالا می‌نشیند، نه به‌جای آن.
+   ════════════════════════════════════════════════════════════ */
+
+/* ══ ۱ · پالت ══ */
+:root{
+  --ground:var(--s-bg); --bg:var(--s-bg);
+  --surface:var(--s-surface); --surface-2:var(--s-surface2); --surface2:var(--s-surface2);
+  --line:var(--s-line); --text:var(--s-text); --muted:var(--s-muted);
+  --zar:var(--s-zar); --lajvard:var(--s-lajvard);
+  --shangarf:var(--s-shangarf); --firuze:var(--s-firuze);
+  --mafia:var(--s-shangarf); --city:var(--s-firuze); --indie:var(--s-zar);
+  --shadow:var(--s-shadow);
+}
+/* بلوکِ تمِ تاریکِ خودشان دیگر لازم نیست — توکن‌های سایت خودشان عوض می‌شوند */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:var(--s-bg); --bg:var(--s-bg);
+  --surface:var(--s-surface); --surface-2:var(--s-surface2); --surface2:var(--s-surface2);
+  --line:var(--s-line); --text:var(--s-text); --muted:var(--s-muted);
+  --zar:var(--s-zar); --lajvard:var(--s-lajvard);
+  --shangarf:var(--s-shangarf); --firuze:var(--s-firuze);
+}}
+:root[data-theme="dark"],:root[data-theme="light"]{
+  --ground:var(--s-bg); --bg:var(--s-bg);
+  --surface:var(--s-surface); --surface-2:var(--s-surface2); --surface2:var(--s-surface2);
+  --line:var(--s-line); --text:var(--s-text); --muted:var(--s-muted);
+  --zar:var(--s-zar); --lajvard:var(--s-lajvard);
+  --shangarf:var(--s-shangarf); --firuze:var(--s-firuze);
+}
+body{background:var(--s-bg);color:var(--s-text)}
+
+/* ══ ۲ · ریلِ بخش — همان شکل در هر چهار صفحه ══ */
+.toc,#filters,#cfilters{
+  position:sticky; top:var(--s-bar,62px); z-index:800;
+  background:var(--s-surface2);
+  border-block-end:1px solid var(--s-line);
+  border-block-start:1px solid var(--s-line);
+  overflow-x:auto; scrollbar-width:none;
+  margin:0 0 8px;
+}
+.toc::-webkit-scrollbar,#filters::-webkit-scrollbar,#cfilters::-webkit-scrollbar{display:none}
+.toc>.wrap{display:flex;gap:6px;padding:9px 14px;max-width:1120px;margin:0 auto;min-width:max-content}
+#filters,#cfilters{display:flex;flex-wrap:nowrap;gap:6px;padding:9px 14px}
+
+.toc button,#filters button,#cfilters button{
+  flex:none; cursor:pointer; white-space:nowrap;
+  background:transparent; color:var(--s-muted);
+  border:1px solid transparent; border-radius:99px;
+  padding:7px 14px; min-height:36px;
+  font:700 .82rem/1 var(--s-fa,"Vazirmatn",system-ui,Tahoma,sans-serif);
+  transition:.15s;
+}
+.toc button:hover,#filters button:hover,#cfilters button:hover{
+  color:var(--s-text); border-color:var(--s-line); background:var(--s-surface);
+}
+.toc button.on,.toc button[aria-current],
+#filters button.on,#cfilters button.on,
+#filters button[aria-pressed="true"],#cfilters button[aria-pressed="true"]{
+  background:var(--s-surface); border-color:var(--s-zar); color:var(--s-zar);
+}
+/* «پروپوزال» در متنِ بازی برجسته بود؛ برجسته می‌ماند ولی با زبانِ سایت */
+.toc button.hi{color:var(--s-zar);border-color:color-mix(in srgb,var(--s-zar) 45%,transparent)}
+.toc button.hi:hover{border-color:var(--s-zar)}
+
+/* لنگرها زیرِ دو نوارِ چسبان پنهان نشوند */
+section[id],[id]{scroll-margin-top:calc(var(--s-bar,62px) + 60px)}
+
+/* نوارِ پیشرفتِ صفحهٔ بازی زیرِ نوارِ بالا بیفتد، نه رویش */
+#progbar{top:var(--s-bar,62px)!important;z-index:790}
+
+/* نوارِ ارائهٔ اروپا هم همان‌جا بنشیند */
+#bar{position:sticky;top:var(--s-bar,62px);z-index:800}
+
+/* کپی‌بار و چیزهای شناور با نوارِ بالا تصادم نکنند */
+.copybar{z-index:700}
+
+@media(max-width:720px){
+  .toc>.wrap,#filters,#cfilters{padding:7px 10px}
+  .toc button,#filters button,#cfilters button{padding:6px 11px;font-size:.76rem;min-height:34px}
+}
+@media print{.toc,#filters,#cfilters,#progbar,#bar{display:none!important}}

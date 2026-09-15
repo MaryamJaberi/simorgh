@@ -89,11 +89,30 @@
 
   /* ══════════ نوارِ بالا ══════════ */
   var bar = el("header", { id: "topbar" });
+  /* عنوانِ صفحه، و — اگر با لنگر آمده‌ایم — نامِ همان بخش به‌عنوان پلهٔ سوم.
+     بدونِ این، کلیک روی «میزِ نقد» آدم را وسطِ یک سندِ ۳۳۶ کیلوبایتی رها می‌کرد
+     بی‌آنکه بگوید کجاست. */
+  var PAGE_T = document.title.split("\u2014")[0].trim();
+  function sectionName(id) {
+    if (!id) return null;
+    var el = document.getElementById(id);
+    if (!el) return null;
+    var h = el.matches("h1,h2,h3,h4") ? el
+          : el.querySelector("h1,h2,h3,h4")
+            || (el.closest("section,article") || el).querySelector("h2,h3");
+    var t = h && h.textContent ? h.textContent.replace(/\s+/g, " ").trim() : "";
+    if (!t) {
+      var b = document.querySelector('[data-go="' + id + '"]');
+      t = b && b.textContent ? b.textContent.trim() : "";
+    }
+    return t && t.length < 60 ? t : null;
+  }
   var crumbs =
     '<a class="crumb" href="' + BASE + 'index.html">' + (EN ? "Index" : "نمایه") + '</a>' +
     '<span class="sep" aria-hidden="true">\u203a</span>' +
-    '<span class="crumb now" aria-current="page">' +
-      esc(document.title.split("\u2014")[0].trim()) + '</span>';
+    '<span class="crumb now" aria-current="page">' + esc(PAGE_T) + '</span>' +
+    '<span class="sep sec" aria-hidden="true" hidden>\u203a</span>' +
+    '<span class="crumb sec" id="tb-sec" hidden></span>';
 
   bar.innerHTML =
     '<button id="tb-menu" type="button" aria-label="' + esc(T.map) + '">' +
@@ -152,6 +171,113 @@
     '</div>';
   document.body.appendChild(box);
 
+
+
+  /* پلهٔ سوم: بخشی که کاربر واقعاً در آن ایستاده */
+  (function () {
+    var slot = document.getElementById("tb-sec");
+    var sep = document.querySelector("#tb-crumbs .sep.sec");
+    if (!slot) return;
+    function show(name) {
+      if (name) { slot.textContent = name; slot.hidden = false; if (sep) sep.hidden = false; }
+      else { slot.hidden = true; if (sep) sep.hidden = true; }
+    }
+    function fromHash() {
+      var id = (location.hash || "").replace(/^#/, "");
+      return id ? sectionName(decodeURIComponent(id)) : null;
+    }
+    show(fromHash());
+    window.addEventListener("hashchange", function () { show(fromHash()); });
+
+    /* و وقتی کاربر اسکرول می‌کند، همان بخشی که روی صفحه است */
+    var marks = [].slice.call(document.querySelectorAll("section[id], article[id]"))
+      .filter(function (el) { return sectionName(el.id); });
+    if (marks.length > 2 && "IntersectionObserver" in window) {
+      var seen = {};
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { seen[e.target.id] = e.isIntersecting ? e.boundingClientRect.top : null; });
+        var best = null, bestTop = Infinity;
+        for (var k in seen) {
+          if (seen[k] == null) continue;
+          if (seen[k] < bestTop) { bestTop = seen[k]; best = k; }
+        }
+        if (best) show(sectionName(best));
+      }, { rootMargin: "-25% 0px -65% 0px" });
+      marks.forEach(function (m) { io.observe(m); });
+    }
+  })();
+
+
+  /* ══ صفحه‌های قدیمی: لنگر باید واقعاً فرود بیاید ══
+     این صفحه‌ها اسکریپتِ خودشان را دارند که بعد از بارگذاری صفحه را
+     جابه‌جا می‌کند، پس پرشِ مرورگر به لنگر از بین می‌رفت و کاربر
+     بالای سند رها می‌شد — دقیقاً همان «یهو وارد جای دیگری شدم». */
+  (function () {
+    var rail = document.querySelector(".toc");
+    function land() {
+      var id = (location.hash || "").replace(/^#/, "");
+      if (!id) return;
+      id = decodeURIComponent(id);
+      var el = document.getElementById(id);
+      if (!el) return;
+      /* این صفحه‌ها خواننده‌ی فصل‌به‌فصل‌اند: یازده فصل از دوازده فصل
+         display:none اند. پس اول باید با ناوبریِ خودشان فصل را عوض کرد،
+         وگرنه هر لینکِ عمیق روی فصلِ یکم فرود می‌آید. */
+      if (getComputedStyle(el).display === "none") {
+        var go = document.querySelector('[data-go="' + id + '"]');
+        if (go) { go.click(); return; }
+        var p = el.closest("section,article");
+        while (p && getComputedStyle(p).display === "none") {
+          var g2 = p.id && document.querySelector('[data-go="' + p.id + '"]');
+          if (g2) { g2.click(); return; }
+          p = p.parentElement && p.parentElement.closest("section,article");
+        }
+      }
+      el.scrollIntoView({ block: "start" });
+    }
+    if (location.hash) {
+      land();
+      setTimeout(land, 120);
+      setTimeout(land, 420);
+      window.addEventListener("load", function () { setTimeout(land, 60); });
+    }
+
+    /* و ریلِ فصل‌ها باید بگوید در کدام فصلیم */
+    if (!rail) return;
+    var btns = [].slice.call(rail.querySelectorAll("button[data-go]"));
+    if (!btns.length) return;
+    function mark(id) {
+      btns.forEach(function (b) {
+        var on = b.getAttribute("data-go") === id;
+        b.classList.toggle("on", on);
+        if (on) b.setAttribute("aria-current", "true");
+        else b.removeAttribute("aria-current");
+      });
+      var cur = rail.querySelector("button.on");
+      if (cur && cur.scrollIntoView) {
+        var box = rail.getBoundingClientRect(), cb = cur.getBoundingClientRect();
+        if (cb.left < box.left || cb.right > box.right)
+          cur.scrollIntoView({ block: "nearest", inline: "center" });
+      }
+    }
+    var targets = btns.map(function (b) {
+      return document.getElementById(b.getAttribute("data-go"));
+    }).filter(Boolean);
+    if ("IntersectionObserver" in window && targets.length) {
+      var vis = {};
+      var io2 = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { vis[e.target.id] = e.isIntersecting ? e.boundingClientRect.top : null; });
+        var best = null, top = Infinity;
+        for (var k in vis) if (vis[k] != null && vis[k] < top) { top = vis[k]; best = k; }
+        if (best) mark(best);
+      }, { rootMargin: "-20% 0px -70% 0px" });
+      targets.forEach(function (t) { io2.observe(t); });
+    }
+    rail.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-go]");
+      if (b) mark(b.getAttribute("data-go"));
+    });
+  })();
 
   /* غربالِ وجه در کشو */
   (function () {

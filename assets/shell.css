@@ -168,3 +168,12 @@ body.shell-open #shell{display:block}
 #shell .links .fl{display:flex;gap:5px;margin-top:7px}
 #shell .links .fl i{font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.03em;
   border-radius:5px;padding:2px 7px;background:var(--s-surface2);color:var(--s-muted)}
+
+/* پلهٔ سومِ مسیر — بخشی که کاربر در آن ایستاده */
+#tb-crumbs .crumb.sec{color:var(--s-zar);font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:32ch}
+@media(max-width:720px){
+  #tb-crumbs .crumb.now{display:none}
+  #tb-crumbs .sep.sec{display:none}
+  #tb-crumbs .crumb.sec{display:inline}
+}
