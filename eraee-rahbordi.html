@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ایران: تشخیص، گزینه‌ها، و مسیر — ارائه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --p:#fbfaf8; --s:#fff; --s2:#f2f1ed; --ln:#e0ddd6; --ln2:#cbc6bb;
+  --tx:#14171c; --tx2:#3d434d; --mu:#6c7380;
+  --ac:#1f4e79; --ac2:#8c6d1f; --dg:#a33c2c; --gd:#1d6b5e;
+  --fa:"Vazirmatn",system-ui,Tahoma,sans-serif;
+  --mo:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--p);color:var(--tx);font-family:var(--fa);
+  font-size:16.5px;line-height:1.95;font-weight:400;direction:rtl}
+b,strong{font-weight:700;color:var(--tx)}
+a{color:var(--ac)}
+.num{font-weight:700;color:var(--ac);
+  background:color-mix(in srgb,var(--ac) 8%,transparent);
+  border-radius:4px;padding:1px 5px;white-space:nowrap;cursor:help;
+  border-block-end:1px dotted color-mix(in srgb,var(--ac) 45%,transparent)}
+
+body{background:#0e1116;color:#e9eaee;overflow:hidden}
+.sl{position:fixed;inset:0;display:none;flex-direction:column;
+  padding:clamp(28px,6vh,72px) clamp(26px,7vw,96px);background:var(--p);color:var(--tx)}
+.sl.on{display:flex}
+.sl .in{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1000px;
+  margin:0 auto;width:100%}
+.pg{position:absolute;inset-block-start:24px;inset-inline-end:30px;
+  font-family:var(--mo);font-size:.76rem;color:var(--mu)}
+.sl h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.2;margin:0 0 18px;font-weight:800}
+.sl h2{font-size:clamp(1.5rem,3.6vw,2.5rem);line-height:1.3;margin:0 0 22px;font-weight:800}
+.sl h2.big{font-size:clamp(1.9rem,4.6vw,3rem)}
+.sl .kick{font-size:.74rem;letter-spacing:.2em;color:var(--ac2);font-weight:800;margin:0 0 22px}
+.sl .sub{font-size:clamp(1rem,1.8vw,1.3rem);color:var(--tx2);max-width:62ch;line-height:1.85;margin:0 0 26px}
+.sl .meta{font-size:.88rem;color:var(--mu);margin:0}
+.sl .lead{font-size:clamp(1rem,1.7vw,1.24rem);color:var(--tx2);max-width:64ch;line-height:1.9;margin:0}
+.bignum{font-weight:800;color:var(--ac);
+  font-size:clamp(2.8rem,9vw,6rem);line-height:1;margin:0 0 20px;letter-spacing:-.02em}
+.bignum .num{background:none;border:0;padding:0;font-size:inherit;color:inherit}
+.sl .foot{margin:0;padding-block-start:16px;border-block-start:1px solid var(--ln);
+  font-size:.86rem;color:var(--mu);line-height:1.8;max-width:80ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.col{border-radius:14px;padding:22px 24px;border:1px solid var(--ln);background:var(--s)}
+.col>b:first-child{display:block;font-size:1.06rem;margin-bottom:10px}
+.col p{margin:0;font-size:.98rem;line-height:1.9;color:var(--tx2)}
+.col.x{border-inline-start:4px solid var(--dg)}
+.col.v{border-inline-start:4px solid var(--gd)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.stats>div{background:var(--s);border:1px solid var(--ln);border-radius:12px;padding:18px 20px}
+.stats span{display:block;font-size:.84rem;color:var(--mu);margin-bottom:6px}
+.g6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.g6>div{background:var(--s);border:1px solid var(--ln);border-radius:9px;padding:9px 11px;
+  border-inline-start:3px solid var(--ac)}
+.g6 b{display:block;font-size:.84rem;margin-bottom:2px}
+.g6 span{font-size:.72rem;color:var(--mu);line-height:1.6}
+@media(max-width:820px){.g6{grid-template-columns:1fr 1fr}.g6 span{display:none}}
+.stats>div>b{display:block;font-size:1.2rem;color:var(--ac);font-weight:700}
+.stats b .num{background:none;border:0;padding:0;font-size:inherit}
+.sl table{width:100%;border-collapse:collapse;font-size:clamp(.82rem,1.3vw,1rem)}
+.sl th{text-align:start;font-size:.78rem;color:var(--mu);font-weight:800;
+  padding:10px 12px;border-block-end:2px solid var(--tx)}
+.sl td{padding:13px 12px;border-block-end:1px solid var(--ln);line-height:1.7}
+.sl tr.ok td{background:color-mix(in srgb,var(--gd) 7%,transparent)}
+.sl tr.bad td{background:color-mix(in srgb,var(--dg) 7%,transparent)}
+.sl tr.slow td{background:var(--s2)}
+.phs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.phs>div{background:var(--s);border:1px solid var(--ln);border-radius:14px;padding:20px 22px;
+  border-block-start:4px solid var(--ac)}
+.phs>div>b:first-child{display:block;font-family:var(--mo);font-size:1.3rem;color:var(--ac);font-weight:600}
+.phs span{display:block;font-size:.86rem;color:var(--mu);margin:4px 0 12px}
+.phs p{margin:0;font-size:.92rem;line-height:1.95}
+ul.aud{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+ul.aud li{background:var(--s);border:1px solid var(--ln);border-radius:12px;
+  padding:16px 18px;font-size:1rem;line-height:1.8}
+ul.aud i{font-style:normal;font-size:.68rem;font-weight:800;border-radius:5px;
+  padding:3px 9px;margin-inline-end:10px;vertical-align:middle;color:#fff}
+ul.aud i.hi{background:var(--dg)} ul.aud i.md{background:var(--ac2)}
+#nav{position:fixed;inset-block-end:0;inset-inline:0;height:4px;background:var(--ln);z-index:50}
+#nav i{display:block;height:100%;background:var(--ac);transition:width .22s}
+#hint{position:fixed;inset-block-end:16px;inset-inline-start:24px;font-size:.74rem;
+  color:var(--mu);z-index:60;transition:opacity .4s}
+@media(max-width:820px){
+  .two,.phs{grid-template-columns:1fr}
+  .sl{padding:26px 20px 34px}
+}
+@media print{
+  body{overflow:visible;background:#fff}
+  .sl{position:static;display:flex!important;min-height:96vh;break-after:page;
+    border-block-end:1px solid #ddd}
+  #nav,#hint{display:none}
+}
+</style></head>
+<body>
+<section class="sl k-cover" data-i="0"><span class="pg">۱ از ۱۸</span><div class="in"><p class="kick">سندِ راهبردی · نسخهٔ یکم</p><h1>ایران: تشخیص، گزینه‌ها، و مسیر</h1>
+        <p class="sub">سندی راهبردی دربارهٔ اینکه مسئلهٔ امروز چیست، چه گزینه‌هایی روی میز است، هر کدام چه قیمتی دارد، و چه چیزی را می‌شود اندازه گرفت.</p><p class="meta">مهر ۱۴۰۵</p></div></section>
+<section class="sl k-big" data-i="1"><span class="pg">۲ از ۱۸</span><div class="in"><p class="bignum"><span class="num" title="پیمایشِ منتشرشده از سوی دستگاهِ پیمایشیِ حاکمیت، نقل‌شده در گزارشِ مبنا">۳۰٫۷٪ ← ۷۲٫۹٪</span></p><h2>مسئله، متقاعدکردنِ مردم نیست</h2><p class="lead">موافقِ جدایی نهادِ دین از حکومت — بر پایهٔ پیمایشِ <b>خودِ حاکمیت</b>، که در هشت سال بیش از دو برابر شده. سمتِ تقاضا حل شده؛ مسئله <b>نبودِ گزینهٔ بعدی</b> است.</p></div><p class="foot">قید: این عدد پشتیبانی از براندازی یا از هیچ آلترناتیوِ مشخصی نیست.</p></section>
+<section class="sl k-two" data-i="2"><span class="pg">۳ از ۱۸</span><div class="in"><h2>جنسِ بازی اشتباه تشخیص داده می‌شود</h2><div class="two">
+        <div class="col x"><b>آنچه فرض می‌شود</b><p>بازیِ <b>مجموع‌صفر</b> میان حکومت و اپوزیسیون.<br>راهبردش: متقاعدکردنِ بیشتر، بسیجِ بیشتر.</p></div>
+        <div class="col v"><b>آنچه هست</b><p>بازیِ <b>هماهنگی</b> با تعادل‌های چندگانه.<br>راهبردش: ساختنِ <b>باورِ مشترک</b> — اینکه هر کس بداند بقیه هم می‌دانند و عمل خواهند کرد.</p></div></div></div><p class="foot">استراتژیِ ساخته‌شده بر تشخیصِ غلط، منابع را در جبههٔ اشتباه می‌سوزاند.</p></section>
+<section class="sl k-stats" data-i="3"><span class="pg">۴ از ۱۸</span><div class="in"><h2>تشخیص، در شش عدد</h2><div class="stats"><div><span>نرخِ فقر</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۳۰٪</span></b></div><div><span>طبقهٔ متوسط</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۸۴٪ ← ۵۶٪</span></b></div><div><span>درآمدِ سرانه</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۵٬۶۱۷$ در برابر ۷٬۴۴۲$</span></b></div><div><span>تورم</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۸۷٫۹٪</span></b></div><div><span>اشتغالِ غیررسمی</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۶۰٪</span></b></div><div><span>بیکاریِ فارغ‌التحصیلان</span><b><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۴۰٪</span></b></div></div></div><p class="foot">محرک، فقرِ مطلق نیست — <b>محرومیتِ نسبی</b> است: فاصلهٔ «آنچه هست» با «آنچه باید می‌بود».</p></section>
+<section class="sl k-big" data-i="4"><span class="pg">۵ از ۱۸</span><div class="in"><p class="bignum"><span class="num" title="چنووث و استفان، Why Civil Resistance Works (۲۰۱۱) — دادهٔ NAVCO">۵۳٪ در برابر ۲۶٪</span></p><h2>خشونت‌پرهیزی حسابِ عددی است</h2><p class="lead">نرخِ رسیدن به هدف در <b>۳۲۳ خیزشِ ثبت‌شدهٔ ۱۹۰۰–۲۰۰۶</b>: خشونت‌پرهیز در برابرِ مسلحانه. لحظهٔ تعیین‌کننده، لحظهٔ <b>ریزشِ نیروهای امنیتی</b> است.</p></div><p class="foot">«قاعدهٔ ۳٫۵٪» یک مشاهدهٔ آماری است، نه قانون — و نرخِ موفقیت در دههٔ اخیر افت کرده.</p></section>
+<section class="sl k-big" data-i="5"><span class="pg">۶ از ۱۸</span><div class="in"><p class="bignum"><span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۶۰٪</span></p><h2>گلوگاه: اقتصادِ اعتصاب</h2><p class="lead">اشتغالِ ایران غیررسمی است. یک هفته توقفِ کار یعنی یک هفته گرسنگی. پس اعتصابِ سراسری بدونِ <b>صندوقِ پشتیبان</b> یک آرزوست، نه یک گزینه.</p></div><p class="foot">ارزان‌ترین نقطهٔ مداخله در کلِ این سند — با پول و سازماندهی باز می‌شود، نه با شعار.</p></section>
+<section class="sl k-table" data-i="6"><span class="pg">۷ از ۱۸</span><div class="in"><h2>چهار مسیر، و قیمتشان</h2><table><thead><tr><th>مسیر</th><th>هزینهٔ اجرا</th><th>اثرِ ده‌ساله</th><th>هزینهٔ جانی</th></tr></thead><tbody><tr class="ok"><td><b>گذارِ میثاقی</b></td><td><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۳۰–۶۰ میلیارد $ / +۴۰۰–۸۰۰</span></td><td>بیشترین</td><td>کمترین</td></tr><tr class=""><td><b>گسستِ سریع</b></td><td><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۸۰–۱۵۰ میلیارد $</span></td><td>متوسط</td><td>متوسط</td></tr><tr class="bad"><td><b>چرخهٔ خشونت</b></td><td><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۲۵۰–۵۰۰ میلیارد $</span></td><td>فاجعه‌بار</td><td><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۱۰۰هزار تا &gt;۱ میلیون · میانه ≈۲۵۰هزار</span></td></tr><tr class="slow"><td><b>ادامهٔ وضعِ موجود</b></td><td>—</td><td><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">−۴۰۰ تا ۶۰۰ میلیارد $</span></td><td>فرسایشی</td></tr></tbody></table></div><p class="foot">این‌ها <b>مدل</b>اند نه پیش‌بینی. ارزششان در مقایسهٔ نسبیِ ستون‌هاست، نه در تک‌عدد.</p></section>
+<section class="sl k-big" data-i="7"><span class="pg">۸ از ۱۸</span><div class="in"><p class="bignum"><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">−۴۰۰ تا ۶۰۰ میلیارد $</span></p><h2>ماندن هم قیمت دارد</h2><p class="lead">هزینهٔ فرصتِ ادامهٔ وضعِ موجود در افقِ ده‌ساله — <b>بدونِ هیچ رخدادِ واحدی</b>، فقط با فرسایش: خروجِ نخبگان، باروریِ <span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۱٫۳۵–۱٫۷</span>، و جمعیتِ دانشجویی که از <span class="num" title="«ایران، از تبار تا تأسیس» — گزارشِ مدوّن، با اتکا به مرکز آمار ایران، مرکز پژوهش‌های مجلس، بانک جهانی، پیمایش اجتماعی ایران و پیمایش ملی ارزش‌ها">۴٫۸م ← ۳٫۱۸م</span> افتاده.</p></div><p class="foot">این کف است، نه سقف. و ساعتش برای هر سناریویی کار می‌کند.</p></section>
+<section class="sl k-phase" data-i="8"><span class="pg">۹ از ۱۸</span><div class="in"><h2>توصیه: سه افق</h2><div class="phs"><div><b>۹۰ روز</b><span>سوزاندنِ ترسِ خصوصی</span><p>انتشارِ دادهٔ اندازهٔ اکثریت · <b>تعیینِ تاریخِ همه‌پرسی</b> · متنِ تضمینِ فردا</p></div><div><b>۹ ماه</b><span>صندوق و سپر</span><p><b>صندوقِ اعتصاب</b> برای <span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۱۰٬۰۰۰ نفر</span> · سپرِ حقوقی و دیجیتال · نهادِ دادهٔ مستقل</p></div><div><b>۶۰۰ روز</b><span>رأیِ مؤسسان</span><p>مجلسِ مؤسسان · همه‌پرسیِ ساختار · عدالتِ انتقالیِ از پیش اعلام‌شده</p></div></div></div><p class="foot">هزینهٔ اجرایی در مرتبهٔ <b>ده‌ها میلیون</b> دلار — در برابرِ تفاوتِ سناریوها در مرتبهٔ <b>صدها میلیارد</b>.</p></section>
+<section class="sl k-big" data-i="9"><span class="pg">۱۰ از ۱۸</span><div class="in"><p class="bignum">۸۰–۹۰٪</p><h2>و یک اقدام که بازدهش از همه بیشتر است</h2><p class="lead">موضع‌گیریِ صریح و مکرر نسبت به <b>رفتارِ هواداران</b> — نه به‌عنوان تعارف، بلکه به‌عنوان یک اقدامِ راهبردیِ اعلام‌شده. در بازیِ هماهنگی، آنچه مانعِ پیوستنِ مرددهاست <b>ترس از فرداست</b>.</p></div><p class="foot">قید: این رقم یک داوریِ کیفی است که لباسِ کمّی پوشیده و روشِ اندازه‌گیری‌اش گفته نشده.</p></section>
+<section class="sl k-stats" data-i="10"><span class="pg">۱۱ از ۱۸</span><div class="in"><h2>سنجه‌های ۹۰ روز</h2><div class="stats"><div><span>تنوعِ امضا</span><b>هدف >۵۰٪ · شکست <۳۰٪</b></div><div><span>پوششِ صندوق</span><b><span class="num" title="مدلِ خودِ این پروژه — قیاسِ گذارهای مستندِ جهانی، مقیاس‌شده به جمعیتِ ۸۷ میلیونی">۱۰٬۰۰۰ نفر</span></b></div><div><span>ردِ ادعای خودی</span><b>دستِ‌کم ۱ مورد</b></div><div><span>انسجامِ پیام</span><b>وقفهٔ بیش از ۳۰ روز = هشدار</b></div></div></div><p class="foot">راهبردی که از پیش نگوید «اگر این عدد را ندیدم یعنی اشتباه کردم»، هرگز اصلاح نمی‌شود.</p></section>
+<section class="sl k-two" data-i="11"><span class="pg">۱۲ از ۱۸</span><div class="in"><h2>آنچه ما را رد می‌کند</h2><div class="two">
+        <div class="col x"><b>دوامِ رژیم‌های انقلابی</b><p>نظام‌هایی با حزب و ارتشِ خودساخته به‌طرزِ غیرعادی بادوام‌اند. <b>سپاه، ارتشِ شاه نیست.</b></p></div>
+        <div class="col v"><b>عراقِ ۲۰۰۳</b><p>انحلالِ یک‌بارهٔ نهادهای امنیتی، دولت را از بین برد — نه پاکش کرد و نه دموکراسی آورد.</p></div></div></div><p class="foot">و یک خلأ: جمهوری‌خواهیِ سازمان‌یافته در هیچ‌یک از پرونده‌های مبنا حاضر نبوده. لحاظ شده، جبران نشده.</p></section>
+<section class="sl k-audit" data-i="12"><span class="pg">۱۳ از ۱۸</span><div class="in"><h2>ضعف‌های خودِ این سند</h2><ul class="aud"><li><i class="hi">بالا</i>۱۴ ادعا (۱۸٪) به یک ارجاعِ جمعی بند است — کلِ بلوکِ اقتصادی</li><li><i class="hi">بالا</i>تحلیلِ اصلی از جنگِ ۱۴۰۴–۱۴۰۵ عقب است</li><li><i class="md">متوسط</i>«۸۰ تا ۹۰ درصد» عددی است بی‌روش</li><li><i class="md">متوسط</i>برآوردِ فرارِ مغزها گزارشِ مشخص ندارد</li></ul></div><p class="foot">سندی که این اسلاید را نداشته باشد، یعنی هنوز خودش را بررسی نکرده.</p></section>
+<section class="sl k-grid6" data-i="13"><span class="pg">۱۴ از ۱۸</span><div class="in"><h2>جامعهٔ ایران — هجده قشر، هر کدام یک کارت</h2><div class="g6"><div><b>کاسب و بازاری</b><span>ثباتِ قیمت · صندوقِ صنفیِ محله</span></div><div><b>کارگرِ صنعتی</b><span>بالاترین خطر · اول صندوق، بعد دعوت</span></div><div><b>راننده</b><span>پخش‌بودن = مصونیت · گروهِ مسیر</span></div><div><b>معلم</b><span>تماس با هر خانواده · کانونِ صنفی</span></div><div><b>کادرِ درمان</b><span>مصونیتِ درمان · شبکهٔ درمانِ امن</span></div><div><b>نیروی امنیتی</b><span><b>سه قشر است، نه یکی</b> · مسیرِ آبرومندِ برگشت</span></div><div><b>کارمندِ دولت</b><span>درسِ عراق ۲۰۰۳ · حلقهٔ حفظِ سند</span></div><div><b>اهلِ منبر</b><span>مسئولیت فردی است، نه صنفی</span></div><div><b>دانشجو</b><span>علامت‌دهی، نه پیروزی · گروهِ مستندسازی</span></div><div><b>متخصص</b><span>از همان‌جا که هستی، یک چیز بساز</span></div><div><b>مهاجر</b><span>سختگیری با خودی، نه فقط با رقیب</span></div><div><b>زنِ خانه</b><span><b>آبشار از خانه می‌شکند</b> · حلقهٔ همسایگی</span></div><div><b>کسی که دستش تنگ است</b><span>اول نان · هیچ استدلالی جای شام را نمی‌گیرد</span></div><div><b>صاحبِ سرمایه</b><span>تفکیکِ رانت از کار · پشتیبانیِ صندوق</span></div><div><b>وکیل</b><span>کارگروهِ پیش‌نویس — ده متن در کشو</span></div><div><b>هنرمند</b><span>ترجمهٔ عدد به احساس · آرشیوِ مستقل</span></div><div><b>کم‌سواد</b><span>صوت، نه متن · ۸ میلیون بیرون از کانالِ نوشتاری</span></div><div><b>کسی که نمی‌خواهد</b><span>۹۶٫۵٪ شرکت نکردند و باز نتیجه داد</span></div></div></div><p class="foot"><b>هیچ قشری دشمن نوشته نشده</b> — نه نیروی امنیتی، نه روحانی. قشری که دشمن اعلام شود تا آخر می‌جنگد، و ریزشی که شرطِ بردِ ماست رخ نمی‌دهد.</p></section>
+<section class="sl k-stats" data-i="14"><span class="pg">۱۵ از ۱۸</span><div class="in"><h2>دفترچهٔ سیاست — ده پرونده، با ردهٔ آمادگی</h2><div class="stats"><div><span>آمادهٔ اجرا از روزِ اول</span><b>۴ پرونده</b></div><div><span>نیازمندِ داده، قانون یا پول</span><b>۳ پرونده</b></div><div><span>مسئله واقعی، راه‌حل نامعلوم</span><b>۳ پرونده</b></div><div><span>هر پرونده خانهٔ «آنچه نمی‌دانیم» دارد</span><b>اجباری</b></div></div></div><p class="foot">در چند پرونده، خانهٔ «نمی‌دانیم» از خانهٔ «چه می‌شود کرد» بلندتر است. <b>آن خودش یک یافته است</b>: بعضی مسئله‌ها هنوز در مرحلهٔ تشخیص‌اند، نه تجویز.</p></section>
+<section class="sl k-two" data-i="15"><span class="pg">۱۶ از ۱۸</span><div class="in"><h2>نمونه: امنیتِ عمومی در صد روزِ اول</h2><div class="two">
+        <div class="col x"><b>الگویی که پرسیده می‌شود</b><p>السالوادور و اکوادور: بازداشتِ دسته‌جمعیِ بدونِ حکم. <b>نرخِ قتل واقعاً افت کرد</b> — و هزاران بازداشتِ بی‌گناه و تعلیقِ سال‌هٔ دادرسی هم ثبت شده.</p></div>
+        <div class="col v"><b>آنچه این سند می‌گوید</b><p>پلیسِ عادی سرِ کار بماند · <b>ثبتِ فوریِ هر بازداشت</b> · ممنوعیتِ مطلقِ بازداشتِ غیرقضایی · بازرسیِ مستقل. الگوی قابلِ اتکا: آفریقای جنوبی، نه السالوادور.</p></div></div></div><p class="foot">دلیلش فقط اخلاقی نیست. نیرویی که با بازداشتِ بدونِ حکم شروع کند، همان ابزاری را به دست می‌گیرد که علیه‌اش برخاسته بود — و ریزشِ نیروی امنیتی رخ نمی‌دهد.</p></section>
+<section class="sl k-phase" data-i="16"><span class="pg">۱۷ از ۱۸</span><div class="in"><h2>هفت متنی که باید امروز نوشته شود</h2><div class="phs"><div><b>۱–۳</b><span>مسئولیت و بازداشت</span><p>مسئولیتِ کیفری <b>فردی</b> است نه صنفی · ممنوعیتِ بازداشتِ غیرقضایی · ثبتِ عمومیِ بازداشت ظرفِ ۲۴ ساعت</p></div><div><b>۴–۵</b><span>درمان و اداره</span><p><b>مصونیتِ درمان</b>: مداوای هیچ‌کس جرم نیست، از هیچ طرفی · تضمینِ شغل و سابقهٔ کارمندِ عادی</p></div><div><b>۶–۷</b><span>سند و صدا</span><p>ممنوعیتِ تخریبِ اسناد، به‌عنوان جرمِ مستقل · آزادیِ بی‌قیدِ مطبوعات و اینترنت</p></div></div></div><p class="foot">آفریقای جنوبی، لهستان و شیلی با متنِ از پیش آماده وارد گذار شدند. عراق و لیبی نه — و خلأ را زور پر کرد. <b>تفاوت، تفاوتِ آمادگی بود نه نیت.</b></p></section>
+<section class="sl k-close" data-i="17"><span class="pg">۱۸ از ۱۸</span><div class="in"><h2 class="big">آنچه این سند می‌خواهد</h2><p class="lead">نه تأیید، نه پذیرشِ کامل. فقط اینکه بحث از سطحِ <b>«چه کسی حق دارد»</b> به سطحِ <b>«چه چیزی کار می‌کند و به چه قیمتی»</b> برود.</p><p class="meta">پشتوانه: ۷۶ ادعای منبع‌دار، با ردهٔ اعتبار و شرطِ ابطال</p></div></section>
+<div id="nav"><i></i></div>
+<div id="hint">کلیدِ ← → یا کلیک برای حرکت · F تمام‌صفحه · P چاپ و PDF</div>
+<script>
+(function(){
+  var sl=[].slice.call(document.querySelectorAll(".sl")),i=0,
+      bar=document.querySelector("#nav i"),hint=document.getElementById("hint");
+  function show(n){
+    i=Math.max(0,Math.min(sl.length-1,n));
+    sl.forEach(function(s,k){s.classList.toggle("on",k===i)});
+    bar.style.width=((i+1)/sl.length*100)+"%";
+    if(location.hash!=="#"+(i+1)) history.replaceState(null,"","#"+(i+1));
+  }
+  function go(d){show(i+d)}
+  document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowLeft"||e.key===" "||e.key==="PageDown")go(1);
+    else if(e.key==="ArrowRight"||e.key==="PageUp")go(-1);
+    else if(e.key==="Home")show(0);
+    else if(e.key==="End")show(sl.length-1);
+    else if(e.key==="f"||e.key==="F"){
+      if(document.fullscreenElement)document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    } else if(e.key==="p"||e.key==="P")window.print();
+  });
+  document.addEventListener("click",function(e){
+    if(e.target.closest("a"))return;
+    go(e.clientX < innerWidth/2 ? 1 : -1);
+  });
+  var x0=null;
+  document.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener("touchend",function(e){
+    if(x0===null)return; var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50)go(dx>0?-1:1); x0=null;
+  },{passive:true});
+  var h=parseInt((location.hash||"").slice(1),10);
+  show(isNaN(h)?0:h-1);
+  setTimeout(function(){hint.style.opacity="0"},4200);
+})();
+</script>
+</body></html>
