@@ -1,0 +1,234 @@
+/* ════════════════════════════════════════════════════════════
+   ابزارها — نقشهٔ استدلال، بازرسیِ ادعا، سلامتِ دیتاست، وضعیتِ سند.
+   فقط از متغیرهای --s-* استفاده می‌کند تا با هر دو تم بخواند.
+   ════════════════════════════════════════════════════════════ */
+
+/* رنگِ لایه‌ها: ۰ تیره، ۱ متوسط، ۲ روشن، ۳ سبز، ۴ خاکستری */
+:root{
+  --L0:var(--s-text); --L1:var(--s-lajvard);
+  --L2:color-mix(in srgb,var(--s-lajvard) 45%,var(--s-bg));
+  --L3:var(--s-firuze); --L4:var(--s-muted);
+}
+
+.tool-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.seg{display:inline-flex;border:1px solid var(--s-line);border-radius:99px;overflow:hidden;background:var(--s-surface)}
+.seg button{border:0;background:none;color:var(--s-muted);font:700 .8rem/1 inherit;padding:10px 16px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--s-zar);color:#12161f}
+.btn-t{display:inline-flex;align-items:center;gap:6px;cursor:pointer;text-decoration:none;
+  border:1px solid var(--s-line);background:var(--s-surface);color:var(--s-text);
+  border-radius:10px;padding:9px 14px;font:700 .8rem/1.2 inherit;transition:.15s}
+.btn-t:hover{border-color:var(--s-zar);color:var(--s-zar)}
+.btn-t.p{background:var(--s-zar);border-color:var(--s-zar);color:#12161f}
+.btn-t.p:hover{color:#12161f;filter:brightness(1.05)}
+.muted{color:var(--s-muted)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ══ نقشهٔ استدلال ══ */
+.amap{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+@media(max-width:940px){.amap{grid-template-columns:1fr}}
+.amap-c{background:var(--s-surface);border:1px solid var(--s-line);border-radius:18px;padding:4px;overflow:hidden}
+.amap-c svg{width:100%;height:auto;display:block}
+.amap-c .nd{cursor:pointer;outline:none}
+.amap-c .nd rect{fill:var(--s-surface);stroke-width:1.6;transition:.15s}
+.amap-c .nd .t{font:700 19px "Vazirmatn",system-ui,sans-serif;fill:var(--s-text)}
+.amap-c .nd .s{font:400 14px "Vazirmatn",system-ui,sans-serif;fill:var(--s-muted)}
+.amap-c .nd .k{font:600 12px "IBM Plex Mono",monospace;fill:var(--s-bg)}
+.amap-c .nd .kb{stroke:none}
+.amap-c .nd.est rect{stroke-dasharray:6 4}
+.amap-c .nd:hover rect,.amap-c .nd:focus rect{stroke-width:3}
+.amap-c .nd.on rect{stroke-width:3.4;fill:color-mix(in srgb,var(--s-zar) 12%,var(--s-surface))}
+.amap-c .nd.dim{opacity:.22}
+.amap-c .eg path{fill:none;stroke:var(--s-muted);stroke-width:1.4;transition:.15s}
+.amap-c .eg.inf path{stroke:var(--s-text);stroke-width:3}
+.amap-c .eg.ev path{stroke:var(--s-lajvard);stroke-dasharray:7 5;stroke-width:1.8}
+.amap-c .eg.aud path{stroke:var(--s-shangarf);stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:2.4}
+.amap-c .eg.act path{stroke:var(--s-firuze);stroke-width:2.2}
+.amap-c .eg.nar path{stroke:var(--s-zar);stroke-width:1.5}
+.amap-c .eg.dim{opacity:.1}
+.amap-c .eg.hot path{stroke-width:3.6}
+.amap-c .lane{font:700 11px "Vazirmatn",system-ui;fill:var(--s-muted);opacity:.75}
+.amap-c .lane-l{stroke:var(--s-line);stroke-dasharray:2 6}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.76rem;color:var(--s-muted);margin:10px 4px 2px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend svg{width:34px;height:10px}
+.legend i{width:14px;height:14px;border-radius:4px;border:2px solid;display:inline-block}
+
+.panel{position:sticky;top:calc(var(--s-bar,62px) + 14px);background:var(--s-surface);
+  border:1px solid var(--s-line);border-radius:18px;padding:18px 20px;min-height:220px}
+.panel .pk{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;
+  font:700 .8rem "IBM Plex Mono",monospace;color:var(--s-bg);margin-inline-end:8px;vertical-align:middle}
+.panel h3{margin:0 0 4px;font-size:1.15rem;display:flex;align-items:center}
+.panel .ps{color:var(--s-muted);font-size:.85rem;margin:0 0 10px}
+.panel p{font-size:.9rem;line-height:1.9;margin:0 0 12px}
+.panel .est-n{font-size:.75rem;color:var(--s-shangarf);border:1px dashed currentColor;
+  border-radius:8px;padding:4px 9px;display:inline-block;margin:0 0 10px}
+.panel h4{font-size:.78rem;color:var(--s-muted);margin:14px 0 6px}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.panel li a{font-size:.8rem;text-decoration:none;color:var(--s-text);display:flex;gap:7px;align-items:baseline}
+.panel li a:hover{color:var(--s-zar)}
+.panel .lnk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.panel .rel{font-size:.78rem;color:var(--s-muted)}
+.panel .rel b{color:var(--s-text)}
+.tp{font:700 .62rem/1 inherit;border-radius:5px;padding:3px 6px;flex:none;white-space:nowrap}
+.tp.t1{background:color-mix(in srgb,var(--s-lajvard) 22%,var(--s-surface));color:var(--s-lajvard)}
+.tp.t2{background:color-mix(in srgb,var(--s-lajvard) 11%,var(--s-surface));color:var(--s-lajvard)}
+.tp.t3{background:var(--s-surface2);color:var(--s-muted);border:1px dashed var(--s-line)}
+.tp.cx{background:color-mix(in srgb,var(--s-shangarf) 14%,var(--s-surface));color:var(--s-shangarf)}
+.mix{display:flex;height:8px;border-radius:99px;overflow:hidden;background:var(--s-surface2);margin:6px 0 4px}
+.mix i{display:block;height:100%}
+.mix .m1{background:var(--s-lajvard)}
+.mix .m2{background:color-mix(in srgb,var(--s-lajvard) 50%,var(--s-bg))}
+.mix .m3{background:repeating-linear-gradient(45deg,var(--s-muted) 0 3px,transparent 3px 6px)}
+
+/* فهرستِ متنیِ گراف — برای صفحه‌خوان و موبایل */
+.alist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.alist .ai{background:var(--s-surface);border:1px solid var(--s-line);border-radius:12px;
+  padding:12px 14px;border-inline-start:5px solid var(--lc,var(--s-line))}
+.alist .ai b{font-size:.92rem}
+.alist .ai p{margin:4px 0 6px;font-size:.8rem;color:var(--s-muted);line-height:1.8}
+.alist .ai .out{font-size:.74rem;color:var(--s-muted)}
+.alist .ai .out a{margin-inline-end:6px}
+
+/* ══ نوارِ پنج‌پله (فشرده) ══ */
+.path5{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:p;margin:6px 0 14px}
+@media(max-width:760px){.path5{grid-template-columns:1fr;gap:6px}}
+.path5 a{position:relative;text-decoration:none;color:var(--s-text);background:var(--s-surface);
+  border:1px solid var(--s-line);padding:14px 16px 13px;display:block;transition:.15s;margin-inline-end:-1px}
+.path5 a:first-child{border-start-start-radius:14px;border-end-start-radius:14px}
+.path5 a:last-child{border-start-end-radius:14px;border-end-end-radius:14px}
+@media(max-width:760px){.path5 a{border-radius:12px!important;margin:0}}
+.path5 a::before{counter-increment:p;content:counter(p,persian);display:inline-grid;place-items:center;
+  width:24px;height:24px;border-radius:99px;background:var(--s-surface2);color:var(--s-zar);
+  font-weight:800;font-size:.78rem;margin-inline-end:8px;vertical-align:middle}
+.path5 a b{font-size:.98rem;vertical-align:middle}
+.path5 a span{display:block;font-size:.76rem;color:var(--s-muted);margin-top:5px;line-height:1.7}
+.path5 a:hover{border-color:var(--s-zar);z-index:1}
+.path5 a.on{background:color-mix(in srgb,var(--s-zar) 13%,var(--s-surface));border-color:var(--s-zar);z-index:1}
+.path5 a.on::before{background:var(--s-zar);color:#12161f}
+.path5 a .grp{font-size:.68rem;color:var(--s-muted);opacity:.8;margin-top:6px;font-family:"IBM Plex Mono",monospace}
+
+/* نوارِ مسیر در پایینِ صفحه‌ها (shell.js) */
+#argtrail{border-top:1px solid var(--s-line);padding:30px 0 26px;font-family:var(--s-fa,"Vazirmatn",system-ui,sans-serif)}
+#argtrail .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+#argtrail .h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+#argtrail .h b{font-size:1rem}
+#argtrail .h a{font-size:.8rem}
+#argtrail .nx{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+
+/* ══ برچسبِ وضعیتِ سند (شناور) ══ */
+#docstat{position:fixed;z-index:8500;bottom:14px;inset-inline-end:14px;
+  font-family:var(--s-fa,"Vazirmatn",system-ui,sans-serif);
+  display:flex;align-items:center;gap:0;background:var(--s-surface);color:var(--s-text);
+  border:1px solid var(--s-line);border-radius:99px;box-shadow:var(--s-shadow);font-size:.74rem;max-width:calc(100vw - 28px)}
+#docstat a{display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;padding-block:8px;padding-inline:14px 6px;min-width:0}
+#docstat a:hover .l{color:var(--s-zar)}
+#docstat .dot{width:9px;height:9px;border-radius:99px;background:var(--s-shangarf);flex:none;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--s-shangarf) 22%,transparent)}
+#docstat .l{font-weight:700;white-space:nowrap}
+#docstat .m{color:var(--s-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#docstat button{border:0;background:none;color:var(--s-muted);cursor:pointer;padding:8px 12px 8px 10px;font:inherit;line-height:1}
+#docstat.min .m{display:none}
+#docstat.min a{padding-inline-end:4px}
+@media(max-width:600px){#docstat .m{display:none}}
+@media print{#docstat,#argtrail{display:none}}
+
+/* ══ پرچمِ فرضِ کهنه — اجرای «چه باید کرد»ِ ممیزیِ f-2 ══ */
+.stale-flag{display:flex;gap:10px;align-items:flex-start;margin:10px 0 16px;padding:11px 14px;
+  border:1px dashed color-mix(in srgb,var(--s-shangarf) 55%,var(--s-line));border-radius:12px;
+  background:color-mix(in srgb,var(--s-shangarf) 6%,var(--s-surface));
+  font:400 .84rem/1.85 var(--s-fa,"Vazirmatn",system-ui,sans-serif);color:var(--s-text)}
+.stale-flag::before{content:"⚑";color:var(--s-shangarf);font-size:1rem;line-height:1.5}
+.stale-flag a{color:var(--s-shangarf);font-weight:700}
+
+/* ══ پشتوانهٔ کارت‌های قدمِ تو ══ */
+.basis{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 10px;
+  font-size:.76rem;color:var(--s-muted);border-top:1px dashed var(--s-line);padding-top:9px}
+.basis a{display:inline-flex;gap:5px;align-items:center;text-decoration:none;color:var(--s-text);
+  background:var(--s-surface2);border-radius:7px;padding:3px 8px;font-size:.74rem}
+.basis a:hover{color:var(--s-zar)}
+.basis.none{color:var(--s-shangarf)}
+.basis.none a{background:none;color:var(--s-shangarf);text-decoration:underline;padding:0}
+
+/* پیوندِ «سطرِ داده» زیرِ کارت‌های خلاصه */
+.sc .row{display:inline-block;margin-top:8px;font-size:.74rem;text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;color:var(--s-muted);border-bottom:1px dashed var(--s-line)}
+.sc .row:hover{color:var(--s-zar);border-color:var(--s-zar)}
+
+/* ══ بازرسیِ ادعا ══ */
+.insp{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+@media(max-width:940px){.insp{grid-template-columns:1fr}}
+.insp select,.insp input[type=search],.insp textarea,.insp input[type=text]{
+  width:100%;font:inherit;font-size:.9rem;color:var(--s-text);background:var(--s-surface);
+  border:1px solid var(--s-line);border-radius:10px;padding:10px 12px}
+.insp textarea{min-height:96px;resize:vertical;line-height:1.8}
+.insp .pick{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:12px}
+.steps-c{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps-c li{background:var(--s-surface);border:1px solid var(--s-line);border-radius:12px;padding:12px 14px}
+.steps-c label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-weight:700;font-size:.9rem}
+.steps-c input{margin-top:6px;accent-color:var(--s-zar);width:17px;height:17px;flex:none}
+.steps-c p{margin:5px 0 0;padding-inline-start:27px;font-size:.8rem;color:var(--s-muted);line-height:1.85}
+.steps-c li.done{border-color:color-mix(in srgb,var(--s-firuze) 50%,var(--s-line))}
+.verd{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0}
+.verd label{display:flex;gap:8px;align-items:center;border:1px solid var(--s-line);border-radius:10px;
+  padding:9px 11px;cursor:pointer;font-size:.84rem;background:var(--s-surface)}
+.verd input{accent-color:var(--s-zar)}
+.verd label:has(input:checked){border-color:var(--s-zar);background:color-mix(in srgb,var(--s-zar) 10%,var(--s-surface))}
+.out-md{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;direction:rtl;
+  white-space:pre-wrap;background:var(--s-surface2);border-radius:10px;padding:12px;max-height:260px;overflow:auto;margin:8px 0}
+.mylog{display:grid;gap:6px;margin-top:8px}
+.mylog a{display:flex;gap:8px;justify-content:space-between;font-size:.8rem;text-decoration:none;
+  color:var(--s-text);background:var(--s-surface);border:1px solid var(--s-line);border-radius:9px;padding:7px 10px}
+.vd{font-size:.68rem;font-weight:700;border-radius:5px;padding:2px 6px;white-space:nowrap}
+.vd.ok{background:color-mix(in srgb,var(--s-firuze) 18%,var(--s-surface));color:var(--s-firuze)}
+.vd.fix{background:color-mix(in srgb,var(--s-zar) 18%,var(--s-surface));color:var(--s-zar)}
+.vd.no{background:color-mix(in srgb,var(--s-shangarf) 18%,var(--s-surface));color:var(--s-shangarf)}
+.vd.na{background:var(--s-surface2);color:var(--s-muted)}
+.chain{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chain a{font-size:.76rem;text-decoration:none;border:1px solid var(--s-line);border-radius:8px;padding:4px 9px;color:var(--s-text)}
+.chain a:hover{border-color:var(--s-zar)}
+.chain a i{font-style:normal;font-family:"IBM Plex Mono",monospace;color:var(--s-zar);margin-inline-end:5px}
+
+/* ══ سلامتِ دیتاست ══ */
+.hm{border-collapse:separate;border-spacing:4px;width:100%;font-size:.8rem}
+.hm th{font-weight:700;color:var(--s-muted);text-align:start;padding:4px 6px;white-space:nowrap}
+.hm td{text-align:center;border-radius:8px;padding:9px 4px;font-family:"IBM Plex Mono",monospace;font-weight:600}
+.hm td.z{color:var(--s-muted);opacity:.45}
+.tblw{overflow-x:auto;background:var(--s-surface);border:1px solid var(--s-line);border-radius:14px;padding:8px}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:minmax(120px,220px) 1fr auto;gap:12px;align-items:center;font-size:.82rem}
+.bar .tr{height:12px;border-radius:99px;background:var(--s-surface2);overflow:hidden;display:flex}
+.bar .tr i{display:block;height:100%}
+.bar .n{font-family:"IBM Plex Mono",monospace;color:var(--s-muted);font-size:.76rem;white-space:nowrap}
+.bar .lb{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar.hot .lb{color:var(--s-shangarf);font-weight:700}
+@media(max-width:600px){.bar{grid-template-columns:1fr auto}.bar .tr{grid-column:1/-1;order:3}}
+.chk{display:grid;gap:8px}
+.chk div{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;
+  background:var(--s-surface);border:1px solid var(--s-line);border-radius:12px;padding:10px 14px;font-size:.86rem}
+.chk .st{font-weight:800;font-size:1rem}
+.chk .st.ok{color:var(--s-firuze)} .chk .st.no{color:var(--s-shangarf)}
+.chk .v{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--s-muted);white-space:nowrap}
+.cards18{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.cards18 a{text-decoration:none;color:var(--s-text);background:var(--s-surface);border:1px solid var(--s-line);
+  border-radius:11px;padding:10px 12px;font-size:.82rem;display:flex;justify-content:space-between;gap:6px}
+.cards18 a.no{border-style:dashed;color:var(--s-muted)}
+.cards18 a b{font-family:"IBM Plex Mono",monospace;color:var(--s-firuze)}
+.cards18 a.no b{color:var(--s-shangarf)}
+.flist{display:grid;gap:8px}
+.flist a{display:block;text-decoration:none;color:var(--s-text);background:var(--s-surface);
+  border:1px solid var(--s-line);border-radius:11px;padding:10px 14px;font-size:.84rem;line-height:1.85}
+.flist a span{display:block;color:var(--s-muted);font-size:.78rem}
+.flist a:hover{border-color:var(--s-zar)}
+
+/* ══ وضعیتِ سند ══ */
+.tl-st{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.tl-st li{background:var(--s-surface);border:1px solid var(--s-line);border-radius:12px;padding:12px 16px;
+  border-inline-start:4px solid var(--s-line)}
+.tl-st li.hi{border-inline-start-color:var(--s-shangarf)}
+.tl-st li.ok{border-inline-start-color:var(--s-firuze)}
+.tl-st b{display:block;font-size:.95rem}
+.tl-st p{margin:4px 0 0;font-size:.85rem;color:var(--s-muted);line-height:1.85}
+.tl-st .d{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--s-muted)}
+.ix-m i.new{background:color-mix(in srgb,var(--s-firuze) 16%,var(--s-surface));color:var(--s-firuze)}
+[hidden]{display:none!important}

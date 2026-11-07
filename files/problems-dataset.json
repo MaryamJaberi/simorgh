@@ -1,0 +1,324 @@
+[
+ {
+  "id": "tavarom",
+  "t": "فشار معیشت و تورم",
+  "dom": "eco",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 92,
+  "y": 72,
+  "hidden": false,
+  "note": "شایع‌ترین و یکی از سنگین‌ترین‌ها؛ در آمارِ رسمی هم کاملاً دیده می‌شود.",
+  "claims": [
+   "inflation",
+   "food-inflation",
+   "poverty"
+  ]
+ },
+ {
+  "id": "bikari",
+  "t": "بیکاری و شغل ناپایدار",
+  "dom": "eco",
+  "lvl": "فردی",
+  "pop": [],
+  "x": 78,
+  "y": 68,
+  "hidden": false,
+  "note": "با اشتغالِ غیررسمیِ بالا، «شاغل بودن» تضمینِ امنیت نیست.",
+  "claims": [
+   "informal",
+   "grad-unemployment"
+  ]
+ },
+ {
+  "id": "maskan",
+  "t": "هزینهٔ مسکن",
+  "dom": "housing",
+  "lvl": "خانوار",
+  "pop": [],
+  "x": 84,
+  "y": 70,
+  "hidden": false,
+  "note": "برای خانوارِ شهری بزرگ‌ترین قلمِ هزینه.",
+  "claims": []
+ },
+ {
+  "id": "keyfiat",
+  "t": "کیفیت پایین مسکن",
+  "dom": "housing",
+  "lvl": "محله",
+  "pop": [],
+  "x": 72,
+  "y": 55,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "darman",
+  "t": "هزینهٔ درمان",
+  "dom": "health",
+  "lvl": "خانوار",
+  "pop": [],
+  "x": 70,
+  "y": 74,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "bedehi",
+  "t": "بدهی خانوار",
+  "dom": "eco",
+  "lvl": "خانوار",
+  "pop": [],
+  "x": 58,
+  "y": 68,
+  "hidden": true,
+  "note": "در زندگی زیاد است ولی در دادهٔ رسمی کم ثبت می‌شود.",
+  "claims": []
+ },
+ {
+  "id": "aloodegi",
+  "t": "آلودگی هوا",
+  "dom": "housing",
+  "lvl": "محله",
+  "pop": [],
+  "x": 80,
+  "y": 44,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "terafik",
+  "t": "ترافیک و زمان تلف‌شده",
+  "dom": "housing",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 91,
+  "y": 33,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "boroukrasi",
+  "t": "صف و بوروکراسی",
+  "dom": "housing",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 83,
+  "y": 19,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "ravan",
+  "t": "سلامت روان روزمره",
+  "dom": "health",
+  "lvl": "فردی",
+  "pop": [],
+  "x": 76,
+  "y": 36,
+  "hidden": true,
+  "note": "پنهان‌تر: بیشتر از آنچه ثبت می‌شود تجربه می‌شود.",
+  "claims": []
+ },
+ {
+  "id": "tanhaee",
+  "t": "تنهایی و انزوا",
+  "dom": "psych",
+  "lvl": "فردی",
+  "pop": [],
+  "x": 64,
+  "y": 44,
+  "hidden": true,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "khoshoonat",
+  "t": "خشونت خانگی",
+  "dom": "safety",
+  "lvl": "خانوار",
+  "pop": [
+   "زنان",
+   "کودکان"
+  ],
+  "x": 46,
+  "y": 88,
+  "hidden": true,
+  "note": "نمونهٔ روشنِ «کم‌ثبت، پرشدت»: در آمارِ رسمی به‌شدت کمتر از واقعیت دیده می‌شود.",
+  "claims": [
+   "home-bargaining"
+  ]
+ },
+ {
+  "id": "farsoodegi",
+  "t": "فرسودگی مراقبت",
+  "dom": "psych",
+  "lvl": "خانوار",
+  "pop": [
+   "زنان"
+  ],
+  "x": 45,
+  "y": 65,
+  "hidden": true,
+  "note": "کارِ مراقبتیِ بی‌مزد، عمدتاً بر دوشِ زنان و عمدتاً نامرئی در آمار.",
+  "claims": []
+ },
+ {
+  "id": "bimari",
+  "t": "بیماری مزمن",
+  "dom": "health",
+  "lvl": "فردی",
+  "pop": [],
+  "x": 51,
+  "y": 72,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "maloliat",
+  "t": "معلولیت بدون حمایت",
+  "dom": "health",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 36,
+  "y": 66,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "etiad",
+  "t": "اعتیاد شدید",
+  "dom": "safety",
+  "lvl": "خانوار",
+  "pop": [],
+  "x": 27,
+  "y": 77,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "bikhanemani",
+  "t": "بی‌خانمانی",
+  "dom": "housing",
+  "lvl": "فردی",
+  "pop": [],
+  "x": 18,
+  "y": 80,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "bohran",
+  "t": "فاجعه و بحران حاد",
+  "dom": "safety",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 16,
+  "y": 92,
+  "hidden": false,
+  "note": "نادر ولی ویرانگر — پاسخش آمادگی است، نه سیاستِ روزمره.",
+  "claims": [
+   "war-1404"
+  ]
+ },
+ {
+  "id": "tark",
+  "t": "ترک تحصیل",
+  "dom": "edu",
+  "lvl": "خانوار",
+  "pop": [
+   "کودکان"
+  ],
+  "x": 60,
+  "y": 38,
+  "hidden": false,
+  "note": "",
+  "claims": [
+   "students"
+  ]
+ },
+ {
+  "id": "nabarabari",
+  "t": "نابرابری فرصت شغلی",
+  "dom": "edu",
+  "lvl": "ساختاری",
+  "pop": [],
+  "x": 46,
+  "y": 30,
+  "hidden": false,
+  "note": "",
+  "claims": [
+   "middle-class"
+  ]
+ },
+ {
+  "id": "digital",
+  "t": "شکاف دیجیتال",
+  "dom": "edu",
+  "lvl": "محله",
+  "pop": [],
+  "x": 38,
+  "y": 22,
+  "hidden": false,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "tard",
+  "t": "طرد اجتماعی اقلیت",
+  "dom": "psych",
+  "lvl": "ساختاری",
+  "pop": [
+   "اقلیت‌ها"
+  ],
+  "x": 34,
+  "y": 44,
+  "hidden": true,
+  "note": "برای گروهِ هدف بسیار سنگین است، حتی وقتی سهمِ جمعیتی‌اش کوچک است.",
+  "claims": [
+   "babi",
+   "not-always-good"
+  ]
+ },
+ {
+  "id": "mohajer",
+  "t": "بی‌ثباتی وضعِ اقامت",
+  "dom": "psych",
+  "lvl": "فردی",
+  "pop": [
+   "مهاجران"
+  ],
+  "x": 24,
+  "y": 60,
+  "hidden": true,
+  "note": "",
+  "claims": []
+ },
+ {
+  "id": "salmand",
+  "t": "تنهاییِ سالمندی و مراقبت",
+  "dom": "health",
+  "lvl": "خانوار",
+  "pop": [
+   "سالمندان"
+  ],
+  "x": 40,
+  "y": 51,
+  "hidden": true,
+  "note": "با سالمندیِ پنج‌برابریِ نرخِ رشدِ جمعیت، سهمِ این نقطه بالا می‌رود.",
+  "claims": [
+   "aging",
+   "fertility"
+  ]
+ }
+]

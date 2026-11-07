@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1116">
+<title>نقشهٔ استدلال — پَرِ سیمرغ</title>
+<meta name="description" content="پانزده گره و هجده پیوند: از استعارهٔ میزِ مافیا تا ادعا، شواهد، ممیزی و کنش — و اینکه هر گره روی کدام سطرِ داده ایستاده.">
+<meta property="og:title" content="نقشهٔ استدلال — پَرِ سیمرغ">
+<meta property="og:description" content="از استعاره تا ادعا، شواهد، ممیزی و کنش — هر گره با سطرهای داده‌اش.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Markazi+Text:wght@400;600&family=Gulzar&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shell.css">
+<link rel="stylesheet" href="assets/page.css">
+<link rel="stylesheet" href="assets/tools.css">
+<script>window.SHELL_BASE="";window.SHELL_ASSETS="assets/";window.SHELL_OTHER=null;window.ARG_STAGE=null;</script>
+<script defer src="assets/argdata.js"></script>
+<script defer src="assets/art.js"></script>
+<script defer src="assets/shell.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="hero db">
+  <div class="txt">
+    <p class="kick">ابزار · ساختار</p>
+    <h1>نقشهٔ استدلال</h1>
+    <p class="dek">این مجموعه پیچیده است، ولی پیچیدگی‌اش باید <b>حسابرسی‌پذیر</b> باشد، نه گیج‌کننده.
+      این صفحه کلِ استدلال را روی یک صفحه می‌گذارد: پانزده گره، هجده پیوند، و مسیری که خواننده باید بتواند در آن راه برود —
+      <b>استعاره ← ادعا ← شواهد ← ممیزی ← کنش</b>.</p>
+    <p class="dek">روی هر گره بزنید تا ببینید چه می‌گوید، از کجا تغذیه می‌شود، به کجا می‌رود،
+      و روی کدام سطرهای <a href="data.html">میزِ داده</a> ایستاده.</p>
+  </div>
+  <div class="art"><div data-art="graph"></div></div>
+</header>
+
+<section class="blk" id="naghshe"><div class="wrap">
+  <div class="tool-bar">
+    <div class="seg" role="group" aria-label="نمای نقشه">
+      <button type="button" data-view="full" aria-pressed="true">کامل — ۱۵ گره</button>
+      <button type="button" data-view="compact" aria-pressed="false">فشرده — ۵ پله</button>
+    </div>
+    <div class="chips" id="stagechips" role="group" aria-label="پررنگ‌کردنِ یک پله"></div>
+  </div>
+
+  <div id="v-compact" hidden>
+    <p class="lede">اگر فقط یک چیز از ساختار یادتان بماند، این پنج پله است. هر پله گره‌های خودش را دارد؛
+      روی هر کدام بزنید تا در نقشهٔ کامل پررنگ شوند.</p>
+    <nav class="path5" id="path5" aria-label="پنج پلهٔ استدلال"></nav>
+  </div>
+
+  <div id="v-full" class="amap">
+    <div>
+      <div class="amap-c"><svg id="amapsvg" viewBox="0 0 1080 850" role="group" aria-label="نقشهٔ استدلال: پانزده گره و هجده پیوند"></svg></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite">
+      <p style="font-weight:700;font-size:1.05rem;margin:0 0 4px">یک گره را انتخاب کنید</p>
+      <p class="ps">یا با کلیدِ Tab بینِ گره‌ها حرکت کنید و Enter بزنید.</p>
+      <p>رنگ‌ها لایه‌اند: <b>تیره</b> قلاب (استعاره و ادعا)، <b>آبی</b> شواهدِ پنج‌گانه، <b>آبیِ روشن</b> روش‌شناسی،
+        <b>سبز</b> کنش و روایت، <b>خاکستری</b> وضعیتِ سند. حاشیهٔ <b>خط‌چین</b> یعنی آن گره برآورد یا مدل است، نه ادعای قطعی.</p>
+    </aside>
+  </div>
+</div></section>
+
+<section class="blk" id="hadd"><div class="wrap">
+  <h2>استعاره کجا جای استدلال را نمی‌گیرد</h2>
+  <p class="lede">میز، شب، پَر و سیمرغ کمک می‌کنند حرف به یاد بماند. ولی هر استعاره باید بتواند
+    <b>به زبانِ ساده</b> گفته شود، به <b>سطری از داده</b> وصل شود، و بگوید <b>کجا می‌شکند</b>.
+    استعاره‌ای که این سه را نداشته باشد، دارد جای استدلال را می‌گیرد.</p>
+  <div class="finds" id="limits"></div>
+</div></section>
+
+<section class="blk" id="fehrest"><div class="wrap">
+  <h2>همین نقشه، به متن</h2>
+  <p class="lede">برای صفحه‌خوان، چاپ، و صفحه‌های کوچک: هر گره، اینکه کجا می‌برد، و پیوندهای خروجی‌اش.</p>
+  <div class="alist" id="alist"></div>
+</div></section>
+</div>
+
+<footer class="site"><div class="wrap">
+  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ یک بازی و یک اسطوره.</p>
+  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
+  <p>برای جست‌وجو در همهٔ مطالب، کلیدِ <code>/</code> را بزنید یا دکمهٔ «همهٔ مطالب» را.</p>
+</div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+  var A = window.SimorghArg, fa = A.fa;
+  var NS = "http://www.w3.org/2000/svg";
+  var W = 200, H = 70;
+  var byId = {}; A.NODES.forEach(function (n) { byId[n.id] = n; });
+  var CLAIMS = null;
+  var svg = document.getElementById("amapsvg");
+  var panel = document.getElementById("panel");
+  var LCOL = ["var(--L0)", "var(--L1)", "var(--L2)", "var(--L3)", "var(--L4)"];
+
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function mk(tag, attrs) { var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+
+  /* ── پیکان‌ها، یکی برای هر نوع ── */
+  var defs = mk("defs", {});
+  var MCOL = { nar: "var(--s-zar)", inf: "var(--s-text)", ev: "var(--s-lajvard)", aud: "var(--s-shangarf)", act: "var(--s-firuze)" };
+  Object.keys(MCOL).forEach(function (k) {
+    var m = mk("marker", { id: "ar-" + k, viewBox: "0 0 10 10", refX: "9", refY: "5",
+      markerWidth: "7", markerHeight: "7", orient: "auto-start-reverse" });
+    var p = mk("path", { d: "M0 0L10 5L0 10z" }); p.style.fill = MCOL[k];
+    m.appendChild(p); defs.appendChild(m);
+  });
+  svg.appendChild(defs);
+
+  /* ── مسیرِ یک یال ── */
+  function route(a, b) {
+    var ax = a.x, ay = a.y, bx = b.x, by = b.y;
+    var dx = bx - ax, dy = by - ay;
+    /* یال‌های بلند که از وسطِ نقشه رد می‌شوند، از کناره می‌روند */
+    if (a.id === "M" && b.id === "L")
+      return "M" + (ax - W / 2) + " " + ay + " C40 " + ay + " 40 " + by + " " + (bx - W / 2 - 2) + " " + by;
+    if (a.id === "O" && b.id === "H")
+      return "M" + ax + " " + (ay + H / 2) + " C" + ax + " 820 " + (bx + 300) + " " + (by + 50) + " " + (bx + W / 2 + 2) + " " + (by + 8);
+    if (a.id === "B" && b.id === "G")
+      return "M" + (ax + W / 2) + " " + ay + " C" + (bx - 40) + " " + ay + " " + bx + " " + (by - 80) + " " + bx + " " + (by - H / 2 - 2);
+    if (a.id === "B" && b.id === "C")
+      return "M" + (ax - W / 2) + " " + ay + " C" + (bx + 40) + " " + ay + " " + bx + " " + (by - 80) + " " + bx + " " + (by - H / 2 - 2);
+    if (a.id === "K" && b.id === "I")
+      return "M" + ax + " " + (ay - H / 2) + " L" + ax + " " + (by + H / 2 + 2);
+    if (Math.abs(dy) < 40) {
+      var s = dx > 0 ? 1 : -1;
+      return "M" + (ax + s * W / 2) + " " + ay + " L" + (bx - s * (W / 2 + 2)) + " " + by;
+    }
+    if (dy < 0) { /* بالا رفتن: J ← H */
+      return "M" + ax + " " + (ay - H / 2) + " C" + ax + " " + (ay - 60) + " " + bx + " " + (by + 80) + " " + bx + " " + (by + H / 2 + 2);
+    }
+    var y1 = ay + H / 2, y2 = by - H / 2 - 2, my = (y1 + y2) / 2;
+    return "M" + ax + " " + y1 + " C" + ax + " " + my + " " + bx + " " + my + " " + bx + " " + y2;
+  }
+
+  var gE = mk("g", {}), gN = mk("g", {});
+  svg.appendChild(gE); svg.appendChild(gN);
+  var edgeEls = A.EDGES.map(function (e) {
+    var g = mk("g", { "class": "eg " + e[2], "data-a": e[0], "data-b": e[1] });
+    var p = mk("path", { d: route(byId[e[0]], byId[e[1]]), "marker-end": "url(#ar-" + e[2] + ")" });
+    var tt = mk("title", {}); tt.textContent = e[0] + " ← " + e[1] + " · " + e[3];
+    g.appendChild(tt); g.appendChild(p); gE.appendChild(g); return g;
+  });
+
+  var nodeEls = A.NODES.map(function (n) {
+    var g = mk("g", { "class": "nd" + (n.est ? " est" : ""), tabindex: "0", role: "button",
+      "data-id": n.id, "aria-label": n.id + " — " + n.t + " — " + n.s });
+    var col = LCOL[n.L];
+    var r = mk("rect", { x: n.x - W / 2, y: n.y - H / 2, width: W, height: H, rx: 12 });
+    r.style.stroke = col;
+    var kb = mk("rect", { "class": "kb", x: n.x + W / 2 - 26, y: n.y - H / 2 + 6, width: 20, height: 20, rx: 5 });
+    kb.style.fill = col;
+    var k = mk("text", { "class": "k", x: n.x + W / 2 - 16, y: n.y - H / 2 + 20, "text-anchor": "middle" });
+    k.textContent = n.id;
+    var t = mk("text", { "class": "t", x: n.x - 8, y: n.y - 3, "text-anchor": "middle", direction: "rtl" });
+    t.textContent = n.t;
+    var s = mk("text", { "class": "s", x: n.x, y: n.y + 21, "text-anchor": "middle", direction: "rtl" });
+    s.textContent = n.s;
+    [r, kb, k, t, s].forEach(function (x) { g.appendChild(x); });
+    gN.appendChild(g);
+    g.addEventListener("click", function () { select(n.id, true); });
+    g.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(n.id, true); } });
+    return g;
+  });
+
+  /* ── راهنما ── */
+  var lg = document.getElementById("legend");
+  lg.innerHTML = Object.keys(A.EDGE_TYPES).map(function (k) {
+    var st = { nar: 'stroke="var(--s-zar)" stroke-width="1.5"', inf: 'stroke="var(--s-text)" stroke-width="3"',
+      ev: 'stroke="var(--s-lajvard)" stroke-width="1.8" stroke-dasharray="7 5"',
+      aud: 'stroke="var(--s-shangarf)" stroke-width="2.4" stroke-dasharray="1.5 5" stroke-linecap="round"',
+      act: 'stroke="var(--s-firuze)" stroke-width="2.2"' }[k];
+    return '<span><svg viewBox="0 0 34 10"><path d="M1 5H33" ' + st + '/></svg>' + A.EDGE_TYPES[k] + '</span>';
+  }).join("") +
+  A.LAYERS.map(function (l) { return '<span><i style="border-color:' + LCOL[l.n] + '"></i>' + esc(l.t) + '</span>'; }).join("") +
+  '<span><i style="border-style:dashed;border-color:var(--s-muted)"></i>برآورد یا مدل</span>';
+
+  /* ── پنل ── */
+  function lab(c) { return c.value && /[0-9۰-۹]/.test(c.value) ? c.value : c.fa.slice(0, 46) + "…"; }
+  function tierPill(c) {
+    return '<span class="tp t' + c.tier + '">ردهٔ ' + fa(c.tier) + '</span>' +
+      (c.contested ? '<span class="tp cx">مناقشه‌دار</span>' : '');
+  }
+  function mixBar(list) {
+    if (!list.length) return "";
+    var n = [0, 0, 0, 0]; list.forEach(function (c) { n[c.tier]++; });
+    var T = list.length;
+    return '<div class="mix" title="ترکیبِ رده‌ها">' +
+      [1, 2, 3].map(function (t) { return n[t] ? '<i class="m' + t + '" style="width:' + (100 * n[t] / T) + '%"></i>' : ""; }).join("") +
+      '</div><div class="rel">ردهٔ ۱: <b>' + fa(n[1]) + '</b> · ردهٔ ۲: <b>' + fa(n[2]) + '</b> · ردهٔ ۳: <b>' + fa(n[3]) + '</b></div>';
+  }
+  function select(id, push) {
+    var n = byId[id]; if (!n) return;
+    var nb = {}; nb[id] = 1;
+    edgeEls.forEach(function (g) {
+      var a = g.getAttribute("data-a"), b = g.getAttribute("data-b"), hit = a === id || b === id;
+      g.classList.toggle("dim", !hit); g.classList.toggle("hot", hit);
+      if (hit) { nb[a] = 1; nb[b] = 1; }
+    });
+    nodeEls.forEach(function (g) {
+      var i = g.getAttribute("data-id");
+      g.classList.toggle("on", i === id); g.classList.toggle("dim", !nb[i]);
+    });
+    var ins = A.EDGES.filter(function (e) { return e[1] === id; });
+    var outs = A.EDGES.filter(function (e) { return e[0] === id; });
+    function eLink(e, other) {
+      return '<li><a href="#node-' + other + '" data-node="' + other + '"><span class="tp t3">' + other + '</span>' +
+        esc(byId[other].t) + ' <span class="muted">— ' + esc(A.EDGE_TYPES[e[2]]) + '</span></a></li>';
+    }
+    var lim = A.LIMITS.filter(function (l) { return l.node === id; })[0];
+    var h = '<h3><span class="pk" style="background:' + LCOL[n.L] + '">' + n.id + '</span> ' + esc(n.t) + '</h3>' +
+      '<p class="ps">' + esc(n.s) + ' · ' + esc(A.LAYERS[n.L].t) + '</p>' +
+      (n.est ? '<span class="est-n">برآورد یا مدل — هم‌وزنِ ادعای قطعی نخوانید</span>' : '') +
+      '<p>' + esc(n.d) + '</p>' +
+      '<div class="lnk"><a class="btn-t p" href="' + n.href + '">برو به این بخش ›</a>' +
+      (lim ? '<a class="btn-t" href="#lim-' + n.id + '">استعاره کجا می‌شکند</a>' : '') + '</div>';
+    if (ins.length) h += '<h4>از کجا می‌آید</h4><ul>' + ins.map(function (e) { return eLink(e, e[0]); }).join("") + '</ul>';
+    if (outs.length) h += '<h4>به کجا می‌رود</h4><ul>' + outs.map(function (e) { return eLink(e, e[1]); }).join("") + '</ul>';
+    if (CLAIMS) {
+      var list = A.resolve(n.claims, CLAIMS);
+      if (list.length) {
+        h += '<h4>روی ' + fa(list.length) + ' سطرِ داده ایستاده</h4>' + mixBar(list) + '<ul style="margin-top:8px">' +
+          list.slice(0, 7).map(function (c) {
+            return '<li><a href="data.html#c-' + c.id + '">' + tierPill(c) + '<span>' + esc(c.value || c.fa.slice(0, 40)) + '</span></a></li>';
+          }).join("") + '</ul>' +
+          (list.length > 7 ? '<p class="rel" style="margin-top:6px">و ' + fa(list.length - 7) + ' سطرِ دیگر در <a href="data.html#jadval">میزِ داده</a>.</p>' : '') +
+          '<div class="lnk"><a class="btn-t" href="inspect.html#' + list[0].id + '">یکی را بازرسی کن</a></div>';
+      } else {
+        h += '<h4>سطرِ داده</h4><p class="rel">این گره ادعای عددی ندارد؛ کارش ' +
+          (n.L === 3 ? 'روایت یا کنش' : 'روش') + ' است.</p>';
+      }
+    } else h += '<p class="rel">دیتاست بار نشد — اگر فایل را از روی دیسک باز کرده‌اید، روی نسخهٔ منتشرشده ببینید.</p>';
+    panel.innerHTML = h;
+    if (push && history.replaceState) history.replaceState(null, "", "#node-" + id);
+  }
+  panel.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-node]");
+    if (a) { e.preventDefault(); select(a.getAttribute("data-node"), true); }
+  });
+  function clearSel() {
+    edgeEls.forEach(function (g) { g.classList.remove("dim", "hot"); });
+    nodeEls.forEach(function (g) { g.classList.remove("dim", "on"); });
+  }
+
+  /* ── پله‌ها ── */
+  var chips = document.getElementById("stagechips");
+  chips.innerHTML = A.STAGES.map(function (s, i) {
+    return '<button class="chip" type="button" data-st="' + s.k + '">' + fa(i + 1) + ' · ' + esc(s.t) + '</button>';
+  }).join("");
+  function stage(k) {
+    var on = {};
+    A.NODES.forEach(function (n) { if (n.st === k) on[n.id] = 1; });
+    nodeEls.forEach(function (g) { var i = g.getAttribute("data-id"); g.classList.toggle("dim", !on[i]); g.classList.remove("on"); });
+    edgeEls.forEach(function (g) {
+      var hit = on[g.getAttribute("data-a")] || on[g.getAttribute("data-b")];
+      g.classList.toggle("dim", !hit); g.classList.toggle("hot", false);
+    });
+    [].forEach.call(chips.children, function (b) { b.classList.toggle("on", b.getAttribute("data-st") === k); });
+  }
+  chips.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-st]"); if (!b) return;
+    if (b.classList.contains("on")) { b.classList.remove("on"); clearSel(); return; }
+    stage(b.getAttribute("data-st"));
+  });
+
+  var p5 = document.getElementById("path5");
+  p5.innerHTML = A.STAGES.map(function (s) {
+    var ids = A.NODES.filter(function (n) { return n.st === s.k; }).map(function (n) { return n.id; });
+    return '<a href="#naghshe" data-st="' + s.k + '"><b>' + esc(s.t) + '</b><span>' + esc(s.d) + '</span>' +
+      '<span class="grp">' + ids.join(" · ") + '</span></a>';
+  }).join("");
+  p5.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-st]"); if (!a) return;
+    e.preventDefault(); view("full"); stage(a.getAttribute("data-st"));
+    document.getElementById("v-full").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  function view(v) {
+    document.getElementById("v-full").hidden = v !== "full";
+    document.getElementById("v-compact").hidden = v !== "compact";
+    chips.hidden = v !== "full";
+    [].forEach.call(document.querySelectorAll("[data-view]"), function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-view") === v ? "true" : "false"); });
+  }
+  document.querySelector(".seg").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-view]"); if (b) view(b.getAttribute("data-view"));
+  });
+
+  /* ── فهرستِ متنی ── */
+  document.getElementById("alist").innerHTML = A.NODES.slice().sort(function (a, b) { return a.id < b.id ? -1 : 1; })
+    .map(function (n) {
+      var outs = A.EDGES.filter(function (e) { return e[0] === n.id; });
+      return '<div class="ai" style="--lc:' + LCOL[n.L] + '" id="li-' + n.id + '"><b>' + n.id + ' · ' + esc(n.t) + '</b>' +
+        (n.est ? ' <span class="tp t3">برآورد</span>' : '') +
+        '<p>' + esc(n.s) + '</p><div class="out"><a href="' + n.href + '">برو ›</a>' +
+        (outs.length ? ' ← ' + outs.map(function (e) { return '<a href="#node-' + e[1] + '" data-node="' + e[1] + '">' + e[1] + '</a>'; }).join(" ") : '') +
+        '</div></div>';
+    }).join("");
+  document.getElementById("alist").addEventListener("click", function (e) {
+    var a = e.target.closest("[data-node]"); if (!a) return;
+    e.preventDefault(); view("full"); select(a.getAttribute("data-node"), true);
+    document.getElementById("v-full").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ── حدِ استعاره‌ها ── */
+  function renderLimits() {
+    document.getElementById("limits").innerHTML = A.LIMITS.map(function (l) {
+      var rows = l.rows.map(function (id) {
+        var c = CLAIMS && CLAIMS.filter(function (x) { return x.id === id; })[0];
+        return '<a href="data.html#c-' + id + '">' + (c ? tierPill(c) + ' ' + esc(lab(c)) : esc(id)) + '</a>';
+      }).join(" · ");
+      return '<article id="lim-' + l.node + '"><h3><span class="tp t3">' + l.node + '</span> ' + esc(l.t) + '</h3>' +
+        '<p><b>به زبانِ ساده:</b> ' + esc(l.plain) + '</p>' +
+        '<p><b>بارش را می‌کشد:</b> ' + rows + '</p>' +
+        '<p><b>کجا می‌شکند:</b> ' + esc(l.breaks) + ' <a href="' + l.audit + '">سند ›</a></p></article>';
+    }).join("");
+  }
+  renderLimits();
+
+  function fromHash() {
+    var m = /^#node-([A-O])$/.exec(location.hash);
+    if (m) { view("full"); select(m[1], false); }
+  }
+  A.load("").then(function (j) { CLAIMS = j; renderLimits(); fromHash(); })
+    .catch(function () { fromHash(); });
+  fromHash();
+  /* صفحهٔ کوچک: نقشهٔ کامل خواناست ولی ریز؛ نمای فشرده را اول نشان بده */
+  if (!/^#node-/.test(location.hash) && window.innerWidth < 700) view("compact");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1116">
+<title>سلامتِ دیتاست — پَرِ سیمرغ</title>
+<meta name="description" content="شمارنده‌های زنده از خودِ دیتاست: رده‌ها، تمرکزِ منابع، اتکای هر صفحه، پوششِ کارت‌های کنش، و اینکه عددهای نوشته‌شده در سایت هنوز با داده می‌خوانند یا نه.">
+<meta property="og:title" content="سلامتِ دیتاست — پَرِ سیمرغ">
+<meta property="og:description" content="شمارنده‌های زنده از خودِ دیتاست، و بررسیِ سازگاریِ عددهای سایت.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Markazi+Text:wght@400;600&family=Gulzar&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shell.css">
+<link rel="stylesheet" href="assets/page.css">
+<link rel="stylesheet" href="assets/tools.css">
+<script>window.SHELL_BASE="";window.SHELL_ASSETS="assets/";window.SHELL_OTHER=null;</script>
+<script defer src="assets/argdata.js"></script>
+<script defer src="assets/art.js"></script>
+<script defer src="assets/shell.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="hero db">
+  <div class="txt">
+    <p class="kick">ابزار · ممیزی</p>
+    <h1>سلامتِ دیتاست</h1>
+    <p class="dek">دفترِ ممیزی را آدم نوشته؛ این صفحه را خودِ داده می‌نویسد. هر بار که باز می‌شود،
+      <a href="files/claims-dataset.json">فایلِ دیتاست</a> را می‌خواند و می‌شمارد — پس اگر سطری اضافه یا کم شود،
+      این‌جا بی‌آنکه کسی دست بزند عوض می‌شود.</p>
+    <p class="dek">و یک کارِ دیگر هم می‌کند: عددهایی را که در صفحه‌های دیگر <b>دستی نوشته شده‌اند</b> با دادهٔ زنده مقایسه می‌کند.
+      سندی که عددهایش با خودش نخواند، اولین جایی است که اعتماد را از دست می‌دهد.</p>
+  </div>
+  <div class="art"><div data-art="pulse"></div></div>
+</header>
+
+<section class="blk" id="shomar"><div class="wrap">
+  <h2>شمارنده‌ها</h2>
+  <div class="tiles" id="tiles"><div class="tile"><b>…</b><span>در حالِ خواندنِ دیتاست</span></div></div>
+</div></section>
+
+<section class="blk" id="sazgari"><div class="wrap">
+  <h2>آیا عددهای سایت هنوز با داده می‌خوانند؟</h2>
+  <p class="lede">هر سطر یک عدد است که جایی از سایت با دست نوشته شده، کنارِ همان عدد که از دیتاست حساب می‌شود.</p>
+  <div class="chk" id="chk"><p class="note">در حالِ خواندنِ صفحه‌ها…</p></div>
+</div></section>
+
+<section class="blk" id="radeh"><div class="wrap">
+  <h2>موضوع × رده</h2>
+  <p class="lede">کجای پروژه روی سندِ اولیه ایستاده و کجا روی برآورد. خانه‌های پررنگ‌تر، سطرِ بیشتر.</p>
+  <div class="tblw"><table class="hm" id="hm"></table></div>
+</div></section>
+
+<section class="blk" id="manba"><div class="wrap">
+  <h2>تمرکزِ منابع</h2>
+  <p class="lede">یافتهٔ <a href="audit.html#f-1">f-1</a> از همین‌جا آمد: وقتی بخشِ بزرگی از دیتاست به یک منبع بند است،
+    سقوطِ آن منبع یعنی سقوطِ همه. هر منبعی که بیش از ۱۰٪ سطرها را حمل کند، قرمز می‌شود.</p>
+  <div class="bars" id="src"></div>
+</div></section>
+
+<section class="blk" id="safhe"><div class="wrap">
+  <h2>هر صفحه روی چه ایستاده؟</h2>
+  <p class="lede">برای هر صفحه، سطرهایی که به آن ارجاع داده‌اند و ترکیبِ رده‌شان.
+    <span class="tp t1">ردهٔ ۱</span> <span class="tp t2">ردهٔ ۲</span> <span class="tp t3">ردهٔ ۳</span></p>
+  <div class="bars" id="pages"></div>
+</div></section>
+
+<section class="blk" id="kart"><div class="wrap">
+  <h2>پلِ تحلیل به کنش: کدام کارت پشتوانه دارد؟</h2>
+  <p class="lede">صفحهٔ <a href="gam.html">قدمِ تو</a> جایی است که تحلیل باید به قدمِ مشخص برسد. هر کارتی که
+    به هیچ سطرِ داده‌ای وصل نیست، یعنی پژوهشی که پشتش گفته شده هنوز در دیتاست ثبت نشده — نه اینکه غلط است،
+    بلکه اینکه <b>هنوز بازرسی‌پذیر نیست</b>.</p>
+  <div class="cards18" id="cards"></div>
+</div></section>
+
+<section class="blk" id="sangin"><div class="wrap">
+  <h2>بارِ سنگین روی پایهٔ سست</h2>
+  <p class="lede">سطرهای ردهٔ ۳ یا مناقشه‌داری که مستقیماً بارِ یک گره از <a href="argmap.html">نقشهٔ استدلال</a> را می‌کشند.
+    این‌ها بهترین جا برای بازرسیِ بعدی‌اند.</p>
+  <div class="flist" id="heavy"></div>
+</div></section>
+
+<section class="blk" id="ebtal"><div class="wrap">
+  <h2>شرط‌های ابطالی که باید دوباره نوشته شوند</h2>
+  <p class="lede">شرطِ ابطالِ خوب می‌گوید <b>چه مشاهده‌ای</b> ادعا را رد می‌کند. این فهرست با یک قاعدهٔ سادهٔ ماشینی ساخته شده
+    — شرط‌های خیلی کوتاه، یا آن‌ها که به‌جای مشاهده، «به‌روزرسانی» را توصیه می‌کنند — و قضاوتِ نهایی با آدم است.</p>
+  <div class="flist" id="fals"></div>
+</div></section>
+</div>
+
+<footer class="site"><div class="wrap">
+  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ یک بازی و یک اسطوره.</p>
+  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
+  <p>برای جست‌وجو در همهٔ مطالب، کلیدِ <code>/</code> را بزنید یا دکمهٔ «همهٔ مطالب» را.</p>
+</div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+  var A = window.SimorghArg, fa = A.fa;
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function en(s) { return Number(String(s).replace(/[۰-۹]/g, function (d) { return d.charCodeAt(0) - 0x06F0; })
+    .replace(/٫/g, ".").replace(/[^\d.]/g, "")); }
+  function pct(a, b) { return b ? Math.round(100 * a / b) : 0; }
+  function cnt(arr, f) { return arr.filter(f).length; }
+  var PAGE_T = { "game.html": "متنِ کاملِ بازی", "gam.html": "قدمِ تو", "shared.html": "ایرانیان و اسرائیلی‌ها",
+    "two-irans.html": "دو ایران", "timeline.html": "خطِ زمان", "rules.html": "قاعده‌ها (← متنِ کامل)",
+    "europe.html": "ارائهٔ اروپا", "library.html": "کتابخانه", "downloads.html": "دانلود", "roles.html": "۴۷ نقش",
+    "map.html": "نقشهٔ میز", "problems.html": "نقشهٔ مشکل‌ها", "index.html": "نمایه" };
+
+  A.load("").then(function (C) {
+    var T = C.length, t1 = cnt(C, function (c) { return c.tier === 1; }),
+        t2 = cnt(C, function (c) { return c.tier === 2; }), t3 = cnt(C, function (c) { return c.tier === 3; }),
+        cx = cnt(C, function (c) { return c.contested; }), nt = cnt(C, function (c) { return !!c.note; });
+    var gamIds = {}; C.forEach(function (c) { (c.where || []).forEach(function (w) {
+      if (w[0] === "gam.html" && w[1]) gamIds[w[1].slice(1)] = (gamIds[w[1].slice(1)] || []).concat([c]); }); });
+    var backed = A.GAM_CARDS.filter(function (g) { return gamIds[g[0]]; }).length;
+
+    $("tiles").innerHTML = [
+      ["", fa(T), "ادعای ثبت‌شده"], ["", fa(t1), "ردهٔ ۱ — سند یا دادهٔ اولیه"], ["", fa(t2), "ردهٔ ۲ — پژوهشِ منتشرشده"],
+      ["em", fa(pct(t3, T)) + "٪", "ردهٔ ۳ — برآورد یا مدل (" + fa(t3) + " سطر)"],
+      ["em", fa(cx), "مناقشه‌دار به قلمِ خودِ سایت"], ["", fa(nt), "سطر با قیدِ صریح"],
+      [backed < A.GAM_CARDS.length ? "em" : "", fa(backed) + "/" + fa(A.GAM_CARDS.length), "کارتِ کنش که به داده وصل است"]
+    ].map(function (x) { return '<div class="tile ' + x[0] + '"><b>' + x[1] + '</b><span>' + x[2] + '</span></div>'; }).join("");
+
+    /* ── موضوع × رده ── */
+    var topics = Object.keys(A.TOPIC).filter(function (k) { return C.some(function (c) { return c.topic === k; }); });
+    var mx = 1; topics.forEach(function (k) { [1, 2, 3].forEach(function (t) {
+      mx = Math.max(mx, cnt(C, function (c) { return c.topic === k && c.tier === t; })); }); });
+    $("hm").innerHTML = '<thead><tr><th></th><th>ردهٔ ۱</th><th>ردهٔ ۲</th><th>ردهٔ ۳</th><th>مناقشه‌دار</th><th>جمع</th></tr></thead><tbody>' +
+      topics.map(function (k) {
+        var row = C.filter(function (c) { return c.topic === k; });
+        return '<tr><th>' + esc(A.TOPIC[k]) + '</th>' + [1, 2, 3].map(function (t) {
+          var n = cnt(row, function (c) { return c.tier === t; });
+          var col = t === 3 ? "var(--s-shangarf)" : "var(--s-lajvard)";
+          return n ? '<td style="background:color-mix(in srgb,' + col + ' ' + Math.round(12 + 60 * n / mx) + '%,var(--s-surface))">' + fa(n) + '</td>'
+                   : '<td class="z">·</td>';
+        }).join("") +
+        '<td class="' + (cnt(row, function (c) { return c.contested; }) ? "" : "z") + '">' + fa(cnt(row, function (c) { return c.contested; })) + '</td>' +
+        '<td>' + fa(row.length) + '</td></tr>';
+      }).join("") + '</tbody>';
+
+    /* ── تمرکزِ منابع ── */
+    var src = {}; C.forEach(function (c) { src[c.source] = (src[c.source] || 0) + 1; });
+    var top = Object.keys(src).sort(function (a, b) { return src[b] - src[a]; }).slice(0, 8);
+    $("src").innerHTML = top.map(function (s) {
+      var n = src[s], w = n / T >= 0.1;
+      return '<div class="bar' + (w ? " hot" : "") + '"><span class="lb" title="' + esc(s) + '">' + esc(s.replace(/[«»]/g, "").slice(0, 60)) + '</span>' +
+        '<span class="tr"><i style="width:' + (100 * n / T) + '%;background:' + (w ? "var(--s-shangarf)" : "var(--s-lajvard)") + '"></i></span>' +
+        '<span class="n">' + fa(n) + ' · ' + fa(pct(n, T)) + '٪</span></div>';
+    }).join("");
+
+    /* ── اتکای صفحه‌ها ── */
+    var pg = {};
+    C.forEach(function (c) { var seen = {}; (c.where || []).forEach(function (w) {
+      if (seen[w[0]]) return; seen[w[0]] = 1; (pg[w[0]] = pg[w[0]] || []).push(c); }); });
+    var mxp = 1; Object.keys(pg).forEach(function (k) { mxp = Math.max(mxp, pg[k].length); });
+    $("pages").innerHTML = Object.keys(pg).sort(function (a, b) { return pg[b].length - pg[a].length; }).map(function (k) {
+      var L = pg[k], n = [0, 0, 0, 0]; L.forEach(function (c) { n[c.tier]++; });
+      var w3 = pct(n[3], L.length);
+      return '<div class="bar' + (w3 >= 60 ? " hot" : "") + '"><a class="lb" href="' + k + '">' + esc(PAGE_T[k] || k) + '</a>' +
+        '<span class="tr" style="width:' + (100 * L.length / mxp) + '%">' +
+        [1, 2, 3].map(function (t) { return n[t] ? '<i class="m' + t + '" style="width:' + (100 * n[t] / L.length) + '%"></i>' : ""; }).join("") +
+        '</span><span class="n">' + fa(L.length) + ' سطر · ' + fa(w3) + '٪ برآورد</span></div>';
+    }).join("").replace(/class="m(\d)"/g, 'class="m$1" data-x');
+    [].forEach.call(document.querySelectorAll("#pages .tr i"), function (i) {
+      i.style.background = { m1: "var(--s-lajvard)", m2: "color-mix(in srgb,var(--s-lajvard) 50%,var(--s-bg))",
+        m3: "repeating-linear-gradient(45deg,var(--s-muted) 0 3px,transparent 3px 6px)" }[i.className];
+    });
+
+    /* ── کارت‌ها ── */
+    $("cards").innerHTML = A.GAM_CARDS.map(function (g) {
+      var L = gamIds[g[0]] || [];
+      return '<a class="' + (L.length ? "" : "no") + '" href="gam.html#' + g[0] + '"><span>' + esc(g[1]) + '</span><b>' +
+        (L.length ? fa(L.length) : "۰") + '</b></a>';
+    }).join("");
+
+    /* ── سنگین روی سست ── */
+    var heavy = C.filter(function (c) { return c.tier === 3 || c.contested; }).map(function (c) {
+      return { c: c, n: A.NODES.filter(function (n) { return n.claims.indexOf(c.id) >= 0; }) };
+    }).filter(function (x) { return x.n.length; }).sort(function (a, b) { return b.n.length - a.n.length; });
+    $("heavy").innerHTML = heavy.map(function (x) {
+      return '<a href="inspect.html#' + x.c.id + '"><b>' + esc(x.c.value) + '</b> — ' + esc(x.c.fa.slice(0, 110)) + '…' +
+        '<span>ردهٔ ' + fa(x.c.tier) + (x.c.contested ? ' · مناقشه‌دار' : '') + ' · بارِ گره‌های ' +
+        x.n.map(function (n) { return n.id + " (" + n.t + ")"; }).join("، ") + ' · بازرسی ›</span></a>';
+    }).join("");
+
+    /* ── شرطِ ابطال ── */
+    var weak = C.filter(function (c) { return (c.falsifier || "").length < 40 || /به‌روز|مرتب/.test(c.falsifier || ""); });
+    $("fals").innerHTML = weak.length ? weak.map(function (c) {
+      return '<a href="inspect.html#' + c.id + '"><b>' + esc(c.id) + '</b> — «' + esc(c.falsifier) + '»' +
+        '<span>' + esc(c.fa.slice(0, 100)) + '…</span></a>';
+    }).join("") : '<p class="note">هیچ موردی با این قاعده پیدا نشد.</p>';
+
+    /* ── سازگاری: عددهای دست‌نوشتهٔ صفحه‌ها در برابرِ داده ── */
+    var pageCount = {}; Object.keys(pg).forEach(function (k) { pageCount[k] = pg[k].length; });
+    var CHECKS = [
+      { p: "data.html", l: "تعدادِ سطرهای جدولِ میزِ داده", re: null, count: /<article class="cl"/g, live: T },
+      { p: "data.html", l: "کاشیِ ردهٔ ۱ در میزِ داده", re: /<b>([۰-۹]+)<\/b><span>ردهٔ ۱/, live: t1 },
+      { p: "data.html", l: "کاشیِ ردهٔ ۲ در میزِ داده", re: /<b>([۰-۹]+)<\/b><span>ردهٔ ۲/, live: t2 },
+      { p: "data.html", l: "کاشیِ ردهٔ ۳ در میزِ داده", re: /<b>([۰-۹]+)<\/b><span>ردهٔ ۳/, live: t3 },
+      { p: "audit.html", l: "درصدِ ردهٔ ۳ در دفترِ ممیزی", re: /<b>([۰-۹]+)٪<\/b><span>ادعاها ردهٔ ۳/, live: pct(t3, T), u: "٪" },
+      { p: "audit.html", l: "مناقشه‌دارها در دفترِ ممیزی", re: /<b>([۰-۹]+)<\/b><span>ادعا که خودِ سایت/, live: cx },
+      { p: "audit.html", l: "سطرهای قیددار در دفترِ ممیزی", re: /<b>([۰-۹]+)<\/b><span>ادعا که قیدِ صریح/, live: nt },
+      { p: "index.html", l: "تعدادِ ادعا در صفحهٔ نخست", re: /<b>([۰-۹]+) ادعای ثبت‌شده/, live: T },
+      { p: "index.html", l: "درصدِ برآورد در خلاصهٔ پنج‌دقیقه‌ای", re: /([۰-۹]+)٪ ادعاهایش برآورد/, live: pct(t3, T), u: "٪" }
+    ];
+    /* و هر «N ادعای ثبت‌شده» روی کارت‌های نمایه، برای همان صفحه */
+    var pages = {};
+    CHECKS.forEach(function (c) { pages[c.p] = 1; }); pages["index.html"] = 1;
+    Promise.all(Object.keys(pages).map(function (p) {
+      return fetch(p).then(function (r) { return r.text(); }).then(function (t) { pages[p] = t; }).catch(function () { pages[p] = ""; });
+    })).then(function () {
+      (pages["index.html"] || "").split('<a class="ix').slice(1).forEach(function (chunk) {
+        var h = /href="([^"]+)"/.exec(chunk), m = /<i class="cl">([۰-۹]+) ادعای ثبت‌شده<\/i>/.exec(chunk.split("</a>")[0]);
+        if (!h || !m) return;
+        CHECKS.push({ p: "index.html", l: "کارتِ «" + (PAGE_T[h[1]] || h[1]) + "» در نمایه", decl: en(m[1]), live: pageCount[h[1]] || 0 });
+      });
+      $("chk").innerHTML = CHECKS.map(function (c) {
+        var html = pages[c.p] || "", d = c.decl;
+        if (d == null) {
+          if (c.count) d = (html.match(c.count) || []).length;
+          else { var mm = c.re.exec(html); d = mm ? en(mm[1]) : null; }
+        }
+        var ok = d === c.live;
+        return '<div><span class="st ' + (ok ? "ok" : "no") + '">' + (ok ? "✓" : (d == null ? "?" : "✕")) + '</span>' +
+          '<span>' + esc(c.l) + '</span><span class="v">نوشته: ' + (d == null ? "پیدا نشد" : fa(d) + (c.u || "")) +
+          ' · داده: ' + fa(c.live) + (c.u || "") + '</span><a href="' + c.p + '" class="v">' + c.p + '</a></div>';
+      }).join("");
+    });
+  }).catch(function () {
+    $("tiles").innerHTML = '<p class="note">دیتاست بار نشد. این صفحه فقط روی نسخهٔ منتشرشده (یا با یک سرورِ محلی) کار می‌کند.</p>';
+  });
+});
+</script>
+</body>
+</html>

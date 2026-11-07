@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1116">
+<title>بازرسیِ ادعا — پَرِ سیمرغ</title>
+<meta name="description" content="یک ادعا را بردارید، منبعش را پیدا کنید، شرطِ ابطالش را بسنجید، و نتیجه را گزارش کنید. بازرسی‌پذیری یعنی همین.">
+<meta property="og:title" content="بازرسیِ ادعا — پَرِ سیمرغ">
+<meta property="og:description" content="هر ادعا را خودتان بررسی کنید و نتیجه را گزارش کنید.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&family=Lalezar&family=Markazi+Text:wght@400;600&family=Gulzar&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shell.css">
+<link rel="stylesheet" href="assets/page.css">
+<link rel="stylesheet" href="assets/tools.css">
+<script>window.SHELL_BASE="";window.SHELL_ASSETS="assets/";window.SHELL_OTHER=null;</script>
+<script defer src="assets/argdata.js"></script>
+<script defer src="assets/art.js"></script>
+<script defer src="assets/shell.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="hero db">
+  <div class="txt">
+    <p class="kick">ابزار · شواهد</p>
+    <h1>بازرسیِ ادعا</h1>
+    <p class="dek">این پروژه ادعا نمی‌کند بی‌طرف است؛ ادعا می‌کند <b>بازرسی‌پذیر</b> است.
+      این صفحه همان ادعا را عملی می‌کند: یک سطر از میزِ داده را بردارید، چهار قدم را بروید،
+      و حکمتان را — هر چه بود — برای پروژه بفرستید.</p>
+    <p class="dek">چیزی ثبت یا فرستاده نمی‌شود مگر خودتان دکمهٔ گزارش را بزنید. یادداشت‌هایتان فقط در همین مرورگر می‌ماند.</p>
+  </div>
+  <div class="art"><div data-art="check"></div></div>
+</header>
+
+<section class="blk" id="bazresi"><div class="wrap">
+  <div class="insp">
+    <div>
+      <div class="pick">
+        <select id="sel" aria-label="انتخابِ ادعا"><option>در حالِ بارگذاری…</option></select>
+        <span></span>
+      </div>
+      <div class="tool-bar">
+        <button class="btn-t" type="button" id="b-weak">سست‌ترین‌ها اول</button>
+        <button class="btn-t" type="button" id="b-rand">یک ادعای تصادفی</button>
+        <button class="btn-t" type="button" id="b-next">بعدی ›</button>
+        <span class="muted" id="prog" style="font-size:.8rem"></span>
+      </div>
+      <div id="card"></div>
+
+      <h2 style="font-family:Lalezar,serif;font-weight:400;font-size:1.6rem;margin:28px 0 10px">چهار قدم</h2>
+      <ol class="steps-c" id="steps">
+        <li><label><input type="checkbox" data-s="1">منبع را پیدا کنید</label>
+          <p>آیا منبعی که نام برده شده واقعاً وجود دارد و در دسترس است؟ اگر «ارجاعِ جمعی» است، کدام جدولِ کدام نهاد؟</p></li>
+        <li><label><input type="checkbox" data-s="2">عدد را تطبیق دهید</label>
+          <p>عدد، دوره و واحد در منبع همان است که این‌جا آمده؟ گرد شده؟ از سالِ دیگری است؟</p></li>
+        <li><label><input type="checkbox" data-s="3">شرطِ ابطال را بسنجید</label>
+          <p>آیا شرطی که «ردش می‌کند» واقعاً قابلِ بررسی است؟ آیا چنین چیزی از زمانِ نوشتنِ سطر رخ داده؟</p></li>
+        <li><label><input type="checkbox" data-s="4">وزن را بسنجید</label>
+          <p>این سطر در کدام گره‌های استدلال بار می‌کشد (پایینِ کارت)؟ اگر بیفتد، کدام حرفِ پروژه سست می‌شود؟</p></li>
+      </ol>
+    </div>
+
+    <aside class="panel" style="min-height:0">
+      <h3>حکمِ شما</h3>
+      <div class="verd" role="radiogroup" aria-label="حکم">
+        <label><input type="radio" name="v" value="ok"> تأیید شد</label>
+        <label><input type="radio" name="v" value="fix"> نیاز به اصلاح</label>
+        <label><input type="radio" name="v" value="no"> رد شد</label>
+        <label><input type="radio" name="v" value="na"> نتوانستم بررسی کنم</label>
+      </div>
+      <h4>چه دیدید؟</h4>
+      <textarea id="note" placeholder="مثلاً: جدولِ ۳ گزارشِ … عددِ دیگری می‌دهد؛ یا: منبع پیدا نشد."></textarea>
+      <h4>منبعی که خودتان دیدید (اختیاری)</h4>
+      <input type="text" id="mysrc" placeholder="نشانی یا نامِ سند" dir="auto">
+      <div class="lnk" style="margin-top:12px">
+        <button class="btn-t p" type="button" id="b-gh">گزارش در گیت‌هاب</button>
+        <button class="btn-t" type="button" id="b-copy">کپیِ گزارش</button>
+        <button class="btn-t" type="button" id="b-save">فقط نگه‌دار</button>
+      </div>
+      <p class="rel" style="margin-top:8px">گزارشِ گیت‌هاب حسابِ گیت‌هاب می‌خواهد. اگر ندارید، متن را کپی کنید و از هر راهی که می‌شناسید بفرستید.</p>
+      <div class="out-md" id="md" hidden></div>
+
+      <h4 style="margin-top:20px">بازرسی‌های شما</h4>
+      <div class="mylog" id="mylog"><p class="rel">هنوز هیچ — اولی را انجام دهید.</p></div>
+      <div class="lnk"><button class="btn-t" type="button" id="b-all" hidden>همه را یک‌جا کپی کن</button></div>
+    </aside>
+  </div>
+</div></section>
+
+<section class="blk" id="chera"><div class="wrap">
+  <h2>چرا این ابزار</h2>
+  <p class="lede">دفترِ ممیزی می‌گوید «هر کسی که خطای تازه‌ای پیدا کند، کارِ این پروژه را جلو برده، نه عقب».
+    این صفحه راهِ پیداکردن و گفتنِ آن خطا را کوتاه می‌کند. حکمِ «تأیید شد» هم به همان اندازه ارزش دارد:
+    سطری که چند نفرِ مستقل بازرسی‌اش کرده‌اند، دیگر فقط حرفِ ما نیست.</p>
+  <p class="lede">«سست‌ترین‌ها اول» سطرهایی را جلو می‌آورد که ردهٔ ۳ یا مناقشه‌دارند و در بیشترین گره‌های
+    <a href="argmap.html">نقشهٔ استدلال</a> بار می‌کشند — یعنی جاهایی که یک خطا بیشترین اثر را دارد.</p>
+</div></section>
+</div>
+
+<footer class="site"><div class="wrap">
+  <p><b>پَرِ سیمرغ</b> — مجموعه‌ای دربارهٔ وضعیتِ امروزِ ایران، به زبانِ یک بازی و یک اسطوره.</p>
+  <p>هیچ نمادِ حزبی، دولتی یا دینی در این مجموعه به کار نرفته؛ همهٔ نمادها از شاهنامه و اسطوره‌های ایرانی‌اند. هیچ نقلِ‌قولی به شخصِ واقعی نسبت داده نشده مگر با منبع. برآوردهای هزینه <b>مدل</b> هستند، نه پیش‌بینی.</p>
+  <p>برای جست‌وجو در همهٔ مطالب، کلیدِ <code>/</code> را بزنید یا دکمهٔ «همهٔ مطالب» را.</p>
+</div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+  var A = window.SimorghArg, fa = A.fa;
+  var C = [], cur = null, order = [], pos = 0;
+  var KEY = "simorgh-inspections";
+  var VD = { ok: "تأیید شد", fix: "نیاز به اصلاح", no: "رد شد", na: "نتوانستم بررسی کنم" };
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function store(v) {
+    try { if (v === undefined) return JSON.parse(localStorage.getItem(KEY) || "{}");
+          localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { return v === undefined ? {} : null; }
+  }
+
+  /* وزن: چند گرهِ صریح + سستی */
+  function weight(c) {
+    var n = A.nodesFor(c).filter(function (x) { return x.claims.indexOf(c.id) >= 0; }).length;
+    return n * 2 + (c.tier === 3 ? 2 : 0) + (c.contested ? 3 : 0) + (c.tier === 2 ? 1 : 0);
+  }
+
+  function render(id) {
+    var c = C.filter(function (x) { return x.id === id; })[0];
+    if (!c) return;
+    cur = c; $("sel").value = id;
+    if (history.replaceState) history.replaceState(null, "", "#" + id);
+    var nodes = A.nodesFor(c);
+    $("card").innerHTML =
+      '<article class="cl" style="margin:4px 0 0"><div class="cl-h">' +
+      '<span class="tier t' + c.tier + '" title="' + esc(A.TIER[c.tier]) + '"><i>ردهٔ ' + fa(c.tier) + '</i> ' + esc(A.TIER[c.tier].split("—")[1]) + '</span>' +
+      (c.contested ? '<span class="flag">خودِ سایت به چالشش کشیده</span>' : '') +
+      '<span class="topic">' + esc(A.TOPIC[c.topic] || c.topic) + '</span></div>' +
+      '<p class="cl-s">' + esc(c.fa) + '</p>' +
+      '<div class="cl-v"><b>' + esc(c.value) + '</b><span>' + esc(c.period) + '</span><span>' + esc(c.basis) + '</span></div>' +
+      '<dl class="cl-m"><dt>منبع</dt><dd>' + esc(c.source) + '</dd>' +
+      (c.note ? '<dt>قید</dt><dd class="' + (c.id === "war-1404" ? "warn-i" : "") + '">' + esc(c.note) + '</dd>' : '') +
+      '<dt>چه چیزی ردش می‌کند</dt><dd class="fals">' + esc(c.falsifier) + '</dd>' +
+      '<dt>کجای سایت</dt><dd class="wh">' + (c.where || []).map(function (w) {
+        return '<a href="' + w[0] + w[1] + '">' + esc(w[2]) + '</a>'; }).join("") + '</dd>' +
+      '<dt>در میزِ داده</dt><dd><a href="data.html#c-' + c.id + '">سطرِ ' + esc(c.id) + '</a></dd></dl>' +
+      '<p class="rel" style="margin:14px 0 4px">در نقشهٔ استدلال، این سطر بارِ این گره‌ها را می‌کشد:</p>' +
+      '<div class="chain">' + (nodes.length ? nodes.map(function (n) {
+        return '<a href="argmap.html#node-' + n.id + '"><i>' + n.id + '</i>' + esc(n.t) + '</a>'; }).join("")
+        : '<span class="rel">مستقیماً به هیچ گرهی وصل نیست — فقط عضوِ دیتاستِ باز (H).</span>') + '</div></article>';
+
+    var log = store(), mine = log[id] || {};
+    [].forEach.call(document.querySelectorAll("#steps input"), function (b) {
+      b.checked = !!(mine.steps && mine.steps[b.getAttribute("data-s")]);
+      b.closest("li").classList.toggle("done", b.checked);
+    });
+    [].forEach.call(document.querySelectorAll("input[name=v]"), function (r) { r.checked = mine.v === r.value; });
+    $("note").value = mine.note || ""; $("mysrc").value = mine.src || "";
+    $("md").hidden = true;
+    pos = Math.max(0, order.indexOf(id));
+    $("prog").textContent = fa(pos + 1) + " از " + fa(order.length);
+  }
+
+  function collect() {
+    var steps = {};
+    [].forEach.call(document.querySelectorAll("#steps input"), function (b) { if (b.checked) steps[b.getAttribute("data-s")] = 1; });
+    var v = document.querySelector("input[name=v]:checked");
+    return { steps: steps, v: v ? v.value : "", note: $("note").value.trim(), src: $("mysrc").value.trim(), t: Date.now() };
+  }
+  function save() {
+    if (!cur) return;
+    var log = store(); log[cur.id] = collect(); store(log); drawLog();
+  }
+  function md(c, r) {
+    var done = Object.keys(r.steps).length;
+    return "## بازرسیِ ادعا: `" + c.id + "`\n\n" +
+      "**حکم:** " + (VD[r.v] || "—") + "  \n" +
+      "**قدم‌های انجام‌شده:** " + fa(done) + " از ۴\n\n" +
+      "> " + c.fa + "\n\n" +
+      "- مقدار: " + c.value + " (" + c.period + ")\n" +
+      "- رده: " + c.tier + (c.contested ? " · مناقشه‌دار" : "") + "\n" +
+      "- منبعِ اعلام‌شده: " + c.source + "\n" +
+      "- شرطِ ابطال: " + c.falsifier + "\n\n" +
+      "### آنچه بازرس دید\n\n" + (r.note || "—") + "\n\n" +
+      (r.src ? "**منبعی که بازرس دید:** " + r.src + "\n\n" : "") +
+      "سطر: " + location.origin + location.pathname.replace(/inspect\.html$/, "") + "data.html#c-" + c.id + "\n";
+  }
+  function report() {
+    save(); var r = store()[cur.id]; var text = md(cur, r);
+    $("md").textContent = text; $("md").hidden = false; return text;
+  }
+  function toastish(msg) { $("prog").textContent = msg; setTimeout(function () {
+    $("prog").textContent = fa(pos + 1) + " از " + fa(order.length); }, 2200); }
+  function copy(t) {
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { toastish("کپی شد ✓"); },
+      function () { toastish("کپی نشد — متن را از کادر بردارید"); });
+  }
+
+  function drawLog() {
+    var log = store(), ids = Object.keys(log).filter(function (k) { return log[k].v || log[k].note; });
+    ids.sort(function (a, b) { return log[b].t - log[a].t; });
+    $("b-all").hidden = !ids.length;
+    $("mylog").innerHTML = ids.length ? ids.map(function (k) {
+      return '<a href="#' + k + '" data-id="' + k + '"><span>' + esc(k) + '</span><span class="vd ' + (log[k].v || "na") + '">' +
+        esc(VD[log[k].v] || "یادداشت") + '</span></a>'; }).join("") +
+      '<p class="rel">' + fa(ids.length) + ' سطر از ' + fa(C.length) + '</p>'
+      : '<p class="rel">هنوز هیچ — اولی را انجام دهید.</p>';
+  }
+
+  $("steps").addEventListener("change", function (e) {
+    var b = e.target; if (b.closest("li")) b.closest("li").classList.toggle("done", b.checked); save(); });
+  document.querySelector(".verd").addEventListener("change", save);
+  $("note").addEventListener("change", save); $("mysrc").addEventListener("change", save);
+  $("sel").addEventListener("change", function () { render(this.value); });
+  $("b-next").addEventListener("click", function () { render(order[(pos + 1) % order.length]); });
+  $("b-rand").addEventListener("click", function () { render(C[Math.floor(Math.random() * C.length)].id); });
+  $("b-weak").addEventListener("click", function () {
+    order = C.slice().sort(function (a, b) { return weight(b) - weight(a); }).map(function (c) { return c.id; });
+    render(order[0]);
+  });
+  $("b-save").addEventListener("click", function () { save(); toastish("نگه داشته شد ✓"); });
+  $("b-copy").addEventListener("click", function () { copy(report()); });
+  $("b-gh").addEventListener("click", function () {
+    var text = report(), r = store()[cur.id];
+    var title = "بازرسی: " + cur.id + " — " + (VD[r.v] || "بی‌حکم");
+    window.open("https://github.com/" + A.REPO + "/issues/new?title=" + encodeURIComponent(title) +
+      "&body=" + encodeURIComponent(text), "_blank", "noopener");
+  });
+  $("b-all").addEventListener("click", function () {
+    var log = store();
+    copy(Object.keys(log).filter(function (k) { return log[k].v || log[k].note; }).map(function (k) {
+      var c = C.filter(function (x) { return x.id === k; })[0]; return c ? md(c, log[k]) : ""; }).join("\n---\n\n"));
+  });
+  $("mylog").addEventListener("click", function (e) {
+    var a = e.target.closest("[data-id]"); if (a) { e.preventDefault(); render(a.getAttribute("data-id")); } });
+  window.addEventListener("hashchange", function () { var id = location.hash.slice(1); if (id && (!cur || id !== cur.id)) render(id); });
+
+  A.load("").then(function (j) {
+    C = j; order = C.map(function (c) { return c.id; });
+    var groups = {};
+    C.forEach(function (c) { (groups[c.topic] = groups[c.topic] || []).push(c); });
+    $("sel").innerHTML = Object.keys(groups).map(function (g) {
+      return '<optgroup label="' + esc(A.TOPIC[g] || g) + '">' + groups[g].map(function (c) {
+        return '<option value="' + c.id + '">' + esc((c.value && /[0-9۰-۹]/.test(c.value) ? c.value + " — " : "") + c.fa.slice(0, 70)) + '</option>';
+      }).join("") + '</optgroup>';
+    }).join("");
+    var h = decodeURIComponent(location.hash.slice(1));
+    render(C.some(function (c) { return c.id === h; }) ? h : C[0].id);
+    drawLog();
+  }).catch(function () {
+    $("card").innerHTML = '<p class="note">دیتاست بار نشد. اگر فایل را از روی دیسک باز کرده‌اید، این ابزار فقط روی نسخهٔ منتشرشده کار می‌کند.</p>';
+  });
+});
+</script>
+</body>
+</html>
