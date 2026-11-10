@@ -16,7 +16,7 @@
     { k: "edea",   t: "ادعا",    d: "پنج گزاره‌ای که کلِ پروژه رویشان ایستاده", href: "index.html#kholase", page: "index.html" },
     { k: "shahed", t: "شواهد",   d: "۸۴ سطر، با منبع، رده و شرطِ ابطال", href: "data.html", page: "data.html" },
     { k: "momayezi", t: "ممیزی", d: "کجای خودش سست است، و از کِی عقب مانده", href: "audit.html", page: "audit.html" },
-    { k: "konesh", t: "کنش",     d: "برای هجده قشر، کوچک‌ترین قدمِ ممکن", href: "gam.html", page: "gam.html" }
+    { k: "konesh", t: "کنش",     d: "برای بیست و سه قشر و تخصص، کوچک‌ترین قدمِ ممکن", href: "gam.html", page: "gam.html" }
   ];
 
   /* لایه‌ها، همان رنگ‌بندیِ پیشنهادیِ گراف */

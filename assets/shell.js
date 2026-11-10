@@ -52,7 +52,7 @@
     { h: "../timeline.html", t: "Timeline",         d: "The same claims, placed on time", f: ["shavahed","tarikh"], fa: 1 },
     { h: "library.html", t: "Library",           d: "50 sources, including those that contradict us", f: ["shavahed"] },
     { h: "shared.html", t: "Iranians & Israelis", d: "47 years of enmity, 2,600 years of contact", f: ["tarikh","shavahed"] },
-    { h: "gam.html",    t: "Your Card",          d: "18 cards — the smallest possible step", f: ["konesh"] },
+    { h: "gam.html",    t: "Your Card",          d: "23 cards — the smallest possible step", f: ["konesh"] },
     { h: "../two-irans.html", t: "Two Irans",    d: "500 years of clerical ascent", f: ["tarikh","ravayat"], fa: 1 },
     { h: "../game.html", t: "The Full Game",     d: "12 chapters, unabridged", f: ["ravayat","konesh","tarikh"], fa: 1 },
     { h: "../map.html", t: "The Venn Map",       d: "The diagram reads without Persian", f: ["konesh"], fa: 1 },
@@ -73,7 +73,7 @@
     { h: "library.html", t: "کتابخانه",           d: "۵۰ منبع، از جمله آن‌ها که ما را رد می‌کنند", f: ["shavahed"] },
     { h: "shared.html", t: "ایرانیان و اسرائیلی‌ها", d: "۴۷ سال دشمنی، ۲۶۰۰ سال رابطه", f: ["tarikh","shavahed"] },
     { h: "two-irans.html", t: "دو ایران",          d: "پانصد سال بالا رفتنِ روحانیت", f: ["tarikh","ravayat"] },
-    { h: "gam.html",    t: "قدمِ تو",              d: "۱۸ کارت — کوچک‌ترین قدمِ ممکن", f: ["konesh"] },
+    { h: "gam.html",    t: "قدمِ تو",              d: "۲۳ کارت — کوچک‌ترین قدمِ ممکن", f: ["konesh"] },
     { h: "map.html",    t: "نقشهٔ میز",            d: "نمودارِ ون — سه دایره، هفت ناحیه", f: ["konesh"] },
     { h: "roles.html",  t: "۴۷ نقشِ اجتماعی",      d: "نسخهٔ گسترده‌ترِ نقش‌ها", f: ["konesh"] },
     { h: "game.html",   t: "متنِ کاملِ بازی",       d: "۱۲ دفتر، بی‌خلاصه", f: ["ravayat","konesh","tarikh"] },
@@ -618,6 +618,8 @@
         why: "همان نمودارِ ونِ نقش‌ها، با همان فرض." }
     ],
     log: [
+      { d: "۱۹ آبان ۱۴۰۵", t: "پنج کارتِ تخصصی در «قدمِ تو»",
+        p: "افزوده شد: اقتصاددان و حسابدار، مهندسِ آب و برق، امدادگر، برنامه‌نویس، روان‌شناس و مددکار. کارت‌ها از ۱۸ به ۲۳ رسید؛ هر پنج کارت به سطری از دیتاست تکیه دارند و به مسئله‌های همان تخصص در میزِ کارِ دانش‌سرا راه دارند. فهرستِ جست‌وجو هنوز کارت‌های تازه را ندارد." },
       { d: "۱۶ آبان ۱۴۰۵", t: "بازبینیِ داده: ۸ سطرِ تازه، ۱۲ شرطِ ابطال، ۱۴ منبع",
         p: "دیتاست از ۷۶ به ۸۴ سطر رسید: هر ۱۸ کارتِ <a href=\"gam.html\">قدمِ تو</a> حالا پشتوانه دارند (یافتهٔ <a href=\"audit.html#f-8\">f-8</a>). " +
            "۱۲ شرطِ ابطالِ کوتاه یا مبهم بازنویسی شد؛ ۱۴ سطری که به متنِ «دو ایران» ارجاع می‌دادند حالا به کتابِ مشخصِ خودشان ارجاع می‌دهند (<a href=\"audit.html#f-7\">f-7</a>). " +

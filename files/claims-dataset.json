@@ -398,6 +398,11 @@
     "game.html",
     "#hazine",
     "برآوردِ هزینه"
+   ],
+   [
+    "gam.html",
+    "#eqtesad",
+    "کارتِ اقتصاددان"
    ]
   ],
   "contested": false
@@ -721,6 +726,11 @@
     "library.html",
     "#bad",
     "بعد از سقوط"
+   ],
+   [
+    "gam.html",
+    "#mohandes",
+    "کارتِ مهندس"
    ]
   ],
   "contested": false,
@@ -1403,6 +1413,11 @@
     "game.html",
     "#hazine",
     "برآوردِ هزینه"
+   ],
+   [
+    "gam.html",
+    "#eqtesad",
+    "کارتِ اقتصاددان"
    ]
   ],
   "contested": false
@@ -1716,6 +1731,11 @@
     "gam.html",
     "#faghir",
     "کارتِ تنگ‌دست"
+   ],
+   [
+    "gam.html",
+    "#bohran",
+    "کارتِ امدادگر"
    ]
   ],
   "contested": false,
@@ -1742,6 +1762,11 @@
     "gam.html",
     "#vakil",
     "کارتِ وکیل"
+   ],
+   [
+    "gam.html",
+    "#maddkar",
+    "کارتِ روان‌شناس"
    ]
   ],
   "contested": false,
@@ -1852,6 +1877,11 @@
     "game.html",
     "#par",
     "پَر"
+   ],
+   [
+    "gam.html",
+    "#fanavar",
+    "کارتِ برنامه‌نویس"
    ]
   ],
   "contested": false,
