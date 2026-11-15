@@ -1,0 +1,26 @@
+name: daily sync
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: fetch the latest encrypted bundle
+        run: |
+          set -e
+          B=https://raw.githubusercontent.com/MaryamJaberi/MaryamJaberi.github.io/main/daneshsara
+          curl -fsSL "$B/share/simorgh.enc" -o simorgh.enc.new
+          head -c 4 simorgh.enc.new | grep -q DSV1
+          mv simorgh.enc.new simorgh.enc
+          curl -fsSL "$B/core/design/tokens.css" -o core/design/tokens.css
+      - name: commit if changed
+        run: |
+          git config user.name "simorgh-sync"
+          git config user.email "simorgh-sync@users.noreply.github.com"
+          git add simorgh.enc core/design/tokens.css
+          git diff --cached --quiet || { git commit -m "daily sync"; git push; }
